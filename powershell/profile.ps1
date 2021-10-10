@@ -66,7 +66,7 @@ function ..... { Set-Location "..\..\..\.." }
 function ...... { Set-Location "..\..\..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
 function db { Set-Location "$env:USERPROFILE\Dropbox" }
-function p { Set-Location "$env:USERPROFILE\Projects" }
+function p { Set-Location "$env:USERPROFILE\Projekte" }
 
 # SSH
 # ==============================================================================

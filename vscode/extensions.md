@@ -34,4 +34,3 @@ Miscellaneous:
 - mkxml.vscode-filesize
 - cssho.vscode-svgviewer
 - bierner.emojisense
-- pnp.polacode

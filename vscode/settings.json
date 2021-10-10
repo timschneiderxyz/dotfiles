@@ -10,8 +10,7 @@
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   // Online Services
-  "telemetry.enableTelemetry": false,
-  "telemetry.enableCrashReporter": false,
+  "telemetry.telemetryLevel": "off",
   "update.enableWindowsBackgroundUpdates": false,
   "workbench.enableExperiments": false,
   "workbench.settings.enableNaturalLanguageSearch": false,
@@ -23,7 +22,7 @@
   // ===========================================================================
 
   "workbench.colorTheme": "One Dark Pro",
-  "oneDarkPro.editorTheme": "ayu",
+  "oneDarkPro.editorTheme": "Ayu",
   "oneDarkPro.vivid": true,
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.folders.theme": "classic",
@@ -55,7 +54,6 @@
   "editor.links": false,
   "editor.renderWhitespace": "boundary",
   "editor.rulers": [80],
-  "files.trimFinalNewlines": true,
 
   // ===========================================================================
   // Languages
@@ -73,7 +71,6 @@
   // PowerShell
   "powershell.integratedConsole.showOnStartup": false,
   // PHP
-  "php.validate.executablePath": "C:\\Program Files\\PHP-8.0.3\\php.exe",
   "php.suggest.basic": false,
   // Stylesheets
   "css.validate": false,
