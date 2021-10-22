@@ -76,6 +76,7 @@
   "css.validate": false,
   "scss.validate": false,
   "less.validate": false,
+  "stylelint.validate": ["css", "scss", "postcss"],
   // JavaScript
   "javascript.updateImportsOnFileMove.enabled": "always",
   // TypeScript
