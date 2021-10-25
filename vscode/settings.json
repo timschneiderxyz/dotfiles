@@ -90,6 +90,7 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": true
   },
+  "files.trimFinalNewlines": true,
   "twig-language-2.formatting": false,
   "[markdown]": {
     "editor.defaultFormatter": "yzhang.markdown-all-in-one"
