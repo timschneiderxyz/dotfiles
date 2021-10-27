@@ -9,6 +9,9 @@ Tools:
 
 - rangav.vscode-thunder-client
 - natizyskunk.sftp
+- mkxml.vscode-filesize
+- cssho.vscode-svgviewer
+- bierner.emojisense
 
 Languages:
 
@@ -28,9 +31,3 @@ Linter:
 - davidanson.vscode-markdownlint
 - stylelint.vscode-stylelint
 - dbaeumer.vscode-eslint
-
-Miscellaneous:
-
-- mkxml.vscode-filesize
-- cssho.vscode-svgviewer
-- bierner.emojisense
