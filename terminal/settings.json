@@ -5,7 +5,7 @@
 
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-  "launchMode": "maximized",
+  "launchMode": "default",
 
   // ===========================================================================
   // Profiles
@@ -14,7 +14,7 @@
   "profiles": {
     "defaults": {
       "colorScheme": "Butter",
-      "fontFace": "Fira Code",
+      "fontFace": "JetBrains Mono",
       "fontSize": 14,
       "padding": 14,
       "bellStyle": "none"
@@ -82,21 +82,11 @@
   ],
 
   // ===========================================================================
-  // Keybindings
+  // Actions
   // ===========================================================================
 
-  "keybindings": [
-    {
-      "keys": "ctrl+c",
-      "command": {
-        "action": "copy"
-      }
-    },
-    {
-      "keys": "ctrl+v",
-      "command": {
-        "action": "paste"
-      }
-    }
+  "actions": [
+    { "command": "copy", "keys": "ctrl+c" },
+    { "command": "paste", "keys": "ctrl+v" }
   ]
 }

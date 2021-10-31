@@ -55,7 +55,7 @@ Directories/Files:
 
 Navigation:
 
-- `..`, `...`, `....`, `.....`, `......` = Folder(s) up
+- `..`, `...`, `....`, `.....`, `......` = Directories up
 - `dl` = Change directory to Downloads
 - `db` = Change directory to Dropbox
 - `p` = Change directory to Projects
