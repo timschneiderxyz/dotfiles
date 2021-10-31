@@ -1,5 +1,5 @@
 #Requires -RunAsAdministrator
-Write-Host -ForegroundColor Cyan @"
+Write-Host -ForegroundColor Magenta @"
 
          888          888     .d888 d8b 888
          888          888    d88P"  Y8P 888
@@ -9,7 +9,6 @@ Write-Host -ForegroundColor Cyan @"
     888  888 888  888 888    888    888 888 88888888 "Y8888b.
 d8b Y88b 888 Y88..88P Y88b.  888    888 888 Y8b.          X88
 Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
-
 "@
 Write-Host -ForegroundColor Yellow @"
 
@@ -21,9 +20,8 @@ Repository : https://github.com/RanzigeButter/dotfiles
 
 ------------------------------------------------------------
 
-
 "@
-Read-Host "Press ENTER to start."
+Read-Host "Press ENTER to start"
 
 # Preparations
 # ==============================================================================
@@ -34,9 +32,9 @@ Write-Host "Preparing setup..." -NoNewline
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 # Download repository
-$url = "https://github.com/RanzigeButter/dotfiles/archive/master.zip"
+$dotfilesRepoUrl = "https://github.com/RanzigeButter/dotfiles/archive/master.zip"
 $dotfilesZip = "$env:USERPROFILE\Downloads\dotfiles.zip"
-(New-Object System.Net.WebClient).DownloadFile($url, $dotfilesZip)
+(New-Object System.Net.WebClient).DownloadFile($dotfilesRepoUrl, $dotfilesZip)
 
 # Unpack & delete zip file
 Expand-Archive $dotfilesZip "$env:USERPROFILE\Downloads" -Force
@@ -60,50 +58,11 @@ Write-Host " Done"
 Remove-Item $dotfiles -Recurse -Force
 Write-Host -ForegroundColor Yellow @"
 
-
 ------------------------------------------------------------
 
-Congrats!
-
-Provided there were no hidden errors, the script completed
-successfully and everything should be in place.
+Congrats! Provided there were no hidden errors, the script
+completed successfully and everything should be in place.
 
 ------------------------------------------------------------
-
 
 "@
-
-function askYesNo {
-  param (
-    [Parameter(Mandatory)]
-    [String]$question
-  )
-
-  do { $response = Read-Host "$question ( Yes / No )" }
-  until(
-    ($response -eq "Yes") -or
-    ($response -eq "y") -or
-    ($response -eq "No") -or
-    ($response -eq "n")
-  )
-
-  if (($response -eq "Yes") -or ($response -eq "y")) {
-    return "Yes"
-  }
-  elseif (($response -eq "No") -or ($response -eq "n")) {
-    return "No"
-  }
-}
-
-switch (askYesNo "Restart the system now?") {
-  Yes {
-    Write-Host "Restarting system..."
-    Start-Sleep 1
-    Restart-Computer
-  }
-  No {
-    Write-Host "Exiting script..."
-    Start-Sleep 1
-    Clear-Host
-  }
-}
