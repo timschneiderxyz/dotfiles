@@ -2,30 +2,32 @@
     # Setup - Apps
     ========================================================================  #>
 
-Write-Host "Opening links for apps..." -NoNewline
+# WinGet
+foreach ($package in @(
+    # General
+    "Google.Chrome"
+    "Discord.Discord"
+    "Spotify.Spotify"
+    "Dropbox.Dropbox"
+    "VideoLAN.VLC"
 
-# General
-Start-Process "https://www.google.com/chrome/"
-Start-Process "https://discordapp.com/"
-Start-Process "https://www.spotify.com/"
-Start-Process "https://www.dropbox.com/"
-Start-Process "https://www.videolan.org/"
-Start-Process "https://www.7-zip.org/"
+    # Productivity
+    "Microsoft.VisualStudioCode"
+    "Git.Git"
+    "OpenJS.NodeJS.LTS"
 
-# Productivity
-Start-Process "https://affinity.serif.com/"
-Start-Process "https://www.captureone.com/"
-Start-Process "https://code.visualstudio.com/"
-Start-Process "https://www.microsoft.com/de-de/p/windows-terminal-preview/9n0dx20hk701"
-Start-Process "https://git-scm.com/"
-Start-Process "https://nodejs.org/"
+    # Games
+    "Valve.Steam"
+  )) {
+  winget install -i $package
+}
 
-# Games
-Start-Process "https://store.steampowered.com/"
-Start-Process "https://www.battle.net/"
-
-# Miscellaneous
+# Manual
 Start-Process "https://customer.focusrite.com/en/support/downloads?brand=Focusrite&product_by_range=1361&download_type=software"
+Start-Process "https://www.jetbrains.com/lp/mono/"
+Start-Process "https://github.com/tonsky/FiraCode"
+Start-Process "https://windows.php.net/download/"
+Start-Process "https://getcomposer.org/download/"
 
-Write-Host " Done"
-Read-Host "Press ENTER to continue after you have finished the installations"
+# Reload Path
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")

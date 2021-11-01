@@ -35,8 +35,8 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 # ==============================================================================
 
 function x { exit }
-function sudo { Start-Process PowerShell -Verb RunAs }
-function update { Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/update.ps1')) }
+function sudo { Start-Process wt -Verb RunAs }
+function update { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/update.ps1" | Invoke-Expression }
 Set-Alias "e" "$env:EDITOR"
 Set-Alias "g" "git"
 Set-Alias "dns" "Resolve-DnsName"
