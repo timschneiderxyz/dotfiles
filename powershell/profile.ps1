@@ -8,6 +8,10 @@
 # Environment
 $env:EDITOR = "code"
 
+# Options
+Set-PSReadlineOption -BellStyle None
+Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
+
 # Promt
 function global:prompt {
   $startbracket = Write-Host "[" -ForegroundColor Red -NoNewline
@@ -49,14 +53,7 @@ function Set-ShutdownTimer([int]$timeInMinutes) {
 Set-Alias "sst" "Set-ShutdownTimer"
 function ast { shutdown -a }
 
-# Directories/Files
-# ==============================================================================
-
-function touch([string[]]$file) { New-Item $file -ItemType File | Out-Null }
-function mkd([string[]]$directory) { New-Item $directory -ItemType Directory | Out-Null }
-function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
-
-# Navigation
+# Directories & Files
 # ==============================================================================
 
 function .. { Set-Location ".." }
@@ -67,6 +64,9 @@ function ...... { Set-Location "..\..\..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
 function db { Set-Location "$env:USERPROFILE\Dropbox" }
 function p { Set-Location "$env:USERPROFILE\Projekte" }
+function touch([string[]]$file) { New-Item $file -ItemType File | Out-Null }
+function mkd([string[]]$directory) { New-Item $directory -ItemType Directory | Out-Null }
+function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
 
 # SSH
 # ==============================================================================

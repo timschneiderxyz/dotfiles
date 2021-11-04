@@ -39,26 +39,23 @@ C:\Windows\System32\WindowsPowerShell\v1.0\profile.ps1
 
 System & Programs:
 
-- `x` = Close PowerShell
-- `sudo` = Open PowerShell as admin
+- `x` = Close Terminal
+- `sudo` = Open Terminal as admin
 - `update` = Update dotfiles
 - `e` = Shortcut for the default Editor
 - `dns` = Get DNS infos
 - `Set-ShutdownTimer` / `sst` = Set a shutdown timer
 - `ast` = Abort the shutdown timer
 
-Directories/Files:
-
-- `touch` = Create new file
-- `mkd` = Create new directory
-- `rmrf` = Deletes directories/files with the params "recurse" and "force"
-
-Navigation:
+Directories & Files:
 
 - `..`, `...`, `....`, `.....`, `......` = Directories up
 - `dl` = Change directory to Downloads
 - `db` = Change directory to Dropbox
 - `p` = Change directory to Projects
+- `touch` = Create new file
+- `mkd` = Create new directory
+- `rmrf` = Deletes directories/files with the params "recurse" and "force"
 
 SSH:
 
