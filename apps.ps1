@@ -11,7 +11,38 @@ Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 
 "@
 
-# Download
+# Install Apps
+# ==============================================================================
+
+# WinGet
+foreach ($package in @(
+    # General
+    "Google.Chrome"
+    "Discord.Discord"
+    "Spotify.Spotify"
+    "Dropbox.Dropbox"
+    "VideoLAN.VLC"
+
+    # Productivity
+    "Microsoft.VisualStudioCode"
+    "Git.Git"
+    "OpenJS.NodeJS.LTS"
+
+    # Games
+    "Valve.Steam"
+  )) {
+  winget install -i $package
+}
+
+# Manual
+Start-Process "https://www.jetbrains.com/lp/mono/"
+Start-Process "https://windows.php.net/download/"
+Start-Process "https://getcomposer.org/download/"
+
+# Reload Path
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+
+# Download Dotfiles
 # ==============================================================================
 
 Write-Host -NoNewline "Downloading dotfiles..."
@@ -30,32 +61,49 @@ $dotfiles = "$env:USERPROFILE\Downloads\dotfiles-master"
 
 Write-Host " Done"
 
-# Copy
+# Install Dotfiles
 # ==============================================================================
 
 # PowerShell Profile
-Write-Host -NoNewline "Updating PowerShell profile..."
+Write-Host -NoNewline "Installing PowerShell profile..."
+if (!(Test-Path "$env:USERPROFILE\Documents\WindowsPowerShell")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
+}
 Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\Documents\WindowsPowerShell\profile.ps1"
 Write-Host " Done"
 
 # Windows Terminal
-Write-Host -NoNewline "Updating Windows Terminal settings..."
+Write-Host -NoNewline "Installing Windows Terminal settings..."
 $dirWT = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
 Copy-Item "$dotfiles\terminal\settings.json" "$dirWT\LocalState\settings.json"
 Write-Host " Done"
 
 # VS Code
-Write-Host -NoNewline "Updating VS Code settings..."
+Write-Host "Installing VS Code settings & extensions..."
+Write-Host ">>> settings"
 Copy-Item "$dotfiles\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
-Write-Host " Done"
+foreach ($extension in @(
+    Get-Content "$dotfiles\vscode\extensions.md" |
+    Where-Object { $_ -match "- " } |
+    ForEach-Object { $_.trimStart("- ") }
+  )) {
+  Write-Host ">>> $extension"
+  code --install-extension $extension | Out-Null
+}
 
 # SSH
-Write-Host -NoNewline "Updating SSH config..."
+Write-Host -NoNewline "Installing SSH config..."
+if (!(Test-Path "$env:USERPROFILE\.ssh")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
+}
 Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.ssh\config"
 Write-Host " Done"
 
 # Git
-Write-Host -NoNewline "Updating Git config..."
+Write-Host -NoNewline "Installing Git config..."
+if (!(Test-Path "$env:USERPROFILE\.config\git")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
+}
 Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
 Write-Host " Done"
 
@@ -64,6 +112,6 @@ Write-Host " Done"
 Remove-Item -Recurse -Force $dotfiles
 Write-Host -ForegroundColor Yellow @"
 
-Dotfiles updated!
+Apps & Dotfiles installed!
 
 "@

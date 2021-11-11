@@ -54,11 +54,6 @@
   // Languages
   // ===========================================================================
 
-  // Markdown
-  "markdownlint.config": {
-    "MD024": { "siblings_only": true },
-    "MD033": false
-  },
   // PowerShell
   "powershell.integratedConsole.showOnStartup": false,
   // PHP

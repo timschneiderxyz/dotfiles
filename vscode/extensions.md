@@ -28,6 +28,5 @@ Formatting:
 
 Linter:
 
-- davidanson.vscode-markdownlint
 - stylelint.vscode-stylelint
 - dbaeumer.vscode-eslint

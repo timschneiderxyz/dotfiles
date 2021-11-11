@@ -14,12 +14,12 @@ Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 
 # Promt
 function global:prompt {
-  $startbracket = Write-Host "[" -ForegroundColor Red -NoNewline
-  $username = Write-Host $env:USERNAME -ForegroundColor Yellow -NoNewline
-  $separator = Write-Host "@" -ForegroundColor Green -NoNewline
-  $computername = Write-Host $env:COMPUTERNAME -ForegroundColor Blue -NoNewline
-  $location = Write-Host " $(Split-Path -leaf -path (Get-Location))" -ForegroundColor Magenta -NoNewline
-  $endbracket = Write-Host "]" -ForegroundColor Red -NoNewline
+  $startbracket = Write-Host -NoNewline -ForegroundColor Red "["
+  $username = Write-Host -NoNewline -ForegroundColor Yellow $env:USERNAME
+  $separator = Write-Host -NoNewline -ForegroundColor Green "@"
+  $computername = Write-Host -NoNewline -ForegroundColor Blue $env:COMPUTERNAME
+  $location = Write-Host -NoNewline -ForegroundColor Magenta " $(Split-Path -leaf -path (Get-Location))"
+  $endbracket = Write-Host -NoNewline -ForegroundColor Red "]"
 
   "$startbracket$username$separator$computername$location$endbracket$([char]0x276F) "
 }
@@ -39,7 +39,7 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 # ==============================================================================
 
 function x { exit }
-function sudo { Start-Process wt -Verb RunAs }
+function sudo { Start-Process -Verb RunAs wt }
 function update { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/update.ps1" | Invoke-Expression }
 Set-Alias "e" "$env:EDITOR"
 Set-Alias "g" "git"
@@ -64,8 +64,8 @@ function ...... { Set-Location "..\..\..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
 function db { Set-Location "$env:USERPROFILE\Dropbox" }
 function p { Set-Location "$env:USERPROFILE\Projekte" }
-function touch([string[]]$file) { New-Item $file -ItemType File | Out-Null }
-function mkd([string[]]$directory) { New-Item $directory -ItemType Directory | Out-Null }
+function touch([string[]]$file) { New-Item -ItemType File $file | Out-Null }
+function mkd([string[]]$directory) { New-Item -ItemType Directory $directory | Out-Null }
 function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
 
 # SSH
