@@ -11,8 +11,10 @@ Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 
 "@
 
-# Install Apps
-# ==============================================================================
+# Manual
+Start-Process "https://www.jetbrains.com/lp/mono/"
+Start-Process "https://windows.php.net/download/"
+Start-Process "https://getcomposer.org/download/"
 
 # WinGet
 foreach ($package in @(
@@ -34,56 +36,13 @@ foreach ($package in @(
   winget install -i $package
 }
 
-# Manual
-Start-Process "https://www.jetbrains.com/lp/mono/"
-Start-Process "https://windows.php.net/download/"
-Start-Process "https://getcomposer.org/download/"
-
 # Reload Path
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
 
-# Download Dotfiles
-# ==============================================================================
-
-Write-Host -NoNewline "Downloading dotfiles..."
-
-# Download repository
-$dotfilesRepoUrl = "https://github.com/RanzigeButter/dotfiles/archive/master.zip"
-$dotfilesZip = "$env:USERPROFILE\Downloads\dotfiles.zip"
-(New-Object System.Net.WebClient).DownloadFile($dotfilesRepoUrl, $dotfilesZip)
-
-# Unpack & delete zip file
-Expand-Archive $dotfilesZip "$env:USERPROFILE\Downloads"
-Remove-Item $dotfilesZip
-
-# Set path
-$dotfiles = "$env:USERPROFILE\Downloads\dotfiles-master"
-
-Write-Host " Done"
-
-# Install Dotfiles
-# ==============================================================================
-
-# PowerShell Profile
-Write-Host -NoNewline "Installing PowerShell profile..."
-if (!(Test-Path "$env:USERPROFILE\Documents\WindowsPowerShell")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
-}
-Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\Documents\WindowsPowerShell\profile.ps1"
-Write-Host " Done"
-
-# Windows Terminal
-Write-Host -NoNewline "Installing Windows Terminal settings..."
-$dirWT = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
-Copy-Item "$dotfiles\terminal\settings.json" "$dirWT\LocalState\settings.json"
-Write-Host " Done"
-
-# VS Code
-Write-Host "Installing VS Code settings & extensions..."
-Write-Host ">>> settings"
-Copy-Item "$dotfiles\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
+# VS Code Extensions
+Write-Host "Installing VS Code Extensions..."
 foreach ($extension in @(
-    Get-Content "$dotfiles\vscode\extensions.md" |
+    (Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/vscode/extensions.md").Content.tostring() -split "[`r`n]" |
     Where-Object { $_ -match "- " } |
     ForEach-Object { $_.trimStart("- ") }
   )) {
@@ -91,27 +50,8 @@ foreach ($extension in @(
   code --install-extension $extension | Out-Null
 }
 
-# SSH
-Write-Host -NoNewline "Installing SSH config..."
-if (!(Test-Path "$env:USERPROFILE\.ssh")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
-}
-Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.ssh\config"
-Write-Host " Done"
-
-# Git
-Write-Host -NoNewline "Installing Git config..."
-if (!(Test-Path "$env:USERPROFILE\.config\git")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
-}
-Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
-Write-Host " Done"
-
-# ==============================================================================
-
-Remove-Item -Recurse -Force $dotfiles
 Write-Host -ForegroundColor Yellow @"
 
-Apps & Dotfiles installed!
+Apps installed!
 
 "@

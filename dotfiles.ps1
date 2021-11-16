@@ -34,28 +34,37 @@ Write-Host " Done"
 # ==============================================================================
 
 # PowerShell Profile
-Write-Host -NoNewline "Updating PowerShell profile..."
+Write-Host -NoNewline "Copy PowerShell profile..."
+if (!(Test-Path "$env:USERPROFILE\Documents\WindowsPowerShell")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
+}
 Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\Documents\WindowsPowerShell\profile.ps1"
 Write-Host " Done"
 
 # Windows Terminal
-Write-Host -NoNewline "Updating Windows Terminal settings..."
+Write-Host -NoNewline "Copy Windows Terminal settings..."
 $dirWT = Get-ChildItem "$env:LOCALAPPDATA\Packages\Microsoft.WindowsTerminal_*" | Select-Object -First 1 -Expand FullName
 Copy-Item "$dotfiles\terminal\settings.json" "$dirWT\LocalState\settings.json"
 Write-Host " Done"
 
 # VS Code
-Write-Host -NoNewline "Updating VS Code settings..."
+Write-Host "Copy VS Code settings..."
 Copy-Item "$dotfiles\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
 Write-Host " Done"
 
 # SSH
-Write-Host -NoNewline "Updating SSH config..."
+Write-Host -NoNewline "Copy SSH config..."
+if (!(Test-Path "$env:USERPROFILE\.ssh")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
+}
 Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.ssh\config"
 Write-Host " Done"
 
 # Git
-Write-Host -NoNewline "Updating Git config..."
+Write-Host -NoNewline "Copy Git config..."
+if (!(Test-Path "$env:USERPROFILE\.config\git")) {
+  New-Item -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
+}
 Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
 Write-Host " Done"
 
@@ -64,6 +73,6 @@ Write-Host " Done"
 Remove-Item -Recurse -Force $dotfiles
 Write-Host -ForegroundColor Yellow @"
 
-Dotfiles updated!
+Dotfiles copied!
 
 "@

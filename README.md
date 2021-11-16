@@ -13,8 +13,9 @@ My dotfiles & configs.
 iwr "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/setup.ps1" | iex
 ```
 
-5. Next, run this command in a non-admin terminal:
+5. Next, run these commands in a non-admin terminal:
 
 ```PowerShell
 iwr "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/apps.ps1" | iex
+iwr "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/dotfiles.ps1" | iex
 ```

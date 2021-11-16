@@ -40,7 +40,7 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 
 function x { exit }
 function sudo { Start-Process -Verb RunAs wt }
-function update { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/update.ps1" | Invoke-Expression }
+function dotfiles { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/dotfiles.ps1" | Invoke-Expression }
 Set-Alias "e" "$env:EDITOR"
 Set-Alias "g" "git"
 Set-Alias "dns" "Resolve-DnsName"

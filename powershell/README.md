@@ -25,7 +25,7 @@ System & Programs:
 
 - `x` = Close Terminal
 - `sudo` = Open Terminal as admin
-- `update` = Update dotfiles
+- `dotfiles` = Update dotfiles
 - `e` = Shortcut for the default Editor
 - `dns` = Get DNS infos
 - `Set-ShutdownTimer` / `sst` = Set a shutdown timer
