@@ -11,40 +11,27 @@ Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
 
 Then copy `profile.ps1` to `C:\User\USERNAME\Documents\WindowsPowerShell\profile.ps1`.
 
-## Content
+## Functions & Aliases
 
-### Promt
-
-```plaintext
-[Username@Computername CurrentLocation]❯
-```
-
-### Commands
-
-System & Programs:
+Common:
 
 - `x` = Close Terminal
 - `sudo` = Open Terminal as admin
 - `dotfiles` = Update dotfiles
-- `e` = Shortcut for the default Editor
-- `dns` = Get DNS infos
-- `Set-ShutdownTimer` / `sst` = Set a shutdown timer
-- `ast` = Abort the shutdown timer
+- `sst` = Set a shutdown timer
+- `sshkg` = Generate new SSH key
+- `dns` = `Resolve-DnsName`
+- `e` = `code`
+- `g` = `git`
 
 Directories & Files:
 
-- `..`, `...`, `....`, `.....`, `......` = Directories up
+- `..`, `...`, `....` = Directories up
 - `dl` = Change directory to Downloads
-- `db` = Change directory to Dropbox
 - `p` = Change directory to Projects
 - `touch` = Create new file
 - `mkd` = Create new directory
 - `rmrf` = Deletes directories/files with the params "recurse" and "force"
-
-SSH:
-
-- `New-SshKey` / `sshn` = Generate new SSH key
-- `Add-SshKey` / `ssha` = Add SSH key
 
 [Composer](https://getcomposer.org/):
 
