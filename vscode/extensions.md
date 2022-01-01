@@ -10,7 +10,8 @@ Tools:
 - rangav.vscode-thunder-client
 - natizyskunk.sftp
 - mkxml.vscode-filesize
-- cssho.vscode-svgviewer
+- jock.svg
+- bradlc.vscode-tailwindcss
 - bierner.emojisense
 
 Languages:

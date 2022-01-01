@@ -16,7 +16,7 @@
       "colorScheme": "Butter",
       "fontFace": "JetBrains Mono",
       "fontSize": 14,
-      "padding": 14,
+      "padding": 8,
       "bellStyle": "none"
     },
     "list": [
@@ -60,7 +60,7 @@
       "name": "Butter",
       "foreground": "#f0f0f0",
       "background": "#0c0c10",
-      "selectionBackground": "#131419",
+      "selectionBackground": "#8e9ba8",
       "cursorColor": "#f0f0f0",
       "black": "#000000",
       "white": "#f0f0f0",

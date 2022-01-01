@@ -23,7 +23,7 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
   }
 }
 
-# Promt
+# Prompt
 # ==============================================================================
 
 function global:prompt {
