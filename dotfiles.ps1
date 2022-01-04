@@ -14,7 +14,7 @@ Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 # Download
 # ==============================================================================
 
-Write-Host -NoNewline "Downloading dotfiles..."
+Write-Host -NoNewline "Download dotfiles..."
 
 # Download repository
 $dotfilesRepoUrl = "https://github.com/RanzigeButter/dotfiles/archive/master.zip"
@@ -35,9 +35,7 @@ Write-Host " Done"
 
 # PowerShell Profile
 Write-Host -NoNewline "Copy PowerShell profile..."
-if (!(Test-Path "$env:USERPROFILE\Documents\WindowsPowerShell")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
-}
+New-Item -Force -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
 Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\Documents\WindowsPowerShell\profile.ps1"
 Write-Host " Done"
 
@@ -48,23 +46,19 @@ Copy-Item "$dotfiles\terminal\settings.json" "$dirWT\LocalState\settings.json"
 Write-Host " Done"
 
 # VS Code
-Write-Host "Copy VS Code settings..."
+Write-Host -NoNewline "Copy VS Code settings..."
 Copy-Item "$dotfiles\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
 Write-Host " Done"
 
 # SSH
 Write-Host -NoNewline "Copy SSH config..."
-if (!(Test-Path "$env:USERPROFILE\.ssh")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
-}
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
 Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.ssh\config"
 Write-Host " Done"
 
 # Git
 Write-Host -NoNewline "Copy Git config..."
-if (!(Test-Path "$env:USERPROFILE\.config\git")) {
-  New-Item -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
-}
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
 Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
 Write-Host " Done"
 

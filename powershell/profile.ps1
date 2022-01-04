@@ -63,7 +63,7 @@ function .... { Set-Location "..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
 function p { Set-Location "$env:USERPROFILE\Projekte" }
 function touch([string[]]$file) { New-Item -ItemType File $file | Out-Null }
-function mkd([string[]]$directory) { New-Item -ItemType Directory $directory | Out-Null }
+function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory | Out-Null }
 function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
 
 # Composer
