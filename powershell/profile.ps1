@@ -5,9 +5,6 @@
 # |_|   \___/ \_/\_/ \___|_|  |____/|_| |_|\___|_|_| |_|   |_|  \___/|_| |_|_|\___|
 
 
-# Environment
-$env:EDITOR = "code"
-
 # Options
 Set-PSReadlineOption -BellStyle None
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
@@ -24,8 +21,6 @@ Register-ArgumentCompleter -Native -CommandName winget -ScriptBlock {
 }
 
 # Prompt
-# ==============================================================================
-
 function global:prompt {
   $startbracket = Write-Host -NoNewline -ForegroundColor Red "["
   $username = Write-Host -NoNewline -ForegroundColor Yellow $env:USERNAME
@@ -62,8 +57,9 @@ function ... { Set-Location "..\.." }
 function .... { Set-Location "..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
 function p { Set-Location "$env:USERPROFILE\Projekte" }
-function touch([string[]]$file) { New-Item -ItemType File $file | Out-Null }
-function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory | Out-Null }
+function ll { Get-ChildItem -Force }
+function touch([string[]]$file) { New-Item -Force -ItemType File $file }
+function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory }
 function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
 
 # Composer

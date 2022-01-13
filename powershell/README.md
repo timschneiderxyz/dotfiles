@@ -29,6 +29,7 @@ Directories & Files:
 - `..`, `...`, `....` = Directories up
 - `dl` = Change directory to Downloads
 - `p` = Change directory to Projects
+- `ll` = List all directories/files in the current directory, including hidden ones
 - `touch` = Create new file
 - `mkd` = Create new directory
 - `rmrf` = Deletes directories/files with the params "recurse" and "force"
