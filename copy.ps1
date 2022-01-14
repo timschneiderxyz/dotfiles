@@ -9,6 +9,8 @@ Write-Host -ForegroundColor Yellow @"
 d8b Y88b 888 Y88..88P Y88b.  888    888 888 Y8b.          X88
 Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 
+=========================== Copy ============================
+
 "@
 
 # Download
@@ -35,8 +37,7 @@ Write-Host " Done"
 
 # PowerShell Profile
 Write-Host -NoNewline "Copy PowerShell profile..."
-New-Item -Force -ItemType Directory "$env:USERPROFILE\Documents\WindowsPowerShell" | Out-Null
-Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\Documents\WindowsPowerShell\profile.ps1"
+Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\.config\powershell\profile.ps1"
 Write-Host " Done"
 
 # Windows Terminal
@@ -52,13 +53,11 @@ Write-Host " Done"
 
 # SSH
 Write-Host -NoNewline "Copy SSH config..."
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.ssh" | Out-Null
-Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.ssh\config"
+Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.config\ssh\config"
 Write-Host " Done"
 
 # Git
 Write-Host -NoNewline "Copy Git config..."
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null
 Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
 Write-Host " Done"
 

@@ -38,7 +38,7 @@ function global:prompt {
 # Common
 function x { exit }
 function sudo { Start-Process -Verb RunAs wt }
-function dotfiles { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/dotfiles.ps1" | Invoke-Expression }
+function dotfiles { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/copy.ps1" | Invoke-Expression }
 function sst([int]$timeInMinutes) {
   $timeInSeconds = $timeInMinutes * 60
   shutdown -s -t $timeInSeconds

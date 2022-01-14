@@ -10,6 +10,8 @@ Write-Host -ForegroundColor Yellow @"
 d8b Y88b 888 Y88..88P Y88b.  888    888 888 Y8b.          X88
 Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 
+=========================== Setup ===========================
+
 "@
 
 Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -149,6 +151,7 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Persona
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Themes\Personalize" -Name AppsUseLightTheme -Value 0
 
 # Explorer
+Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer" -Name ShowFrequent -Value 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name LaunchTo -Value 1
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideFileExt -Value 0
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Hidden -Value 1
@@ -162,6 +165,33 @@ Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advan
 
 # Start Menu
 Set-ItemProperty "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Start_TrackDocs -Value 0
+
+Write-Host " Done"
+
+# Environment
+# ==============================================================================
+
+Write-Host -NoNewline "Setting up Environment..."
+
+# Variables
+[Environment]::SetEnvironmentVariable("EDITOR", "code", 'User')
+[Environment]::SetEnvironmentVariable("VSCODE_EXTENSIONS", "$env:APPDATA\Code\User\extensions", 'User')
+[Environment]::SetEnvironmentVariable("LESSHISTFILE", "-", 'User')
+
+# Directories
+attrib +h +s "$env:USERPROFILE\NTUSER.DAT"
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\WindowsPowerShell" -Value "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
+attrib +h +s /l "$env:USERPROFILE\Documents\WindowsPowerShell" # PowerShell
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.vscode" -Value "$env:APPDATA\Code\User" | Out-Null # VS Code
+attrib +h +s /l "$env:USERPROFILE\.vscode" # VS Code
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\ssh" | Out-Null # SSH
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.ssh" -Value "$env:USERPROFILE\.config\ssh" | Out-Null # SSH
+attrib +h +s /l "$env:USERPROFILE\.ssh" # SSH
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null # Git
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\My Games" -Value "$env:USERPROFILE\Saved Games" | Out-Null # My Games
+attrib +h +s /l "$env:USERPROFILE\Documents\My Games" # My Games
+New-Item -Force -ItemType Directory "$env:USERPROFILE\Projekte" | Out-Nul # Projekte
 
 Write-Host " Done"
 
