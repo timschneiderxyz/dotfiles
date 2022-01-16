@@ -7,6 +7,7 @@ Appearance:
 
 Tools:
 
+- ms-azuretools.vscode-docker
 - rangav.vscode-thunder-client
 - natizyskunk.sftp
 - mkxml.vscode-filesize
@@ -22,12 +23,8 @@ Languages:
 - bmewburn.vscode-intelephense-client
 - mblode.twig-language-2
 
-Formatting:
+Formatting/Linter:
 
 - editorconfig.editorconfig
-- esbenp.prettier-vscode
-
-Linter:
-
 - stylelint.vscode-stylelint
 - dbaeumer.vscode-eslint

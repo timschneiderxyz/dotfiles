@@ -191,7 +191,7 @@ attrib +h +s /l "$env:USERPROFILE\.ssh" # SSH
 New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null # Git
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\My Games" -Value "$env:USERPROFILE\Saved Games" | Out-Null # My Games
 attrib +h +s /l "$env:USERPROFILE\Documents\My Games" # My Games
-New-Item -Force -ItemType Directory "$env:USERPROFILE\Projekte" | Out-Nul # Projekte
+New-Item -Force -ItemType Directory "$env:USERPROFILE\Projekte" | Out-Null # Projects
 
 Write-Host " Done"
 
