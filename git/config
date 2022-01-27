@@ -1,8 +1,10 @@
 [user]
   name = Tim Schneider
   email = 38572632+RanzigeButter@users.noreply.github.com
+
 [core]
-  editor = $EDITOR --wait
+  editor = code --wait
+
 [alias]
   ac = !git add . && git commit -m
   aca = !git add . && git commit --amend --no-edit

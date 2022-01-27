@@ -2,14 +2,8 @@
 
 ## Installation
 
-Before installation, we have to set our PowerShell execution policy to allow the use of scripts.
-To do this, open your PowerShell as an administrator and run the following command:
-
-```PowerShell
-Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force
-```
-
-Then copy `profile.ps1` to `C:\User\USERNAME\Documents\WindowsPowerShell\profile.ps1`.
+1. Run as Admin: `Set-ExecutionPolicy Unrestricted -Scope CurrentUser -Force`
+2. Copy `profile.ps1` to `C:\User\USERNAME\Documents\WindowsPowerShell\profile.ps1`.
 
 ## Functions & Aliases
 

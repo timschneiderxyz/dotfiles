@@ -32,9 +32,6 @@ function global:prompt {
   "$startbracket$username$separator$computername$location$endbracket$([char]0x276F) "
 }
 
-# Functions & Aliases
-# ==============================================================================
-
 # Common
 function x { exit }
 function sudo { Start-Process -Verb RunAs wt }
@@ -45,7 +42,7 @@ function sst([int]$timeInMinutes) {
   Write-Host "The Computer will shut down in $timeInMinutes minutes."
 }
 function sshkg([string]$email, [string]$name) {
-  ssh-keygen -t rsa -b 4096 -C $email -f $env:USERPROFILE\.ssh\$name
+  ssh-keygen -t ed25519 -C $email -f $env:USERPROFILE\.ssh\$name
 }
 Set-Alias "dns" "Resolve-DnsName"
 Set-Alias "e" "$env:EDITOR"

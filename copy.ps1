@@ -64,8 +64,3 @@ Write-Host " Done"
 # ==============================================================================
 
 Remove-Item -Recurse -Force $dotfiles
-Write-Host -ForegroundColor Yellow @"
-
-Dotfiles copied!
-
-"@

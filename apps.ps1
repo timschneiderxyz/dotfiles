@@ -51,9 +51,3 @@ foreach ($extension in @(
   Write-Host ">>> $extension"
   code --install-extension $extension | Out-Null
 }
-
-Write-Host -ForegroundColor Yellow @"
-
-Apps installed!
-
-"@

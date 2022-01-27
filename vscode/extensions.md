@@ -18,10 +18,8 @@ Tools:
 Languages:
 
 - yzhang.markdown-all-in-one
-- ms-vscode.powershell
 - mikestead.dotenv
 - bmewburn.vscode-intelephense-client
-- mblode.twig-language-2
 
 Formatting/Linter:
 
