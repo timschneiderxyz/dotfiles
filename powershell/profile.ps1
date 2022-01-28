@@ -32,41 +32,25 @@ function global:prompt {
   "$startbracket$username$separator$computername$location$endbracket$([char]0x276F) "
 }
 
-# Common
+# Aliases - Common
 function x { exit }
-function sudo { Start-Process -Verb RunAs wt }
+function sudo { Start-Process -Verb RunAs wt "-p PowerShell" }
 function dotfiles { Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/copy.ps1" | Invoke-Expression }
 function sst([int]$timeInMinutes) {
   $timeInSeconds = $timeInMinutes * 60
   shutdown -s -t $timeInSeconds
   Write-Host "The Computer will shut down in $timeInMinutes minutes."
 }
-function sshkg([string]$email, [string]$name) {
-  ssh-keygen -t ed25519 -C $email -f $env:USERPROFILE\.ssh\$name
-}
-Set-Alias "dns" "Resolve-DnsName"
 Set-Alias "e" "$env:EDITOR"
 Set-Alias "g" "git"
 
-# Directories & Files
+# Aliases - Directories & Files
 function .. { Set-Location ".." }
 function ... { Set-Location "..\.." }
 function .... { Set-Location "..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
-function p { Set-Location "$env:USERPROFILE\Projekte" }
+function p { Set-Location "\\wsl.localhost\Ubuntu\home\tim\Projekte" }
 function ll { Get-ChildItem -Force }
 function touch([string[]]$file) { New-Item -Force -ItemType File $file }
 function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory }
 function rmrf([string[]]$path) { Remove-Item -Recurse -Force $path }
-
-# Composer
-function fuckphp { Remove-Item -Recurse -Force -ea 0 vendor, composer.lock; composer clear-cache; composer update }
-
-# npm
-function fuckjs { Remove-Item -Recurse -Force -ea 0 node_modules, package-lock.json; npm install }
-function nid([string[]]$package) { npm install --save-prod $package }
-function nidd([string[]]$package) { npm install --save-dev $package }
-function no { npm outdated }
-function nu { npm update }
-function nd { npm run dev }
-function np { npm run prod }
