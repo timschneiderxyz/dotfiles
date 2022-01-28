@@ -7,6 +7,7 @@ Appearance:
 
 Tools:
 
+- ms-vscode-remote.remote-wsl
 - ms-azuretools.vscode-docker
 - rangav.vscode-thunder-client
 - natizyskunk.sftp
