@@ -1,0 +1,17 @@
+# Appearance
+set titlecolor black,yellow
+set numbercolor magenta
+set statuscolor blue
+set keycolor magenta
+set functioncolor red
+set stripecolor ,yellow
+set selectedcolor black,white
+set errorcolor black,red
+
+# Options
+set linenumbers
+set constantshow
+set autoindent
+set tabstospaces
+set tabsize 2
+set zap

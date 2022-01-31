@@ -1,0 +1,49 @@
+#!/bin/sh
+#        _ _
+#   __ _| (_) __ _ ___  ___  ___
+#  / _` | | |/ _` / __|/ _ \/ __|
+# | (_| | | | (_| \__ \  __/\__ \
+#  \__,_|_|_|\__,_|___/\___||___/
+
+
+# Common
+alias \
+  update="sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y'" \
+  x="exit" \
+  e="$EDITOR" \
+  g="git"
+sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
+
+# Navigation
+alias \
+  ..="cd .." \
+  ...="cd ../.." \
+  ....="cd ../../.." \
+  p="cd $HOME/Projekte"
+
+# Directories & Files
+alias \
+  fd='find . -type d -name' \
+  ff='find . -type f -name' \
+  ls="ls -hN --color=auto --group-directories-first" \
+  ll="ls -al" \
+  mkd="mkdir -vp" \
+  cp="cp -vi" \
+  mv="mv -vi" \
+  rm="rm -vI" \
+  grep="grep --color=auto" \
+  diff="diff --color=auto"
+
+# Composer
+alias \
+  fuckphp="rm -rf vendor composer.lock && composer clear-cache && composer update"
+
+# npm
+alias \
+  fuckjs="rm -rf node_modules package-lock.json && npm install" \
+  nid="npm install --save-prod" \
+  nidd="npm install --save-dev" \
+  no="npm outdated" \
+  nu="npm update" \
+  nd="npm run dev" \
+  np="npm run prod"

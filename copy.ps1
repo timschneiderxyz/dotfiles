@@ -51,16 +51,6 @@ Write-Host -NoNewline "Copy VS Code settings..."
 Copy-Item "$dotfiles\vscode\settings.json" "$env:APPDATA\Code\User\settings.json"
 Write-Host " Done"
 
-# SSH
-Write-Host -NoNewline "Copy SSH config..."
-Copy-Item "$dotfiles\ssh\config" "$env:USERPROFILE\.config\ssh\config"
-Write-Host " Done"
-
-# Git
-Write-Host -NoNewline "Copy Git config..."
-Copy-Item "$dotfiles\git\config" "$env:USERPROFILE\.config\git\config"
-Write-Host " Done"
-
 # ==============================================================================
 
 Remove-Item -Recurse -Force $dotfiles
