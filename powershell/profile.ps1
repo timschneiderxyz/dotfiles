@@ -42,14 +42,13 @@ function sst([int]$timeInMinutes) {
   Write-Host "The Computer will shut down in $timeInMinutes minutes."
 }
 Set-Alias "e" "$env:EDITOR"
-Set-Alias "g" "git"
 
 # Aliases - Directories & Files
 function .. { Set-Location ".." }
 function ... { Set-Location "..\.." }
 function .... { Set-Location "..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
-function p { Set-Location "\\wsl.localhost\Ubuntu\home\tim\Projekte" }
+function p { Set-Location "$env:WSL_HOME\Projekte" }
 function ll { Get-ChildItem -Force }
 function touch([string[]]$file) { New-Item -Force -ItemType File $file }
 function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory }

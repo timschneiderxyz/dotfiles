@@ -13,27 +13,15 @@ Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 
 "@
 
-# Manual
-Start-Process "https://www.jetbrains.com/lp/mono/"
-Start-Process "https://windows.php.net/download/"
-Start-Process "https://getcomposer.org/download/"
-
 # WinGet
 foreach ($package in @(
-    # General
-    "Google.Chrome"
-    "Discord.Discord"
-    "Spotify.Spotify"
-    "Dropbox.Dropbox"
-    "VideoLAN.VLC"
-
-    # Productivity
-    "Microsoft.VisualStudioCode"
-    "Git.Git"
-    "OpenJS.NodeJS.LTS"
-
-    # Games
-    "Valve.Steam"
+    Google.Chrome
+    Discord.Discord
+    Spotify.Spotify
+    Dropbox.Dropbox
+    VideoLAN.VLC
+    Microsoft.VisualStudioCode
+    Valve.Steam
   )) {
   winget install -i $package
 }
@@ -51,3 +39,6 @@ foreach ($extension in @(
   Write-Host ">>> $extension"
   code --install-extension $extension | Out-Null
 }
+
+# Other
+Start-Process "https://www.jetbrains.com/lp/mono/"

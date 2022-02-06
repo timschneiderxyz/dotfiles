@@ -177,21 +177,21 @@ Write-Host -NoNewline "Setting up Environment..."
 [Environment]::SetEnvironmentVariable("EDITOR", "code", 'User')
 [Environment]::SetEnvironmentVariable("VSCODE_EXTENSIONS", "$env:APPDATA\Code\User\extensions", 'User')
 [Environment]::SetEnvironmentVariable("LESSHISTFILE", "-", 'User')
+[Environment]::SetEnvironmentVariable("WSL_HOME", "\\wsl.localhost\Ubuntu\home\tim", 'User')
 
 # Directories
-attrib +h +s "$env:USERPROFILE\NTUSER.DAT"
 New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\WindowsPowerShell" -Value "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
 attrib +h +s /l "$env:USERPROFILE\Documents\WindowsPowerShell" # PowerShell
+New-Item -Force -ItemType Directory "$env:APPDATA\Code\User" | Out-Null # VS Code
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.vscode" -Value "$env:APPDATA\Code\User" | Out-Null # VS Code
 attrib +h +s /l "$env:USERPROFILE\.vscode" # VS Code
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\ssh" | Out-Null # SSH
-New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.ssh" -Value "$env:USERPROFILE\.config\ssh" | Out-Null # SSH
-attrib +h +s /l "$env:USERPROFILE\.ssh" # SSH
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\git" | Out-Null # Git
+New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\docker" | Out-Null # Docker
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.docker" -Value "$env:USERPROFILE\.config\docker" | Out-Null # Docker
+attrib +h +s /l "$env:USERPROFILE\.docker" # Docker
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\My Games" -Value "$env:USERPROFILE\Saved Games" | Out-Null # My Games
 attrib +h +s /l "$env:USERPROFILE\Documents\My Games" # My Games
-New-Item -Force -ItemType Directory "$env:USERPROFILE\Projekte" | Out-Null # Projects
+attrib +h +s "$env:USERPROFILE\NTUSER.DAT"
 
 Write-Host " Done"
 

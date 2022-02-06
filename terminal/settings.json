@@ -18,6 +18,14 @@
     },
     "list": [
       {
+        // Ubuntu
+        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
+        "name": "Ubuntu",
+        "source": "Windows.Terminal.Wsl",
+        "startingDirectory": "/home/tim",
+        "hidden": false
+      },
+      {
         // PowerShell
         "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
         "name": "PowerShell",
@@ -29,14 +37,6 @@
         "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
         "name": "CMD",
         "commandline": "cmd.exe",
-        "hidden": false
-      },
-      {
-        // Ubuntu
-        "guid": "{2c4de342-38b7-51cf-b940-2309a097f518}",
-        "name": "Ubuntu",
-        "source": "Windows.Terminal.Wsl",
-        "startingDirectory": "/home/tim",
         "hidden": false
       },
       {
