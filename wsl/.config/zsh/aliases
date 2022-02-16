@@ -19,7 +19,7 @@ alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  p="cd $HOME/Projekte"
+  p="cd $HOME/Projects"
 
 # Directories & Files
 alias \

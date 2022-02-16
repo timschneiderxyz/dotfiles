@@ -48,7 +48,7 @@ function .. { Set-Location ".." }
 function ... { Set-Location "..\.." }
 function .... { Set-Location "..\..\.." }
 function dl { Set-Location "$env:USERPROFILE\Downloads" }
-function p { Set-Location "$env:WSL_HOME\Projekte" }
+function p { Set-Location "$env:WSL_HOME\Projects" }
 function ll { Get-ChildItem -Force }
 function touch([string[]]$file) { New-Item -Force -ItemType File $file }
 function mkd([string[]]$directory) { New-Item -Force -ItemType Directory $directory }

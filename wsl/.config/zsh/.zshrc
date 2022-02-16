@@ -29,7 +29,7 @@ bindkey "${terminfo[kcuu1]}" history-beginning-search-backward-end
 bindkey "${terminfo[kcud1]}" history-beginning-search-forward-end
 
 # Completion
-autoload -U compinit && compinit -d "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+autoload -U compinit && compinit -d ~/.cache/zsh/zcompdump
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*' completer _complete _approximate

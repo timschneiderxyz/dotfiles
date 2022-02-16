@@ -1,9 +1,9 @@
 # Appearance
-set titlecolor black,yellow
+set titlecolor black,white
 set numbercolor magenta
-set statuscolor blue
+set statuscolor cyan
 set keycolor magenta
-set functioncolor red
+set functioncolor yellow
 set stripecolor ,yellow
 set selectedcolor black,white
 set errorcolor black,red
