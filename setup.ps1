@@ -180,20 +180,53 @@ Write-Host -NoNewline "Setting up Environment..."
 [Environment]::SetEnvironmentVariable("WSL_HOME", "\\wsl.localhost\Ubuntu\home\tim", 'User')
 
 # Directories
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
-New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\WindowsPowerShell" -Value "$env:USERPROFILE\.config\powershell" | Out-Null # PowerShell
+New-Item -Force -ItemType Directory "$env:APPDATA\PowerShell" | Out-Null # PowerShell
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\WindowsPowerShell" -Value "$env:APPDATA\PowerShell" | Out-Null # PowerShell
 attrib +h +s /l "$env:USERPROFILE\Documents\WindowsPowerShell" # PowerShell
 New-Item -Force -ItemType Directory "$env:APPDATA\Code\User" | Out-Null # VS Code
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.vscode" -Value "$env:APPDATA\Code\User" | Out-Null # VS Code
 attrib +h +s /l "$env:USERPROFILE\.vscode" # VS Code
-New-Item -Force -ItemType Directory "$env:USERPROFILE\.config\docker" | Out-Null # Docker
-New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.docker" -Value "$env:USERPROFILE\.config\docker" | Out-Null # Docker
+New-Item -Force -ItemType Directory "$env:APPDATA\Docker" | Out-Null # Docker
+New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\.docker" -Value "$env:APPDATA\Docker" | Out-Null # Docker
 attrib +h +s /l "$env:USERPROFILE\.docker" # Docker
 New-Item -Force -ItemType SymbolicLink -Path "$env:USERPROFILE\Documents\My Games" -Value "$env:USERPROFILE\Saved Games" | Out-Null # My Games
 attrib +h +s /l "$env:USERPROFILE\Documents\My Games" # My Games
 attrib +h +s "$env:USERPROFILE\NTUSER.DAT"
 
 Write-Host " Done"
+
+# Apps
+# ==============================================================================
+
+# WinGet
+foreach ($package in @(
+    Google.Chrome
+    Discord.Discord
+    Spotify.Spotify
+    Dropbox.Dropbox
+    VideoLAN.VLC
+    Microsoft.VisualStudioCode
+    Valve.Steam
+  )) {
+  winget install -i $package
+}
+
+# Reload Path
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path", "User")
+
+# VS Code Extensions
+Write-Host "Installing VS Code Extensions..."
+foreach ($extension in @(
+    (Invoke-WebRequest "https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/vscode/extensions.md").Content.tostring() -split "[`r`n]" |
+    Where-Object { $_ -match "- " } |
+    ForEach-Object { $_.trimStart("- ") }
+  )) {
+  Write-Host ">>> $extension"
+  code --install-extension $extension | Out-Null
+}
+
+# Other
+Start-Process "https://www.jetbrains.com/lp/mono/"
 
 # ==============================================================================
 

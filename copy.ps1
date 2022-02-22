@@ -37,7 +37,7 @@ Write-Host " Done"
 
 # PowerShell Profile
 Write-Host -NoNewline "Copy PowerShell profile..."
-Copy-Item "$dotfiles\powershell\profile.ps1" "$env:USERPROFILE\.config\powershell\profile.ps1"
+Copy-Item "$dotfiles\powershell\profile.ps1" "$env:APPDATA\PowerShell\profile.ps1"
 Write-Host " Done"
 
 # Windows Terminal
