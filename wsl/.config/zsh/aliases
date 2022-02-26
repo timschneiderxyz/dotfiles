@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 #        _ _
 #   __ _| (_) __ _ ___  ___  ___
 #  / _` | | |/ _` / __|/ _ \/ __|
@@ -9,6 +9,7 @@
 # Common
 alias \
   update="sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y'" \
+  dotfiles="sh -c 'curl -LO https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/wsl-copy.sh && zsh wsl-copy.sh && rm wsl-copy.sh'" \
   x="exit" \
   e="$EDITOR" \
   g="git"
