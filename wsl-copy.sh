@@ -10,5 +10,3 @@
 git clone https://github.com/RanzigeButter/dotfiles.git
 cp -r dotfiles/wsl/. ~/
 rm -rf dotfiles
-source ~/.zshenv
-source ~/.config/zsh/.zshrc
