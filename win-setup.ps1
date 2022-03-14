@@ -205,6 +205,7 @@ foreach ($package in @(
     Spotify.Spotify
     Dropbox.Dropbox
     VideoLAN.VLC
+    7zip.7zip
     Microsoft.VisualStudioCode
     Valve.Steam
   )) {
