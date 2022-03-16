@@ -40,7 +40,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.local/bin/
 sudo chsh -s /bin/zsh tim
 
 # Install Composer
-curl -fsSL https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer > /dev/null 2>&1
+curl -fsSL getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin/ --filename=composer > /dev/null 2>&1
 
 # Install nvm/NodeJS/npm
 git clone https://github.com/nvm-sh/nvm.git ~/.local/bin/nvm > /dev/null 2>&1

@@ -9,7 +9,7 @@
 # Common
 alias \
   update="sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y'" \
-  dotfiles="curl -fsSL https://raw.githubusercontent.com/RanzigeButter/dotfiles/master/wsl-copy.sh | sh" \
+  dotfiles="curl -fsSL timschneider.xyz/scripts/wsl-copy | sh" \
   x="exit" \
   e="$EDITOR" \
   g="git"
