@@ -21,6 +21,3 @@ export LESSHISTFILE="-"
 export NVM_DIR="$HOME/.local/bin/nvm"
 export NODE_REPL_HISTORY=""
 export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
-
-# Miscellaneous
-skip_global_compinit=1

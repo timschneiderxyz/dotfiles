@@ -29,6 +29,7 @@
   // ===========================================================================
   // Editor
   // ===========================================================================
+  "workbench.layoutControl.enabled": false,
   "workbench.editor.openPositioning": "last",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.tree.indent": 12,
