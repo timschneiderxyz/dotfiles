@@ -10,7 +10,7 @@
   // ===========================================================================
   "profiles": {
     "defaults": {
-      "colorScheme": "Butter",
+      "colorScheme": "Gruvbox",
       "fontFace": "JetBrains Mono",
       "fontSize": 14,
       "padding": 8,
@@ -53,27 +53,27 @@
   // ===========================================================================
   "schemes": [
     {
-      "name": "Butter",
-      "foreground": "#f0f0f0",
+      "name": "Gruvbox",
       "background": "#0c0c10",
-      "selectionBackground": "#8e9ba8",
-      "cursorColor": "#f0f0f0",
-      "black": "#000000",
-      "white": "#f0f0f0",
-      "red": "#ee2a4e",
-      "green": "#89ca78",
-      "blue": "#61afef",
-      "yellow": "#ffcc66",
-      "purple": "#d55fde",
-      "cyan": "#2bbac5",
-      "brightBlack": "#8e9ba8",
-      "brightWhite": "#f0f0f0",
-      "brightRed": "#ee2a4e",
-      "brightGreen": "#89ca78",
-      "brightBlue": "#61afef",
-      "brightYellow": "#ffcc66",
-      "brightPurple": "#d55fde",
-      "brightCyan": "#2bbac5"
+      "foreground": "#ebdbb2",
+      "cursorColor": "#83a598",
+      "selectionBackground": "#83a598",
+      "brightBlack": "#928374",
+      "brightBlue": "#83a598",
+      "brightCyan": "#8ec07c",
+      "brightGreen": "#b8bb26",
+      "brightPurple": "#d3869b",
+      "brightRed": "#fb4934",
+      "brightWhite": "#ebdbb2",
+      "brightYellow": "#fabd2f",
+      "black": "#282828",
+      "blue": "#458588",
+      "cyan": "#689d6a",
+      "green": "#98971a",
+      "purple": "#b16286",
+      "red": "#cc241d",
+      "white": "#a89984",
+      "yellow": "#d79921"
     }
   ],
   // ===========================================================================
