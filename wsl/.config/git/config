@@ -2,6 +2,9 @@
   name = Tim Schneider
   email = 38572632+RanzigeButter@users.noreply.github.com
 
+[init]
+  defaultBranch = main
+
 [core]
   editor = code --wait
 
