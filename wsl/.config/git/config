@@ -1,6 +1,6 @@
 [user]
   name = Tim Schneider
-  email = 38572632+RanzigeButter@users.noreply.github.com
+  email = timschneider.xyz@gmail.com
 
 [init]
   defaultBranch = main
@@ -9,7 +9,7 @@
   editor = code --wait
 
 [alias]
-  c = git commit -m
+  c = commit -m
   ac = !git add . && git commit -m
   aca = !git add . && git commit --amend --no-edit
   undo = reset --soft HEAD~1
