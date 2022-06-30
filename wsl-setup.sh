@@ -21,7 +21,7 @@ for x in zsh make php8.1-fpm php8.1-curl php8.1-zip; do
 done
 
 # Copy dotfiles
-git clone https://github.com/RanzigeButter/dotfiles.git > /dev/null 2>&1
+git clone https://github.com/timschneiderxyz/dotfiles.git > /dev/null 2>&1
 cp -r dotfiles/wsl/. ~/
 rm -rf dotfiles
 

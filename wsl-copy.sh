@@ -7,6 +7,6 @@
 #           |_|    |___/
 
 
-git clone https://github.com/RanzigeButter/dotfiles.git > /dev/null 2>&1
+git clone https://github.com/timschneiderxyz/dotfiles.git > /dev/null 2>&1
 cp -r dotfiles/wsl/. ~/
 rm -rf dotfiles

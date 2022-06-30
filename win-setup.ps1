@@ -218,7 +218,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path", "Machine") + ";
 # VS Code Extensions
 Write-Host "Installing VS Code Extensions..."
 foreach ($extension in @(
-    (Invoke-WebRequest "raw.githubusercontent.com/RanzigeButter/dotfiles/main/vscode/extensions.md").Content.tostring() -split "[`r`n]" |
+    (Invoke-WebRequest "raw.githubusercontent.com/timschneiderxyz/dotfiles/main/vscode/extensions.md").Content.tostring() -split "[`r`n]" |
     Where-Object { $_ -match "- " } |
     ForEach-Object { $_.trimStart("- ") }
   )) {

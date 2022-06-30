@@ -19,7 +19,7 @@ Y8P  "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 Write-Host -NoNewline "Download dotfiles..."
 
 # Download repository
-$dotfilesRepoUrl = "https://github.com/RanzigeButter/dotfiles/archive/main.zip"
+$dotfilesRepoUrl = "https://github.com/timschneiderxyz/dotfiles/archive/main.zip"
 $dotfilesZip = "$env:USERPROFILE\Downloads\dotfiles.zip"
 (New-Object System.Net.WebClient).DownloadFile($dotfilesRepoUrl, $dotfilesZip)
 
