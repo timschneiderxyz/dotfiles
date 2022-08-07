@@ -9,7 +9,7 @@
 # Common
 alias \
   update="sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y'" \
-  dotfiles="curl -fsSL timschneider.xyz/scripts/wsl-copy | sh" \
+  dotfiles="git clone https://github.com/timschneiderxyz/dotfiles.git > /dev/null 2>&1 && cp -r dotfiles/wsl/. ~/ && rm -rf dotfiles" \
   x="exit" \
   e="$EDITOR" \
   g="git"

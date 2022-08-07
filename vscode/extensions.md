@@ -14,7 +14,6 @@ Tools:
 - mkxml.vscode-filesize
 - jock.svg
 - bradlc.vscode-tailwindcss
-- bierner.emojisense
 
 Languages:
 
