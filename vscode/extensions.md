@@ -3,6 +3,7 @@
 Appearance:
 
 - zhuangtongfa.material-theme
+- miguelsolorio.fluent-icons
 - pkief.material-icon-theme
 
 Tools:
