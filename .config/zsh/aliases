@@ -32,8 +32,7 @@ alias \
   cp="cp -vi" \
   mv="mv -vi" \
   rm="rm -vI" \
-  grep="grep --color=auto" \
-  diff="diff --color=auto"
+  grep="grep --color=auto"
 
 # Composer
 alias \
