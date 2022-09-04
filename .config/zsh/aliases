@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 #        _ _
 #   __ _| (_) __ _ ___  ___  ___
 #  / _` | | |/ _` / __|/ _ \/ __|
@@ -8,8 +8,7 @@
 
 # Common
 alias \
-  update="sudo -- sh -c 'apt update && apt upgrade -y && apt autoremove -y && apt autoclean -y'" \
-  dotfiles="git clone https://github.com/timschneiderxyz/dotfiles.git > /dev/null 2>&1 && cp -r dotfiles/wsl/. ~/ && rm -rf dotfiles" \
+  update="sudo softwareupdate -i -a" \
   x="exit" \
   e="$EDITOR" \
   g="git"
@@ -26,12 +25,12 @@ alias \
 alias \
   fd='find . -type d -name' \
   ff='find . -type f -name' \
-  ls="ls -hN --color=auto --group-directories-first" \
+  ls="gls -hN --color=auto --group-directories-first" \
   ll="ls -al" \
   mkd="mkdir -vp" \
   cp="cp -vi" \
   mv="mv -vi" \
-  rm="rm -vI" \
+  rm="grm -vI" \
   grep="grep --color=auto"
 
 # Composer
