@@ -2,7 +2,7 @@
 
 Appearance:
 
-- zhuangtongfa.material-theme
+- equinusocio.vsc-material-theme
 - miguelsolorio.fluent-icons
 - pkief.material-icon-theme
 

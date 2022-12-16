@@ -13,9 +13,7 @@
   "extensions.autoUpdate": false,
   "extensions.ignoreRecommendations": true,
   // Appearance
-  "workbench.colorTheme": "One Dark Pro",
-  "oneDarkPro.editorTheme": "Ayu",
-  "oneDarkPro.vivid": true,
+  "workbench.colorTheme": "Material Theme Palenight High Contrast",
   "workbench.productIconTheme": "fluent-icons",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.folders.theme": "classic",
