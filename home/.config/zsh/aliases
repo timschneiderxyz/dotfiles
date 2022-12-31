@@ -46,3 +46,6 @@ alias \
   nu="npm update" \
   nd="npm run dev" \
   np="npm run prod"
+
+# Miscellaneous
+alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" # Remove recursively all .DS_Store files.
