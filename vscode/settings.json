@@ -58,10 +58,5 @@
   ],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "php.suggest.basic": false,
-  // Miscellaneous
-  "files.exclude": {
-    "**/.git": true,
-    "**/node_modules": true
-  }
+  "php.suggest.basic": false
 }
