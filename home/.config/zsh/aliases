@@ -9,9 +9,9 @@
 # Common
 alias \
   update="sudo softwareupdate -i -a" \
-  x="exit" \
-  e="$EDITOR" \
-  g="git"
+  c="code" \
+  g="git" \
+  pn="pnpm"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
 
 # Navigation
@@ -19,7 +19,7 @@ alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  p="cd $HOME/Projects"
+  p="cd ~/Projects"
 
 # Directories & Files
 alias \
@@ -33,19 +33,8 @@ alias \
   rm="grm -vI" \
   grep="grep --color=auto"
 
-# Composer
-alias \
-  fuckphp="rm -rf vendor composer.lock && composer clear-cache && composer update"
-
-# npm
-alias \
-  fuckjs="rm -rf node_modules package-lock.json && npm install" \
-  nid="npm install --save-prod" \
-  nidd="npm install --save-dev" \
-  no="npm outdated" \
-  nu="npm update" \
-  nd="npm run dev" \
-  np="npm run prod"
-
 # Miscellaneous
-alias rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" # Remove recursively all .DS_Store files.
+alias \
+  rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" \ # Remove recursively all .DS_Store files.
+  fuckphp="rm -rf composer.lock vendor && composer clear-cache && composer update" \
+  fuckjs="rm -rf pnpm-lock.yaml node_modules && pnpm install"

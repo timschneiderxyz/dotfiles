@@ -6,6 +6,9 @@
 # (_)___|___/_| |_|\___|_| |_|\_/
 
 
+# Adds `~/.local/bin` to $PATH
+export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -printf %p:)%%:}"
+
 # Apps
 export EDITOR="code"
 
@@ -13,13 +16,15 @@ export EDITOR="code"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
+export XDG_STATE_HOME="$HOME/.local/state"
+export LOCAL_BIN_HOME="$HOME/.local/bin"
 
 # ~/ Clean-up
-export ZDOTDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
-export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wget/wgetrc"
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export LESSHISTFILE="-"
-export PYTHONSTARTUP="${XDG_CONFIG_HOME:-$HOME/.config}/python/pythonrc"
-export CARGO_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/cargo"
-export NVM_DIR="$HOME/.local/bin/nvm"
+export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export PNPM_HOME="$LOCAL_BIN_HOME/pnpm"
 export NODE_REPL_HISTORY=""
-export NPM_CONFIG_CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/npm"
+export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"

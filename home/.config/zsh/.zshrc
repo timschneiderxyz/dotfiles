@@ -43,8 +43,4 @@ PS1="%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m %{$fg[magenta]
 [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases"
 
 # Plugins
-[ -f "$HOME/.local/bin/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$HOME/.local/bin/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh"
-
-# nvm
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
+[ -f "$XDG_DATA_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$XDG_DATA_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh"
