@@ -1,0 +1,33 @@
+---
+#  __  __       _
+# |  \/  | __ _(_)_ __
+# | |\/| |/ _` | | '_ \
+# | |  | | (_| | | | | |
+# |_|  |_|\__,_|_|_| |_|
+
+
+- hosts: all
+
+  vars_files:
+    - config.yml
+
+  pre_tasks:
+    - set_fact:
+        user_id: "{{ user_id | default(ansible_user_id) }}"
+        user_gid: "{{ user_gid | default(ansible_user_gid) }}"
+        path_home_config: "{{ ansible_env.HOME }}/.config"
+        path_home_bin: "{{ ansible_env.HOME }}/.local/bin"
+
+  tasks:
+    - import_tasks: tasks/homebrew.yml
+      when: configure_homebrew
+      tags: ['homebrew']
+    - import_tasks: tasks/dotfiles.yml
+      when: configure_dotfiles
+      tags: ['dotfiles']
+    - import_tasks: tasks/extras.yml
+      when: configure_extras
+      tags: ['extras']
+    - import_tasks: tasks/macos.yml
+      when: configure_macos
+      tags: ['macos']

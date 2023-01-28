@@ -1,0 +1,55 @@
+---
+#  _____      _
+# | ____|_  _| |_ _ __ __ _ ___
+# |  _| \ \/ / __| '__/ _` / __|
+# | |___ >  <| |_| | | (_| \__ \
+# |_____/_/\_\\__|_|  \__,_|___/
+
+
+# ==============================================================================
+# VS Code
+# ==============================================================================
+
+- name: Install VS Code extensions.
+  command: code --install-extension {{ item }}
+  loop: "{{ vscode_extensions }}"
+  register: vscode_extension
+  changed_when: "'successfully installed' in vscode_extension.stdout"
+
+# ==============================================================================
+# PNPM / NodeJS
+# ==============================================================================
+
+- name: Check if pnpm binary is in place.
+  stat: "path={{ path_home_bin }}/pnpm/pnpm"
+  register: pnpm_binary
+  check_mode: false
+
+- name: Fetch pnpm install script.
+  uri:
+    url: https://get.pnpm.io/install.sh
+    return_content: true
+  register: pnpm_install_script
+  when: not pnpm_binary.stat.exists
+
+- name: Run pnpm install script.
+  shell:
+    cmd: sh -s
+    stdin: "{{ pnpm_install_script.content }}"
+  environment:
+    PNPM_HOME: "{{ path_home_bin }}/pnpm"
+    ZDOTDIR: "{{ path_home_config }}/zsh"
+  when: not pnpm_binary.stat.exists
+
+- name: Remove pnpm lines from '.zshrc'.
+  replace:
+    regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
+    path: "{{ path_home_config }}/zsh/.zshrc"
+  when: not pnpm_binary.stat.exists
+
+- name: Install NodeJS LTS.
+  shell: "pnpm env use --global lts"
+  environment:
+    PNPM_HOME: "{{ path_home_bin }}/pnpm"
+    PATH: "$PATH:{{ path_home_bin }}/pnpm"
+  when: not pnpm_binary.stat.exists

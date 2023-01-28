@@ -1,0 +1,60 @@
+---
+#      _       _    __ _ _
+#   __| | ___ | |_ / _(_) | ___  ___
+#  / _` |/ _ \| __| |_| | |/ _ \/ __|
+# | (_| | (_) | |_|  _| | |  __/\__ \
+#  \__,_|\___/ \__|_| |_|_|\___||___/
+
+
+- name: Ensure that all required directories are in place.
+  file:
+    path: "{{ ansible_env.HOME }}/{{ item }}"
+    state: directory
+    owner: "{{ user_id }}"
+    group: "{{ user_gid }}"
+  loop:
+    - .cache
+    - .cache/zsh
+    - .local
+    - .local/bin
+    - .local/share
+    - .local/share/zsh
+    - .local/state
+    - Projects
+
+- name: Clone dotfiles repository.
+  git:
+    repo: "https://github.com/timschneiderxyz/dotfiles"
+    dest: "{{ ansible_env.HOME }}/dotfiles"
+    version: main
+
+- name: Copy dotfiles to home directory.
+  copy:
+    src: "{{ ansible_env.HOME }}/dotfiles/home/"
+    dest: "{{ ansible_env.HOME }}"
+
+- name: Copy VS Code settings.
+  copy:
+    src: "{{ ansible_env.HOME }}/dotfiles/files/vscode-settings.json"
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+
+- name: Get current Terminal profile.
+  command: defaults read com.apple.terminal 'Default Window Settings'
+  register: terminal_profile
+  check_mode: false
+
+- name: Add custom Terminal profile.
+  command: open {{ ansible_env.HOME }}/dotfiles/files/Tim.terminal
+  when: "'Tim' not in terminal_profile.stdout"
+
+- name: Set custom Terminal profile as default.
+  command: "{{ item }}"
+  loop:
+    - defaults write com.apple.terminal 'Default Window Settings' -string Tim
+    - defaults write com.apple.terminal 'Startup Window Settings' -string Tim
+  when: "'Tim' not in terminal_profile.stdout"
+
+- name: Remove dotfiles repository.
+  file:
+    path: "{{ ansible_env.HOME }}/dotfiles"
+    state: absent
