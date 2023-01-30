@@ -6,8 +6,8 @@
 # (_)___|___/_| |_|\___|_| |_|\_/
 
 
-# Adds `~/.local/bin` to $PATH
-export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
+# Add to $PATH
+export PATH="$PATH:$HOME/Library/Python/3.9/bin:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
 
 # Apps
 export EDITOR="code"
