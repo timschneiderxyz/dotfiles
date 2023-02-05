@@ -25,8 +25,8 @@ setopt HIST_IGNORE_SPACE
 autoload -U history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
-bindkey "${terminfo[kcuu1]}" history-beginning-search-backward-end
-bindkey "${terminfo[kcud1]}" history-beginning-search-forward-end
+bindkey "^[[A" history-beginning-search-backward-end
+bindkey "^[[B" history-beginning-search-forward-end
 
 # Completion
 autoload -U compinit && compinit -d ~/.cache/zsh/zcompdump
@@ -40,7 +40,7 @@ zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 PS1="%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$ "
 
 # Aliases
-[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/aliases"
+[ -f "$XDG_CONFIG_HOME/zsh/aliases" ] && source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # Plugins
-[ -f "$XDG_DATA_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$XDG_DATA_HOME/zsh/syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ -f "/usr/local/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source "/usr/local/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"

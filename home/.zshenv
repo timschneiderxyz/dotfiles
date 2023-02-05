@@ -11,6 +11,9 @@ export PATH="$PATH:$HOME/Library/Python/3.9/bin:${$(find ~/.local/bin -maxdepth 
 
 # Apps
 export EDITOR="code"
+export HOMEBREW_NO_ANALYTICS=1
+export HOMEBREW_NO_ENV_HINTS=1
+export HOMEBREW_AUTO_UPDATE_SECS=604800
 
 # Directories
 export XDG_CONFIG_HOME="$HOME/.config"
