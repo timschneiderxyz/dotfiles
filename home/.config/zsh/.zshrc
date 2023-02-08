@@ -21,13 +21,6 @@ SAVEHIST=100000
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_IGNORE_SPACE
 
-# History Search
-autoload -U history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^[[A" history-beginning-search-backward-end
-bindkey "^[[B" history-beginning-search-forward-end
-
 # Completion
 autoload -U compinit && compinit -d ~/.cache/zsh/zcompdump
 zstyle ':completion:*' rehash true
@@ -44,3 +37,8 @@ PS1="%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m %{$fg[magenta]
 
 # Plugins
 [ -f "/usr/local/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source "/usr/local/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+[ -f "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ] && source "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# Keyboard Shortcuts
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
