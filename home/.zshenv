@@ -9,8 +9,9 @@
 # Add to $PATH
 export PATH="$PATH:$HOME/Library/Python/3.9/bin:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
 
-# Apps
+# Settings
 export EDITOR="code"
+export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_AUTO_UPDATE_SECS=604800
