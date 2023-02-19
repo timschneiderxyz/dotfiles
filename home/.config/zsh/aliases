@@ -8,7 +8,7 @@
 
 # Common
 alias \
-  update="sudo softwareupdate -i -a" \
+  update="brew update; brew upgrade; sudo softwareupdate -i -a" \
   c="code" \
   g="git" \
   pn="pnpm"
