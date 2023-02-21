@@ -24,6 +24,18 @@
 6. Clone or download this repository to your local drive.
 7. Run `ansible-playbook main.yml --ask-become-pass` inside this directory.
 
+## Manual Steps
+
+- Install Apps from the App Store: [Magnet](https://magnet.crowdcafe.com/), Word, Excel, PowerPoint
+- Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
+- Log into all your Apps: OneDrive, Discord, etc.
+- Adjust notifications options.
+- Adjust power managment options.
+- Exclude from Spotlight search: Bookmarks & History, Definition, Fonts, Movies, Music, Other, Siri Suggestions
+- Customize Finder sidebar and toolbar.
+- Copy SSH keys and set permissions (`chmod -R 700 ~/.ssh`).
+- Install [JetBrains Mono](https://www.jetbrains.com/de-de/lp/mono/) font.
+
 ## Special Thanks
 
 To [Jeff Geerling](https://github.com/geerlingguy) for his [Mac Dev Playbook](https://github.com/geerlingguy/mac-dev-playbook), [Ansible Collection Mac](https://github.com/geerlingguy/ansible-collection-mac) and generally for all his contributions to the open source community.
