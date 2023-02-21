@@ -25,6 +25,8 @@ homebrew_taps:
   - homebrew/cask
 
 homebrew_packages:
+  - zsh-syntax-highlighting
+  - zsh-history-substring-search
   - coreutils
   - nano
   - wget
@@ -32,8 +34,7 @@ homebrew_packages:
   - git
   - php
   - composer
-  - zsh-syntax-highlighting
-  - zsh-history-substring-search
+  - cloudflared
 
 homebrew_casks:
   - onedrive
