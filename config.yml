@@ -30,7 +30,6 @@ homebrew_packages:
   - coreutils
   - nano
   - wget
-  - iperf3
   - git
   - php
   - composer
@@ -41,12 +40,12 @@ homebrew_casks:
   - google-chrome
   - discord
   - spotify
+  - vlc
   - obsidian
   - visual-studio-code
+  - docker
   - affinity-photo
   - affinity-designer
-  - docker
-  - vlc
 
 # ==============================================================================
 # Extras

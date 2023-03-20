@@ -20,6 +20,7 @@
     - .local/share
     - .local/share/zsh
     - .local/state
+    - Library/Application Support/Code/User
     - Projects
 
 - name: Clone dotfiles repository.
