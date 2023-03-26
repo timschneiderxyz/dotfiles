@@ -40,9 +40,10 @@ homebrew_casks:
   - google-chrome
   - discord
   - spotify
-  - vlc
+  - iina
   - obsidian
   - visual-studio-code
+  - httpie
   - docker
   - affinity-photo
   - affinity-designer
@@ -53,17 +54,14 @@ homebrew_casks:
 
 vscode_extensions:
   - equinusocio.vsc-material-theme
-  - miguelsolorio.fluent-icons
   - pkief.material-icon-theme
   - ms-azuretools.vscode-docker
-  - rangav.vscode-thunder-client
   - natizyskunk.sftp
-  - mkxml.vscode-filesize
   - jock.svg
-  - bradlc.vscode-tailwindcss
-  - yzhang.markdown-all-in-one
-  - mikestead.dotenv
-  - bmewburn.vscode-intelephense-client
   - editorconfig.editorconfig
   - stylelint.vscode-stylelint
   - dbaeumer.vscode-eslint
+  - dotenv.dotenv-vscode
+  - bmewburn.vscode-intelephense-client
+  - bradlc.vscode-tailwindcss
+  - astro-build.astro-vscode

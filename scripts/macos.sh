@@ -10,9 +10,6 @@
 # General UI/UX
 # ==============================================================================
 
-# Turn off the “Application Downloaded from Internet” quarantine warning.
-defaults write com.apple.LaunchServices LSQuarantine -bool false
-
 # Don’t create .DS_Store files on USB and network volumes.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -114,7 +111,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 
 # Set the spring loading delay for folders.
-defaults write NSGlobalDomain com.apple.springing.delay -float 0.1
+defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 
 # Enable snap-to-grid for icons on the Desktop and in Finder.
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
