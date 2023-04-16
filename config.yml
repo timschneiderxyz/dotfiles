@@ -28,8 +28,9 @@ homebrew_packages:
   - zsh-syntax-highlighting
   - zsh-history-substring-search
   - coreutils
-  - nano
+  - exa
   - wget
+  - nano
   - git
   - php
   - composer
