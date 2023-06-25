@@ -11,6 +11,7 @@ alias \
   update="brew update; brew upgrade; sudo softwareupdate -i -a" \
   c="code" \
   g="git" \
+  m="make" \
   pn="pnpm"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
 
@@ -25,8 +26,8 @@ alias \
 alias \
   fd='find . -type d -name' \
   ff='find . -type f -name' \
-  ls="exa --group-directories-first" \
-  ll="ls -algh" \
+  ls="exa --group-directories-first -a" \
+  ll="exa --group-directories-first -algh" \
   mkd="mkdir -vp" \
   cp="cp -vi" \
   mv="mv -vi" \

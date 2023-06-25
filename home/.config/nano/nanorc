@@ -1,8 +1,8 @@
 # Appearance
 set titlecolor black,white
-set numbercolor magenta
-set statuscolor cyan
-set keycolor magenta
+set numbercolor green
+set statuscolor magenta
+set keycolor green
 set functioncolor yellow
 set stripecolor ,yellow
 set selectedcolor black,white
