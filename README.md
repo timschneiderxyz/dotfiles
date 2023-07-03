@@ -26,13 +26,53 @@
 
 ## Manual Steps
 
-- Install Apps from the App Store: [Magnet](https://magnet.crowdcafe.com/), Word, Excel, PowerPoint
+### Apps
+
+- Install Apps from the App Store:
+  - [Magnet](https://magnet.crowdcafe.com/)
+  - [Twingate](https://www.twingate.com/) 
+  - Word
+  - Excel
+  - PowerPoint
 - Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
 - Log into all your Apps: OneDrive, Discord, etc.
+- Safari:
+  - General: Homepage → `about:blank`
+  - General: Open "safe" files after downloading → `false`
+  - AutoFill: `false`
+  - Search: Include search engine suggestions → `false`
+  - Search: Include Safari Suggestions → `false`
+  - Privacy: Apply Pay and Apple Card → `false`
+  - Privacy: Web advertising → `false`
+  - Advanced: Show full website address → `true`
+  - Advanced: Show Develop menu in menu bar → `true`
+- Mail:
+  - General: Enable message follow up suggestions → `false`
+  - General: When searching all mailboxes, include results from → `Trash, Junk`
+  - Viewing: Show most recent message at the top → `true`
+
+### System
+
 - Adjust notifications options.
-- Adjust power managment options.
-- Exclude from Spotlight search: Bookmarks & History, Definition, Fonts, Movies, Music, Other, Siri Suggestions
+- Adjust power management options:
+  - Displays: Advanced → Prevent automatic sleeping on power adapter when the display is off → `true`
+  - Lock Screen: Start Screen Saver when inactive → `Never`
+  - Lock Screen: Turn display off on battery when inactive → `For 10 minutes`
+  - Lock Screen: Turn display off on power adapter when inactive → `For 30 minutes`
+  - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
+- Exclude from Spotlight search:
+  - Bookmarks & History
+  - Definition
+  - Fonts
+  - Movies
+  - Music
+  - Other
+  - Siri Suggestions
+- Privacy & Security: App Management → Add Terminal.app
 - Customize Finder sidebar and toolbar.
+
+### Miscellaneous
+
 - Copy SSH keys and set permissions (`chmod -R 700 ~/.ssh`).
 - Install [JetBrains Mono](https://www.jetbrains.com/de-de/lp/mono/) font.
 

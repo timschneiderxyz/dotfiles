@@ -104,8 +104,11 @@ defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 # Use list view in all Finder windows by default.
 defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
-# Show pathbar in Finder.
+# Show pathbar.
 defaults write com.apple.finder ShowPathbar -bool true
+
+# Show statusbar.
+defaults write com.apple.finder ShowStatusBar -bool true
 
 # No hover delay for the hidden icon in the toolbar.
 defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
