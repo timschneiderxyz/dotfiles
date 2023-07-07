@@ -73,15 +73,8 @@
   when: not homebrew_binary.stat.exists
 
 # ==============================================================================
-# Taps / Packages / Casks
+# Packages / Casks
 # ==============================================================================
-
-- name: Add Homebrew taps.
-  homebrew_tap:
-    tap: "{{ item.name | default(item) }}"
-    url: "{{ item.url | default(omit) }}"
-    state: present
-  loop: "{{ homebrew_taps }}"
 
 - name: Install Homebrew packages.
   homebrew:
