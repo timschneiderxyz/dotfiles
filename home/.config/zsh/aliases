@@ -6,34 +6,35 @@
 #  \__,_|_|_|\__,_|___/\___||___/
 
 
-# Common
-alias \
-  update="brew update; brew upgrade; sudo softwareupdate -i -a" \
-  c="code" \
-  g="git" \
-  m="make" \
-  pn="pnpm"
-sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
-
 # Navigation
 alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  p="cd ~/Projects"
-
-# Directories & Files
-alias \
+  p="cd ~/Projects" \
   fd='find . -type d -name' \
   ff='find . -type f -name' \
   ls="exa --group-directories-first -a" \
-  ll="exa --group-directories-first -algh" \
+  ll="exa --group-directories-first -algh"
+lt() {exa --group-directories-first -a --tree --level=$1}
+
+# Common
+alias \
   mkd="mkdir -vp" \
   cp="cp -vi" \
   mv="mv -vi" \
   rm="grm -vI" \
   grep="grep --color=auto"
 
+# Apps
+alias \
+  c="code" \
+  g="git" \
+  m="make" \
+  pn="pnpm"
+
 # Miscellaneous
 alias \
+  update="brew update; brew upgrade; pnpm env use --global lts; sudo softwareupdate -i -a" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
