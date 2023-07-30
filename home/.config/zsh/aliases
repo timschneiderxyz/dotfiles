@@ -38,3 +38,4 @@ alias \
   update="brew update; brew upgrade; pnpm env use --global lts; sudo softwareupdate -i -a" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
+tunnel() {cloudflared tunnel --protocol http2 --url localhost:$1}
