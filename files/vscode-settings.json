@@ -14,7 +14,6 @@
   "extensions.ignoreRecommendations": true,
   // Appearance
   "workbench.colorTheme": "Material Theme Palenight High Contrast",
-  "workbench.productIconTheme": "fluent-icons",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.activeIconPack": "react",
@@ -27,7 +26,7 @@
   "workbench.tree.indent": 12,
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
-  "editor.cursorSmoothCaretAnimation": true,
+  "editor.cursorSmoothCaretAnimation": "on",
   "editor.overviewRulerBorder": false,
   "editor.occurrencesHighlight": false,
   "editor.selectionHighlight": false,
@@ -48,6 +47,10 @@
     "editor.defaultFormatter": "stylelint.vscode-stylelint"
   },
   // Languages
+  "files.associations": {
+    ".env*": "dotenv"
+  },
+  "dotenv.enableAutocloaking": false,
   "css.validate": false,
   "scss.validate": false,
   "less.validate": false,
