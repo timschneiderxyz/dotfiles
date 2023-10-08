@@ -52,7 +52,7 @@
 - name: Clone Homebrew repository.
   git:
     repo: https://github.com/Homebrew/brew
-    dest: "{{ homebrew_path_install }}"
+    dest: "{{ homebrew_path_prefix }}/Homebrew"
     version: master
     depth: 1
     update: false
@@ -60,14 +60,14 @@
   become_user: "{{ user_id }}"
 
 - name: Check if Homebrew binary is in place.
-  stat: "path={{ homebrew_path_bin }}/brew"
+  stat: "path={{ homebrew_path_prefix }}/bin/brew"
   register: homebrew_binary
   check_mode: false
 
 - name: Symlink Homebrew binary to 'homebrew_path_bin'.
   file:
-    src: "{{ homebrew_path_install }}/bin/brew"
-    dest: "{{ homebrew_path_bin }}/brew"
+    src: "{{ homebrew_path_prefix }}/Homebrew/bin/brew"
+    dest: "{{ homebrew_path_prefix }}/bin/brew"
     state: link
   become: true
   when: not homebrew_binary.stat.exists
@@ -96,7 +96,7 @@
 # ==============================================================================
 
 - name: Get Homebrew cache location.
-  command: "{{ homebrew_path_bin }}/brew --cache"
+  command: "{{ homebrew_path_prefix }}/bin/brew --cache"
   register: homebrew_path_cache
   check_mode: false
 

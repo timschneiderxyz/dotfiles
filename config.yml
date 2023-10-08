@@ -17,8 +17,6 @@ configure_macos: true
 # ==============================================================================
 
 homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
-homebrew_path_install: "{{ homebrew_path_prefix }}/Homebrew"
-homebrew_path_bin: "{{ homebrew_path_prefix }}/bin"
 
 homebrew_packages:
   - zsh-syntax-highlighting
