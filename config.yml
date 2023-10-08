@@ -32,7 +32,7 @@ homebrew_packages:
 
 homebrew_casks:
   - onedrive
-  - google-chrome
+  - arc
   - discord
   - spotify
   - iina
