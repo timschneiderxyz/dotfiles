@@ -30,6 +30,9 @@ defaults -currentHost write com.apple.screensaver idleTime -int 0
 defaults write com.apple.screencapture type -string "jpg"
 defaults write com.apple.screencapture location -string "$HOME/Downloads"
 
+# Disable 'Click wallpaper to reveal desktop'.
+defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
+
 # Hot Corners
 defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tr-corner -int 0
