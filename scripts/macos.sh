@@ -7,30 +7,44 @@
 
 
 # ==============================================================================
-# General UI/UX
+# General
 # ==============================================================================
 
 # Don’t create .DS_Store files on USB and network volumes.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-# Expand save panel by default.
-defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-
-# Always show scrollbars.
-defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-
 # Hide Spotlight icon from the menubar.
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 
-# Disable screensaver.
-defaults -currentHost write com.apple.screensaver idleTime -int 0
+# Expand save panel by default.
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
-# Set screenshots format and location.
-defaults write com.apple.screencapture type -string "jpg"
-defaults write com.apple.screencapture location -string "$HOME/Downloads"
+# ==============================================================================
+# Appearance
+# ==============================================================================
 
-# Disable 'Click wallpaper to reveal desktop'.
+# Set 'Show scroll bars' to 'always'.
+defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# ==============================================================================
+# Desktop & Dock
+# ==============================================================================
+
+# Set the icon size of Dock items.
+defaults write com.apple.dock tilesize -int 48
+
+# Make Dock icons of hidden applications translucent.
+defaults write com.apple.dock showhidden -bool true
+
+# Set 'Minimize windows using' to 'Scale effect'.
+defaults write com.apple.dock mineffect -string "scale"
+
+# Set 'Show suggested and recent apps in Dock' to false.
+defaults write com.apple.dock recent-apps -array
+defaults write com.apple.dock show-recents -bool false
+
+# Set 'Click wallpaper to reveal desktop' to 'Only in Stage Manager'.
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 
 # Hot Corners
@@ -38,6 +52,19 @@ defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
+
+# ==============================================================================
+# Lock Screen
+# ==============================================================================
+
+# Set 'Start Screen Saver when inactive' to 'never'.
+defaults -currentHost write com.apple.screensaver idleTime -int 0
+
+# Set 'Turn display off on battery when inactive' to 10 minutes.
+sudo pmset -b displaysleep 10
+
+# Set 'Turn display off on power adapter when inactive' to 30 minutes.
+sudo pmset -c displaysleep 30
 
 # ==============================================================================
 # Keyboard / Trackpad / Mouse
@@ -59,23 +86,6 @@ defaults write -g com.apple.trackpad.scaling -float 1
 defaults write -g com.apple.mouse.scaling -float -1
 
 # ==============================================================================
-# Dock
-# ==============================================================================
-
-# Set the icon size of Dock items.
-defaults write com.apple.dock tilesize -int 48
-
-# Change the minimize/maximize window effect.
-defaults write com.apple.dock mineffect -string "scale"
-
-# Make Dock icons of hidden applications translucent.
-defaults write com.apple.dock showhidden -bool true
-
-# Don’t show recent applications in Dock.
-defaults write com.apple.dock recent-apps -array
-defaults write com.apple.dock show-recents -bool false
-
-# ==============================================================================
 # Finder
 # ==============================================================================
 
@@ -85,23 +95,23 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
-# Set the $HOME folder as the default location for new Finder windows.
+# Set 'New Finder windows show' to '$HOME'.
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
-# Show all file extensions.
+# Set 'Show all file extensions' to true.
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Disable the warning when changing a file extension.
+# Set 'Show warning before changing an extension' to false.
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Empty bin items after 30 days.
+# Set 'Remove items from the Trash after 30 days' to true.
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
-# Sort folders first.
+# Set 'Keep folders on top' for 'In windows when sorting by name' to true.
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# When performing a search, search the current folder by default.
+# Set 'When performing a search' to 'Search the Current Folder'.
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
 # Use list view in all Finder windows by default.
@@ -130,6 +140,10 @@ chflags nohidden ~/Library
 # ==============================================================================
 # Apps
 # ==============================================================================
+
+# Screenshot: Set format and location.
+defaults write com.apple.screencapture type -string "jpg"
+defaults write com.apple.screencapture location -string "$HOME/Downloads"
 
 # Terminal: Don’t mark lines.
 defaults write com.apple.Terminal AutoMarkPromptLines -bool false

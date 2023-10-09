@@ -53,14 +53,8 @@
 
 ### System
 
-- Adjust notifications options.
-- Adjust power management options:
-  - Displays: Advanced → Prevent automatic sleeping on power adapter when the display is off → `true`
-  - Lock Screen: Start Screen Saver when inactive → `Never`
-  - Lock Screen: Turn display off on battery when inactive → `For 10 minutes`
-  - Lock Screen: Turn display off on power adapter when inactive → `For 30 minutes`
-  - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
-- Exclude from Spotlight search:
+- Notifications: Adjust options.
+- Siri & Spotlight → exclude from Spotlight search:
   - Bookmarks & History
   - Definition
   - Fonts
@@ -69,7 +63,9 @@
   - Other
   - Siri Suggestions
 - Privacy & Security: App Management → Add Terminal.app
-- Disable <kbd>Control</kbd> + <kbd>Space</kbd> Shortcut: Keyboard → Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source"
+- Battery: Options → Prevent automatic sleeping on power adapter when the display is off → `true`
+- Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
+- Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
 - Customize Finder sidebar and toolbar.
 
 ### Miscellaneous
