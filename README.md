@@ -69,6 +69,7 @@
   - Other
   - Siri Suggestions
 - Privacy & Security: App Management → Add Terminal.app
+- Disable <kbd>Control</kbd> + <kbd>Space</kbd> Shortcut: Keyboard → Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source"
 - Customize Finder sidebar and toolbar.
 
 ### Miscellaneous
