@@ -27,7 +27,7 @@ zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*' completer _complete _approximate
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' matcher-list "m:{a-zA-Z}={A-Za-z}"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 # Prompt

@@ -1,13 +1,3 @@
-# Appearance
-set titlecolor black,white
-set numbercolor green
-set statuscolor magenta
-set keycolor green
-set functioncolor yellow
-set stripecolor ,yellow
-set selectedcolor black,white
-set errorcolor black,red
-
 # Options
 set linenumbers
 set constantshow
@@ -15,3 +5,13 @@ set autoindent
 set tabstospaces
 set tabsize 2
 set zap
+
+# Theme
+set titlecolor black,white
+set numbercolor magenta
+set statuscolor magenta
+set keycolor red
+set functioncolor yellow
+set stripecolor ,yellow
+set selectedcolor black,white
+set errorcolor black,red
