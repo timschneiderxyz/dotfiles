@@ -28,6 +28,7 @@ alias \
 
 # Apps
 alias \
+  t="tmux" \
   c="code" \
   g="git" \
   m="make" \
