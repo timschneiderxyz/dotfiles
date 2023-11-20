@@ -27,11 +27,11 @@ zstyle ':completion:*' cache-path "$XDG_CACHE_HOME/zsh/zcompcache"
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu yes select
 zstyle ':completion:*' completer _complete _approximate
-zstyle ':completion:*' matcher-list "m:{a-zA-Z}={A-Za-z}"
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
 # Prompt
-PS1="%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%m %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$ "
+PS1="%{$fg[magenta]%}%~ %{$fg[yellow]%}❯ "
 
 # Aliases
 [ -f "$XDG_CONFIG_HOME/zsh/aliases" ] && source "$XDG_CONFIG_HOME/zsh/aliases"
