@@ -6,9 +6,6 @@
 # (_)___|___/_| |_|\___|_| |_|\_/
 
 
-# Add to $PATH
-export PATH="$PATH:$HOME/Library/Python/3.9/bin:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
-
 # Settings
 export EDITOR="code"
 export SHELL_SESSIONS_DISABLE=1
@@ -16,7 +13,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_API_AUTO_UPDATE_SECS=86400
 
-# Directories
+# XDG Directories
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_BIN_HOME="$HOME/.local/bin"
@@ -30,9 +27,15 @@ export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export AZURE_CONFIG_DIR="$XDG_CONFIG_HOME/azure"
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
-export CARGO_HOME="$XDG_CONFIG_HOME/cargo"
+export RUSTUP_HOME="$XDG_BIN_HOME/rustup"
+export CARGO_HOME="$XDG_BIN_HOME/rustup/cargo"
 export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
 export ANSIBLE_HOME="$XDG_CONFIG_HOME/ansible"
 export PNPM_HOME="$XDG_BIN_HOME/pnpm"
 export NODE_REPL_HISTORY=""
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
+
+# Add to $PATH
+export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
+export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="$PATH:$HOME/Library/Python/3.9/bin"
