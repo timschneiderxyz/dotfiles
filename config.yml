@@ -9,7 +9,7 @@
 
 configure_homebrew: true
 configure_dotfiles: true
-configure_extras: true
+configure_development: true
 configure_macos: true
 
 # ==============================================================================
