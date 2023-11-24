@@ -13,8 +13,8 @@
   ac = !git add . && git commit -m
   aca = !git add . && git commit --amend --no-edit
   undo = reset --soft HEAD~1
-  sh = push
-  ll = pull --rebase
+  ps = push
+  pl = pull --rebase
   rc = rebase --continue
   s = stash
   sp = stash pop
@@ -24,4 +24,4 @@
   bdr = push --delete
   f = fetch --prune
   l = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)'
-  ls = log --oneline --graph --stat
+  ll = log --oneline --graph --stat
