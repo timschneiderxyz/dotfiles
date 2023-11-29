@@ -38,4 +38,3 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 # Add to $PATH
 export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
 export PATH="$PATH:$CARGO_HOME/bin"
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"
