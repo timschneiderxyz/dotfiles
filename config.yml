@@ -21,6 +21,7 @@ homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew'
 homebrew_packages:
   - zsh-syntax-highlighting
   - zsh-history-substring-search
+  - tmux
   - coreutils
   - exa
   - wget

@@ -18,6 +18,31 @@
   changed_when: "'successfully installed' in vscode_extension.stdout"
 
 # ==============================================================================
+# Rust
+# ==============================================================================
+
+- name: Check if cargo binary is in place.
+  stat: "path={{ path_home_bin }}/rustup/cargo/bin/cargo"
+  register: cargo_binary
+  check_mode: false
+
+- name: Fetch rustup install script.
+  uri:
+    url: https://sh.rustup.rs
+    return_content: true
+  register: rustup_install_script
+  when: not cargo_binary.stat.exists
+
+- name: Run rustup install script.
+  shell:
+    cmd: sh -s -- -y --no-modify-path
+    stdin: "{{ rustup_install_script.content }}"
+  environment:
+    RUSTUP_HOME: "{{ path_home_bin }}/rustup"
+    CARGO_HOME: "{{ path_home_bin }}/rustup/cargo"
+  when: not cargo_binary.stat.exists
+
+# ==============================================================================
 # PNPM / NodeJS
 # ==============================================================================
 
