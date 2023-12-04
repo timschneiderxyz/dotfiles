@@ -29,6 +29,7 @@ alias \
 # Apps
 alias \
   c="code" \
+  nv="nvim" \
   g="git" \
   m="make" \
   pn="pnpm"
