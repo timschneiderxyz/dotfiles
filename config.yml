@@ -23,13 +23,14 @@ homebrew_packages:
   - zsh-history-substring-search
   - coreutils
   - exa
+  - cloudflared
   - tmux
   - neovim
   - nano
   - git
+  - go
   - php
   - composer
-  - cloudflared
 
 homebrew_casks:
   - onedrive
