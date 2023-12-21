@@ -26,7 +26,6 @@ homebrew_packages:
   - cloudflared
   - tmux
   - neovim
-  - nano
   - git
   - go
   - php
