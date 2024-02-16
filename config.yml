@@ -27,6 +27,7 @@ homebrew_packages:
   - tmux
   - neovim
   - git
+  - postgresql
   - go
   - php
   - composer
