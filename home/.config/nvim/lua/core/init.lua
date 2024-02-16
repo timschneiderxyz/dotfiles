@@ -1,7 +1,6 @@
 -- General
 vim.api.nvim_exec('language en_US', false)
 vim.api.nvim_exec('autocmd VimLeave * set guicursor=a:ver25-blinkon1', false)
--- vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undofile = true
