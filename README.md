@@ -71,7 +71,7 @@
 ### Miscellaneous
 
 - Copy SSH keys and set permissions (`chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`).
-- Install [JetBrains Mono](https://www.jetbrains.com/de-de/lp/mono/) font.
+- Install the fonts [Geist](https://vercel.com/font) and [JetBrains Mono](https://www.jetbrains.com/de-de/lp/mono/).
 
 ## Special Thanks
 

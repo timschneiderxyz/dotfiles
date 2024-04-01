@@ -18,7 +18,6 @@
     - .local
     - .local/bin
     - .local/share
-    - .local/share/zsh
     - .local/state
     - Library/Application Support/Code/User
     - Projects
