@@ -43,3 +43,6 @@ PS1="%{$fg[magenta]%}%~ %{$fg[yellow]%}❯ "
 # Keybindings
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
+
+# Initializations
+eval "$(zoxide init --cmd cd zsh)"

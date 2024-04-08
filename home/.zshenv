@@ -22,6 +22,7 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # ~/ Clean-up
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export _ZO_DATA_DIR="$XDG_DATA_HOME/zoxide"
 export LESSHISTFILE="-"
 export AZURE_CONFIG_DIR="$XDG_CONFIG_HOME/azure"
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
