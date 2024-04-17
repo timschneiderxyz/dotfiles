@@ -11,7 +11,6 @@ alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  p="cd ~/Projects" \
   fd='find . -type d -name' \
   ff='find . -type f -name' \
   ls="exa --group-directories-first -a" \
