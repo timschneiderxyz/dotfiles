@@ -7,7 +7,7 @@
 
 
 # Settings
-export EDITOR="code"
+export EDITOR="nvim"
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
@@ -39,5 +39,6 @@ export NODE_REPL_HISTORY=""
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # Add to $PATH
+export PATH="$PATH:/opt/homebrew/bin"
 export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
 export PATH="$PATH:$CARGO_HOME/bin"
