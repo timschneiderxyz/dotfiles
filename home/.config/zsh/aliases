@@ -13,9 +13,9 @@ alias \
   ....="cd ../../.." \
   fd='find . -type d -name' \
   ff='find . -type f -name' \
-  ls="exa --group-directories-first -a" \
-  ll="exa --group-directories-first -algh"
-lt() {exa --group-directories-first -a --tree --level=$1}
+  ls="eza --icons=always --group-directories-first --all" \
+  ll="eza --icons=always --group-directories-first --all --long --header --group"
+lt() {eza --icons=always --group-directories-first --all --tree --level=$1}
 
 # Common
 alias \
