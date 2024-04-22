@@ -38,22 +38,6 @@
     src: "{{ ansible_env.HOME }}/dotfiles/misc/vscode-settings.json"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
 
-- name: Get current Terminal profile.
-  command: defaults read com.apple.terminal 'Default Window Settings'
-  register: terminal_profile
-  check_mode: false
-
-- name: Add custom Terminal profile.
-  command: open {{ ansible_env.HOME }}/dotfiles/misc/Tim.terminal
-  when: "'Tim' not in terminal_profile.stdout"
-
-- name: Set custom Terminal profile as default.
-  command: "{{ item }}"
-  loop:
-    - defaults write com.apple.terminal 'Default Window Settings' -string Tim
-    - defaults write com.apple.terminal 'Startup Window Settings' -string Tim
-  when: "'Tim' not in terminal_profile.stdout"
-
 - name: Remove dotfiles repository.
   file:
     path: "{{ ansible_env.HOME }}/dotfiles"
