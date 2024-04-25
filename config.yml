@@ -20,7 +20,9 @@ homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew'
 
 homebrew_packages:
   - zsh-syntax-highlighting
+  - zsh-autosuggestions
   - zsh-history-substring-search
+  - starship
   - coreutils
   - zoxide
   - fzf
