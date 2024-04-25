@@ -30,19 +30,18 @@ zstyle ':completion:*' completer _complete _approximate
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors '${(s.:.)LS_COLORS}'
 
-# Prompt
-PS1="%{$fg[magenta]%}%~ %{$fg[yellow]%}❯ "
-
 # Aliases
 [ -f "$XDG_CONFIG_HOME/zsh/aliases" ] && source "$XDG_CONFIG_HOME/zsh/aliases"
 
 # Plugins
 [ -f "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "/usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+[ -f "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 [ -f "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ] && source "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
+
+# Initializations
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 
 # Keybindings
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
-
-# Initializations
-eval "$(zoxide init --cmd cd zsh)"
