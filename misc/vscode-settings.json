@@ -6,6 +6,7 @@
   "workbench.startupEditor": "newUntitledFile",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
+  "editor.accessibilitySupport": "off",
   // Online Services
   "telemetry.telemetryLevel": "off",
   "workbench.enableExperiments": false,
@@ -27,7 +28,6 @@
   "breadcrumbs.enabled": false,
   "editor.minimap.enabled": false,
   "editor.scrollBeyondLastLine": false,
-  "editor.cursorSmoothCaretAnimation": "on",
   "editor.overviewRulerBorder": false,
   "editor.occurrencesHighlight": false,
   "editor.selectionHighlight": false,

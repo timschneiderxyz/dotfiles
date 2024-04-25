@@ -32,10 +32,10 @@ export RUSTUP_HOME="$XDG_BIN_HOME/rustup"
 export CARGO_HOME="$XDG_BIN_HOME/rustup/cargo"
 export GOPATH="$XDG_DATA_HOME/go"
 export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
-export PYTHONSTARTUP="$XDG_CONFIG_HOME/python/pythonrc"
+export PYTHON_HISTORY="$XDG_CACHE_HOME/python/history"
 export ANSIBLE_HOME="$XDG_CONFIG_HOME/ansible"
 export PNPM_HOME="$XDG_BIN_HOME/pnpm"
-export NODE_REPL_HISTORY=""
+export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/history"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # Add to $PATH
