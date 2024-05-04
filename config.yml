@@ -23,21 +23,26 @@ homebrew_packages:
   - zsh-autosuggestions
   - zsh-history-substring-search
   - starship
+  - tmux
   - coreutils
   - zoxide
   - fzf
   - eza
   - jq
-  - cloudflared
-  - tmux
   - neovim
   - git
+  - httpie
+  - cloudflared
   - postgresql
   - go
   - php
   - composer
 
 homebrew_casks:
+  - homebrew/cask-fonts/font-geist
+  - homebrew/cask-fonts/font-geist-mono
+  - homebrew/cask-fonts/font-jetbrains-mono
+  - homebrew/cask-fonts/font-symbols-only-nerd-font
   - onedrive
   - arc
   - discord
@@ -46,7 +51,6 @@ homebrew_casks:
   - obsidian
   - kitty
   - visual-studio-code
-  - httpie
   - docker
   - affinity-photo
   - affinity-designer

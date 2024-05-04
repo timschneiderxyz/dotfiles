@@ -67,11 +67,7 @@
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
 - Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
 - Customize Finder sidebar and toolbar.
-
-### Miscellaneous
-
 - Copy SSH keys and set permissions (`chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`).
-- Install the fonts [Geist](https://vercel.com/font), [JetBrains Mono](https://www.jetbrains.com/de-de/lp/mono/) and [Symbols Nerd Font](https://www.nerdfonts.com/font-downloads).
 
 ## Special Thanks
 
