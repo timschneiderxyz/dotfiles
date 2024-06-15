@@ -30,7 +30,6 @@
 
 - Install Apps from the App Store:
   - [Magnet](https://magnet.crowdcafe.com/)
-  - [Twingate](https://www.twingate.com/) 
   - Word
   - Excel
   - PowerPoint

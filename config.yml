@@ -43,6 +43,7 @@ homebrew_casks:
   - homebrew/cask-fonts/font-geist-mono
   - homebrew/cask-fonts/font-jetbrains-mono
   - homebrew/cask-fonts/font-symbols-only-nerd-font
+  - tailscale
   - onedrive
   - arc
   - discord
@@ -70,5 +71,6 @@ vscode_extensions:
   - dbaeumer.vscode-eslint
   - dotenv.dotenv-vscode
   - bmewburn.vscode-intelephense-client
+  - yoavbls.pretty-ts-errors
   - bradlc.vscode-tailwindcss
   - astro-build.astro-vscode
