@@ -14,7 +14,7 @@
   "extensions.autoUpdate": false,
   "extensions.ignoreRecommendations": true,
   // Appearance
-  "workbench.colorTheme": "Material Theme Palenight High Contrast",
+  "workbench.colorTheme": "Tokyo Night Storm",
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.activeIconPack": "react",
