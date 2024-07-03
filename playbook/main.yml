@@ -15,8 +15,6 @@
     - set_fact:
         user_id: "{{ user_id | default(ansible_user_id) }}"
         user_gid: "{{ user_gid | default(ansible_user_gid) }}"
-        path_home_config: "{{ ansible_env.HOME }}/.config"
-        path_home_bin: "{{ ansible_env.HOME }}/.local/bin"
 
   tasks:
     - import_tasks: tasks/homebrew.yml

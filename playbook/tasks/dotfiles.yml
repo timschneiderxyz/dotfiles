@@ -24,23 +24,12 @@
     - Library/Application Support/Code/User
     - Projects
 
-- name: Clone dotfiles repository.
-  git:
-    repo: "https://github.com/timschneiderxyz/dotfiles"
-    dest: "{{ ansible_env.HOME }}/dotfiles"
-    version: main
-
 - name: Copy dotfiles to home directory.
   copy:
-    src: "{{ ansible_env.HOME }}/dotfiles/home/"
+    src: "{{ playbook_dir }}/../home/"
     dest: "{{ ansible_env.HOME }}"
 
 - name: Copy VS Code settings.
   copy:
-    src: "{{ ansible_env.HOME }}/dotfiles/misc/vscode-settings.json"
+    src: "{{ playbook_dir }}/../misc/vscode-settings.json"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
-
-- name: Remove dotfiles repository.
-  file:
-    path: "{{ ansible_env.HOME }}/dotfiles"
-    state: absent

@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="https://github.com/timschneiderxyz/dotfiles/blob/main/playbook-mac.png" width="250" height="156" alt="Playbook Mac Logo">
+  <img src="https://github.com/timschneiderxyz/dotfiles/blob/main/playbook-mac.png" width="250" height="156" alt="Playbook Mac">
 </p>
 
 <h1 align="center">dotfiles</h1>
 
 <p align="center">
-  My dotfiles & configs as well as the setup of my Mac via Ansible.
+  My dotfiles & configs as well as the setup of macOS via Ansible.
 </p>
 
 <p align="center">
@@ -22,7 +22,7 @@
 4. Install Ansible: `pip3 install ansible`.
 5. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
 6. Clone or download this repository to your local `$HOME` directory.
-7. Run `ansible-playbook main.yml --ask-become-pass` inside this directory.
+7. Change directory to `playbook` and run `ansible-playbook main.yml --ask-become-pass`.
 
 ## Manual Steps
 

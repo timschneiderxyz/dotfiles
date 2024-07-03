@@ -22,7 +22,7 @@
 # ==============================================================================
 
 - name: Check if cargo binary is in place.
-  stat: "path={{ path_home_bin }}/rustup/cargo/bin/cargo"
+  stat: "path={{ ansible_env.HOME }}/.local/bin/rustup/cargo/bin/cargo"
   register: cargo_binary
   check_mode: false
 
@@ -38,8 +38,8 @@
     cmd: sh -s -- -y --no-modify-path
     stdin: "{{ rustup_install_script.content }}"
   environment:
-    RUSTUP_HOME: "{{ path_home_bin }}/rustup"
-    CARGO_HOME: "{{ path_home_bin }}/rustup/cargo"
+    RUSTUP_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup"
+    CARGO_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo"
   when: not cargo_binary.stat.exists
 
 # ==============================================================================
@@ -47,7 +47,7 @@
 # ==============================================================================
 
 - name: Check if pnpm binary is in place.
-  stat: "path={{ path_home_bin }}/pnpm/pnpm"
+  stat: "path={{ ansible_env.HOME }}/.local/bin/pnpm/pnpm"
   register: pnpm_binary
   check_mode: false
 
@@ -63,19 +63,19 @@
     cmd: sh -s
     stdin: "{{ pnpm_install_script.content }}"
   environment:
-    PNPM_HOME: "{{ path_home_bin }}/pnpm"
-    ZDOTDIR: "{{ path_home_config }}/zsh"
+    PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
+    ZDOTDIR: "{{ ansible_env.HOME }}/.config/zsh"
   when: not pnpm_binary.stat.exists
 
 - name: Remove pnpm lines from '.zshrc'.
   replace:
     regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
-    path: "{{ path_home_config }}/zsh/.zshrc"
+    path: "{{ ansible_env.HOME }}/.config/zsh/.zshrc"
   when: not pnpm_binary.stat.exists
 
 - name: Install NodeJS LTS.
   shell: "pnpm env use --global lts"
   environment:
-    PNPM_HOME: "{{ path_home_bin }}/pnpm"
-    PATH: "$PATH:{{ path_home_bin }}/pnpm"
+    PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
+    PATH: "$PATH:{{ ansible_env.HOME }}/.local/bin/pnpm"
   when: not pnpm_binary.stat.exists
