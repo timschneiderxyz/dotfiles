@@ -6,4 +6,5 @@
 !.vscode/tasks.json
 
 # Miscellaneous
+tmp/
 .DS_Store

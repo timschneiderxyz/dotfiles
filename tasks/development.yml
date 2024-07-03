@@ -1,0 +1,81 @@
+---
+#  ____                 _                                  _
+# |  _ \  _____   _____| | ___  _ __  _ __ ___   ___ _ __ | |_
+# | | | |/ _ \ \ / / _ \ |/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+# | |_| |  __/\ V /  __/ | (_) | |_) | | | | | |  __/ | | | |_
+# |____/ \___| \_/ \___|_|\___/| .__/|_| |_| |_|\___|_| |_|\__|
+#                              |_|
+
+
+# ==============================================================================
+# VS Code
+# ==============================================================================
+
+- name: Install VS Code extensions.
+  command: code --install-extension {{ item }}
+  loop: "{{ vscode_extensions }}"
+  register: vscode_extension
+  changed_when: "'successfully installed' in vscode_extension.stdout"
+
+# ==============================================================================
+# Rust
+# ==============================================================================
+
+- name: Check if cargo binary is in place.
+  stat: "path={{ path_home_bin }}/rustup/cargo/bin/cargo"
+  register: cargo_binary
+  check_mode: false
+
+- name: Fetch rustup install script.
+  uri:
+    url: https://sh.rustup.rs
+    return_content: true
+  register: rustup_install_script
+  when: not cargo_binary.stat.exists
+
+- name: Run rustup install script.
+  shell:
+    cmd: sh -s -- -y --no-modify-path
+    stdin: "{{ rustup_install_script.content }}"
+  environment:
+    RUSTUP_HOME: "{{ path_home_bin }}/rustup"
+    CARGO_HOME: "{{ path_home_bin }}/rustup/cargo"
+  when: not cargo_binary.stat.exists
+
+# ==============================================================================
+# PNPM / NodeJS
+# ==============================================================================
+
+- name: Check if pnpm binary is in place.
+  stat: "path={{ path_home_bin }}/pnpm/pnpm"
+  register: pnpm_binary
+  check_mode: false
+
+- name: Fetch pnpm install script.
+  uri:
+    url: https://get.pnpm.io/install.sh
+    return_content: true
+  register: pnpm_install_script
+  when: not pnpm_binary.stat.exists
+
+- name: Run pnpm install script.
+  shell:
+    cmd: sh -s
+    stdin: "{{ pnpm_install_script.content }}"
+  environment:
+    PNPM_HOME: "{{ path_home_bin }}/pnpm"
+    ZDOTDIR: "{{ path_home_config }}/zsh"
+  when: not pnpm_binary.stat.exists
+
+- name: Remove pnpm lines from '.zshrc'.
+  replace:
+    regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
+    path: "{{ path_home_config }}/zsh/.zshrc"
+  when: not pnpm_binary.stat.exists
+
+- name: Install NodeJS LTS.
+  shell: "pnpm env use --global lts"
+  environment:
+    PNPM_HOME: "{{ path_home_bin }}/pnpm"
+    PATH: "$PATH:{{ path_home_bin }}/pnpm"
+  when: not pnpm_binary.stat.exists

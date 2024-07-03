@@ -1,0 +1,16 @@
+---
+#                        ___  ____
+#  _ __ ___   __ _  ___ / _ \/ ___|
+# | '_ ` _ \ / _` |/ __| | | \___ \
+# | | | | | | (_| | (__| |_| |___) |
+# |_| |_| |_|\__,_|\___|\___/|___/
+
+
+- name: Ensure the macOS script has the correct permissions.
+  file:
+    path: ./scripts/macos.sh
+    state: touch
+    mode: a+x
+
+- name: Run macOS script.
+  command: ./scripts/macos.sh

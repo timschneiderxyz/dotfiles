@@ -1,0 +1,76 @@
+---
+#   ____             __ _
+#  / ___|___  _ __  / _(_) __ _
+# | |   / _ \| '_ \| |_| |/ _` |
+# | |__| (_) | | | |  _| | (_| |
+#  \____\___/|_| |_|_| |_|\__, |
+#                         |___/
+
+
+configure_homebrew: true
+configure_dotfiles: true
+configure_development: true
+configure_macos: true
+
+# ==============================================================================
+# Homebrew
+# ==============================================================================
+
+homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+
+homebrew_packages:
+  - zsh-syntax-highlighting
+  - zsh-autosuggestions
+  - zsh-history-substring-search
+  - starship
+  - tmux
+  - coreutils
+  - zoxide
+  - fzf
+  - eza
+  - jq
+  - neovim
+  - git
+  - httpie
+  - cloudflared
+  - postgresql
+  - go
+  - php
+  - composer
+
+homebrew_casks:
+  - homebrew/cask-fonts/font-geist
+  - homebrew/cask-fonts/font-geist-mono
+  - homebrew/cask-fonts/font-jetbrains-mono
+  - homebrew/cask-fonts/font-symbols-only-nerd-font
+  - tailscale
+  - onedrive
+  - arc
+  - discord
+  - spotify
+  - iina
+  - obsidian
+  - kitty
+  - visual-studio-code
+  - docker
+  - affinity-photo
+  - affinity-designer
+
+# ==============================================================================
+# Extras
+# ==============================================================================
+
+vscode_extensions:
+  - equinusocio.vsc-material-theme
+  - pkief.material-icon-theme
+  - ms-azuretools.vscode-docker
+  - natizyskunk.sftp
+  - jock.svg
+  - editorconfig.editorconfig
+  - stylelint.vscode-stylelint
+  - dbaeumer.vscode-eslint
+  - dotenv.dotenv-vscode
+  - bmewburn.vscode-intelephense-client
+  - yoavbls.pretty-ts-errors
+  - bradlc.vscode-tailwindcss
+  - astro-build.astro-vscode

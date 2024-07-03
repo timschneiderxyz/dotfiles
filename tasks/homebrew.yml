@@ -1,0 +1,106 @@
+---
+#  _   _                      _
+# | | | | ___  _ __ ___   ___| |__  _ __ _____      __
+# | |_| |/ _ \| '_ ` _ \ / _ \ '_ \| '__/ _ \ \ /\ / /
+# |  _  | (_) | | | | | |  __/ |_) | | |  __/\ V  V /
+# |_| |_|\___/|_| |_| |_|\___|_.__/|_|  \___| \_/\_/
+
+
+# ==============================================================================
+# Setup
+# ==============================================================================
+
+- name: Ensure Homebrew parent directory has the correct permissions (ARM).
+  file:
+    path: "{{ homebrew_path_prefix }}"
+    state: directory
+    owner: "{{ user_id }}"
+  become: true
+  when: ansible_machine == 'arm64'
+
+- name: Ensure Homebrew parent directory has the correct permissions (Intel).
+  file:
+    path: "{{ homebrew_path_prefix }}"
+    state: directory
+    owner: root
+  become: true
+  when: ansible_machine == 'x86_64'
+
+- name: Ensure Homebrew directories are in place.
+  file:
+    path: "{{ homebrew_path_prefix }}/{{ item }}"
+    state: directory
+    owner: "{{ user_id }}"
+    group: "{{ user_gid }}"
+  loop:
+    - Caskroom
+    - Cellar
+    - Frameworks
+    - Homebrew
+    - bin
+    - etc
+    - include
+    - lib
+    - opt
+    - sbin
+    - share
+    - share/zsh
+    - share/zsh/site-functions
+    - var
+  become: true
+
+- name: Clone Homebrew repository.
+  git:
+    repo: https://github.com/Homebrew/brew
+    dest: "{{ homebrew_path_prefix }}/Homebrew"
+    version: master
+    depth: 1
+    update: false
+  become: true
+  become_user: "{{ user_id }}"
+
+- name: Check if Homebrew binary is in place.
+  stat: "path={{ homebrew_path_prefix }}/bin/brew"
+  register: homebrew_binary
+  check_mode: false
+
+- name: Symlink Homebrew binary to 'homebrew_path_bin'.
+  file:
+    src: "{{ homebrew_path_prefix }}/Homebrew/bin/brew"
+    dest: "{{ homebrew_path_prefix }}/bin/brew"
+    state: link
+  become: true
+  when: not homebrew_binary.stat.exists
+
+# ==============================================================================
+# Packages / Casks
+# ==============================================================================
+
+- name: Install Homebrew packages.
+  homebrew:
+    name: "{{ item.name | default(item) }}"
+    state: "{{ item.state | default('present') }}"
+    install_options: "{{ item.install_options | default(omit) }}"
+  loop: "{{ homebrew_packages }}"
+
+- name: Install Homebrew casks.
+  homebrew_cask:
+    name: "{{ item.name | default(item) }}"
+    state: present
+    install_options: "{{ item.install_options | default('appdir=/Applications') }}"
+    sudo_password: "{{ ansible_become_password | default(omit) }}"
+  loop: "{{ homebrew_casks }}"
+
+# ==============================================================================
+# Cache
+# ==============================================================================
+
+- name: Get Homebrew cache location.
+  command: "{{ homebrew_path_prefix }}/bin/brew --cache"
+  register: homebrew_path_cache
+  check_mode: false
+
+- name: Clear Homebrew cache.
+  file:
+    path: "{{ homebrew_path_cache.stdout | trim }}"
+    state: absent
