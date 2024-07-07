@@ -42,8 +42,9 @@ source "/usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 source "/usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh"
 
 # Initializations
-eval "$(starship init zsh)"
-eval "$(zoxide init --cmd cd zsh)"
+source <(starship init zsh)
+source <(zoxide init --cmd cd zsh)
+source <(fzf --zsh)
 
 # Keybindings
 bindkey "^[[A" history-substring-search-up

@@ -40,5 +40,5 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 
 # Add to $PATH
 export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:${$(find ~/.local/bin -maxdepth 1 -type d -exec stat -nf %N: {} \;)%%:}"
+export PATH="$PATH:$(find ~/.local/bin -maxdepth 1 -type d | paste -sd ':' -)"
 export PATH="$PATH:$CARGO_HOME/bin"
