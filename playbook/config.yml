@@ -33,16 +33,16 @@ homebrew_packages:
   - git
   - httpie
   - cloudflared
+  - kubectl
   - postgresql
   - go
   - php
   - composer
 
 homebrew_casks:
-  - homebrew/cask-fonts/font-geist
-  - homebrew/cask-fonts/font-geist-mono
-  - homebrew/cask-fonts/font-jetbrains-mono
-  - homebrew/cask-fonts/font-symbols-only-nerd-font
+  - font-geist
+  - font-geist-mono
+  - font-jetbrains-mono
   - tailscale
   - onedrive
   - arc

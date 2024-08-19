@@ -31,6 +31,8 @@ alias \
   nv="nvim" \
   g="git" \
   m="make" \
+  k="kubectl" \
+  d="docker" \
   pn="pnpm"
 
 # Miscellaneous
