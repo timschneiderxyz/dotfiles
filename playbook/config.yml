@@ -19,9 +19,6 @@ configure_macos: true
 homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
 
 homebrew_packages:
-  - zsh-syntax-highlighting
-  - zsh-autosuggestions
-  - zsh-history-substring-search
   - starship
   - tmux
   - coreutils
@@ -61,7 +58,7 @@ homebrew_casks:
 # ==============================================================================
 
 vscode_extensions:
-  - equinusocio.vsc-material-theme
+  - enkia.tokyo-night
   - pkief.material-icon-theme
   - ms-azuretools.vscode-docker
   - natizyskunk.sftp
