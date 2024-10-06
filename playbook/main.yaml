@@ -1,0 +1,27 @@
+---
+#  __  __       _
+# |  \/  | __ _(_)_ __
+# | |\/| |/ _` | | '_ \
+# | |  | | (_| | | | | |
+# |_|  |_|\__,_|_|_| |_|
+
+
+- hosts: all
+  vars_files:
+    - "./vars/config.yaml"
+  pre_tasks:
+    - set_fact:
+        homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
+  tasks:
+    - import_tasks: "./tasks/homebrew.yaml"
+      when: configure_homebrew
+      tags: ["homebrew"]
+    - import_tasks: "./tasks/dotfiles.yaml"
+      when: configure_dotfiles
+      tags: ["dotfiles"]
+    - import_tasks: "./tasks/development.yaml"
+      when: configure_development
+      tags: ["development"]
+    - import_tasks: "./tasks/macos.yaml"
+      when: configure_macos
+      tags: ["macos"]

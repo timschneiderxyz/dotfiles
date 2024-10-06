@@ -8,9 +8,9 @@
 
 - name: Ensure the macOS script has the correct permissions.
   file:
-    path: ./scripts/macos.sh
+    path: "./scripts/macos.sh"
     state: touch
     mode: a+x
 
 - name: Run macOS script.
-  command: ./scripts/macos.sh
+  command: "./scripts/macos.sh"

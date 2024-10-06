@@ -16,8 +16,6 @@ configure_macos: true
 # Homebrew
 # ==============================================================================
 
-homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
-
 homebrew_packages:
   - starship
   - tmux

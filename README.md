@@ -22,7 +22,7 @@
 4. Install Ansible: `pip3 install ansible`.
 5. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
 6. Clone or download this repository to your local `$HOME` directory.
-7. Change directory to `playbook` and run `ansible-playbook main.yml --ask-become-pass`.
+7. Change directory to `playbook` and run `ansible-playbook main.yaml`.
 
 ## Manual Steps
 

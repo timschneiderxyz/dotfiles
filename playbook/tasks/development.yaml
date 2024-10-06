@@ -67,7 +67,7 @@
     ZDOTDIR: "{{ ansible_env.HOME }}/.config/zsh"
   when: not pnpm_binary.stat.exists
 
-- name: Remove pnpm lines from '.zshrc'.
+- name: Remove pnpm lines from ".zshrc".
   replace:
     regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
     path: "{{ ansible_env.HOME }}/.config/zsh/.zshrc"

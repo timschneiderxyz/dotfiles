@@ -14,8 +14,7 @@
   file:
     path: "{{ homebrew_path_prefix }}"
     state: directory
-    owner: "{{ user_id }}"
-  become: true
+    owner: "{{ ansible_user_id }}"
   when: ansible_machine == 'arm64'
 
 - name: Ensure Homebrew parent directory has the correct permissions (Intel).
@@ -23,15 +22,14 @@
     path: "{{ homebrew_path_prefix }}"
     state: directory
     owner: root
-  become: true
   when: ansible_machine == 'x86_64'
 
 - name: Ensure Homebrew directories are in place.
   file:
     path: "{{ homebrew_path_prefix }}/{{ item }}"
     state: directory
-    owner: "{{ user_id }}"
-    group: "{{ user_gid }}"
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
   loop:
     - Caskroom
     - Cellar
@@ -47,7 +45,6 @@
     - share/zsh
     - share/zsh/site-functions
     - var
-  become: true
 
 - name: Clone Homebrew repository.
   git:
@@ -56,20 +53,17 @@
     version: master
     depth: 1
     update: false
-  become: true
-  become_user: "{{ user_id }}"
 
 - name: Check if Homebrew binary is in place.
   stat: "path={{ homebrew_path_prefix }}/bin/brew"
   register: homebrew_binary
   check_mode: false
 
-- name: Symlink Homebrew binary to 'homebrew_path_bin'.
+- name: Symlink Homebrew binary to "homebrew_path_bin".
   file:
     src: "{{ homebrew_path_prefix }}/Homebrew/bin/brew"
     dest: "{{ homebrew_path_prefix }}/bin/brew"
     state: link
-  become: true
   when: not homebrew_binary.stat.exists
 
 # ==============================================================================
