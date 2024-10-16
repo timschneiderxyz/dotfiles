@@ -34,16 +34,34 @@
   - PowerPoint
 - Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
 - Log into all your Apps: OneDrive, Discord, etc.
+- Finder:
+  - Toolbar
+    - Back/Forward
+    - View
+    - Space
+    - Group
+    - Action
+    - Space
+    - Search
+  - Sidebar
+    - Home
+    - Projects
+    - Downloads
+    - Applications
+    - AirDrop
+    - iCloud Drive
+    - External Disks
+    - Cloud Storage
+    - Connected servers
 - Safari:
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`
   - AutoFill: `false`
   - Search: Include search engine suggestions → `false`
   - Search: Include Safari Suggestions → `false`
-  - Privacy: Apply Pay and Apple Card → `false`
-  - Privacy: Web advertising → `false`
   - Advanced: Show full website address → `true`
-  - Advanced: Show Develop menu in menu bar → `true`
+  - Advanced: Allow websites to check for Apply Pay and Apple Card → `false`
+  - Advanced: Show features for web developers → `true`
 - Mail:
   - General: Enable message follow up suggestions → `false`
   - General: When searching all mailboxes, include results from → `Trash, Junk`
@@ -51,21 +69,29 @@
 
 ### System
 
-- Notifications: Adjust options.
-- Siri & Spotlight → exclude from Spotlight search:
-  - Bookmarks & History
-  - Definition
-  - Fonts
-  - Movies
-  - Music
-  - Other
-  - Siri Suggestions
-- Privacy & Security: App Management → Add Terminal.app
 - Battery: Options → Prevent automatic sleeping on power adapter when the display is off → `true`
+- Notifications: Adjust options.
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
+- Privacy & Security: App Management → Add `kitty.app`
+- Spotlight: Search results
+  - Applications
+  - Calculator
+  - Contacts
+  - Documents
+  - Events & Reminders
+  - Folders
+  - Fonts
+  - Images
+  - Mail & Messages
+  - PDF Documents
+  - Presentations
+  - Spreadsheets
+  - System Settings
+- Spotlight: Improve Search → `false`
+- Keyboard: Press fn key to → `Do Nothing`
 - Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
 - Keyboard: Keyboard Shortcuts → Modifier Keys → Remap <kbd>Caps Lock</kbd> to <kbd>ESC</kbd>
-- Customize Finder sidebar and toolbar.
+- Keyboard: Input Sources → Edit → Show Input menu in menu bar → `false`
 - Copy SSH keys and set permissions (`chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`).
 
 ## Special Thanks
