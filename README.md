@@ -18,11 +18,10 @@
 
 1. Complete the initial Mac setup (Sign in to iCloud and the App Store).
 2. Install Xcode command line tools: `xcode-select --install`.
-3. Upgrade pip: `sudo pip3 install --upgrade pip`
-4. Install Ansible: `pip3 install ansible`.
-5. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
-6. Clone or download this repository to your local `$HOME` directory.
-7. Change directory to `playbook` and run `ansible-playbook main.yaml`.
+3. Install Ansible: `python3 -m pip install --user ansible`.
+4. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
+5. Clone or download this repository to your local `$HOME` directory.
+6. Change directory to `playbook` and run `ansible-playbook main.yaml`.
 
 ## Manual Steps
 
@@ -65,6 +64,7 @@
 - Battery: Options → Prevent automatic sleeping on power adapter when the display is off → `true`
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
 - Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
+- Keyboard: Keyboard Shortcuts → Modifier Keys → Remap <kbd>Caps Lock</kbd> to <kbd>ESC</kbd>
 - Customize Finder sidebar and toolbar.
 - Copy SSH keys and set permissions (`chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`).
 

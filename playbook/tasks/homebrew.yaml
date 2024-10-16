@@ -10,23 +10,15 @@
 # Setup
 # ==============================================================================
 
-- name: Ensure Homebrew parent directory has the correct permissions (ARM).
+- name: Ensure Homebrew parent directory is in place.
   file:
-    path: "{{ homebrew_path_prefix }}"
+    path: "/opt/homebrew"
     state: directory
     owner: "{{ ansible_user_id }}"
-  when: ansible_machine == 'arm64'
-
-- name: Ensure Homebrew parent directory has the correct permissions (Intel).
-  file:
-    path: "{{ homebrew_path_prefix }}"
-    state: directory
-    owner: root
-  when: ansible_machine == 'x86_64'
 
 - name: Ensure Homebrew directories are in place.
   file:
-    path: "{{ homebrew_path_prefix }}/{{ item }}"
+    path: "/opt/homebrew/{{ item }}"
     state: directory
     owner: "{{ ansible_user_id }}"
     group: "{{ ansible_user_gid }}"
@@ -49,20 +41,20 @@
 - name: Clone Homebrew repository.
   git:
     repo: https://github.com/Homebrew/brew
-    dest: "{{ homebrew_path_prefix }}/Homebrew"
+    dest: "/opt/homebrew/Homebrew"
     version: master
     depth: 1
     update: false
 
 - name: Check if Homebrew binary is in place.
-  stat: "path={{ homebrew_path_prefix }}/bin/brew"
+  stat: "path=/opt/homebrew/bin/brew"
   register: homebrew_binary
   check_mode: false
 
 - name: Symlink Homebrew binary to "homebrew_path_bin".
   file:
-    src: "{{ homebrew_path_prefix }}/Homebrew/bin/brew"
-    dest: "{{ homebrew_path_prefix }}/bin/brew"
+    src: "/opt/homebrew/Homebrew/bin/brew"
+    dest: "/opt/homebrew/bin/brew"
     state: link
   when: not homebrew_binary.stat.exists
 
@@ -84,17 +76,3 @@
     install_options: "{{ item.install_options | default('appdir=/Applications') }}"
     sudo_password: "{{ ansible_become_password | default(omit) }}"
   loop: "{{ homebrew_casks }}"
-
-# ==============================================================================
-# Cache
-# ==============================================================================
-
-- name: Get Homebrew cache location.
-  command: "{{ homebrew_path_prefix }}/bin/brew --cache"
-  register: homebrew_path_cache
-  check_mode: false
-
-- name: Clear Homebrew cache.
-  file:
-    path: "{{ homebrew_path_cache.stdout | trim }}"
-    state: absent

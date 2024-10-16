@@ -6,12 +6,9 @@
 # |_|  |_|\__,_|_|_| |_|
 
 
-- hosts: all
+- hosts: local
   vars_files:
     - "./vars/config.yaml"
-  pre_tasks:
-    - set_fact:
-        homebrew_path_prefix: "{{ (ansible_machine == 'arm64') | ternary('/opt/homebrew', '/usr/local') }}"
   tasks:
     - import_tasks: "./tasks/homebrew.yaml"
       when: configure_homebrew
