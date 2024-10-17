@@ -6,73 +6,26 @@
 # |_| |_|\___/|_| |_| |_|\___|_.__/|_|  \___| \_/\_/
 
 
-# ==============================================================================
-# Setup
-# ==============================================================================
-
-- name: Ensure Homebrew parent directory is in place.
-  file:
-    path: "/opt/homebrew"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-
-- name: Ensure Homebrew directories are in place.
-  file:
-    path: "/opt/homebrew/{{ item }}"
-    state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_gid }}"
-  loop:
-    - Caskroom
-    - Cellar
-    - Frameworks
-    - Homebrew
-    - bin
-    - etc
-    - include
-    - lib
-    - opt
-    - sbin
-    - share
-    - share/zsh
-    - share/zsh/site-functions
-    - var
-
-- name: Clone Homebrew repository.
-  git:
-    repo: https://github.com/Homebrew/brew
-    dest: "/opt/homebrew/Homebrew"
-    version: master
-    depth: 1
-    update: false
-
-- name: Check if Homebrew binary is in place.
-  stat: "path=/opt/homebrew/bin/brew"
-  register: homebrew_binary
+- name: Check if Homebrew is installed.
+  stat:
+    path: /opt/homebrew/bin/brew
+  register: brew_binary
   check_mode: false
 
-- name: Symlink Homebrew binary to "homebrew_path_bin".
-  file:
-    src: "/opt/homebrew/Homebrew/bin/brew"
-    dest: "/opt/homebrew/bin/brew"
-    state: link
-  when: not homebrew_binary.stat.exists
-
-# ==============================================================================
-# Packages / Casks
-# ==============================================================================
+- name: Fetch and run Homebrew install script.
+  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  when: not brew_binary.stat.exists
 
 - name: Install Homebrew packages.
   homebrew:
-    name: "{{ item.name | default(item) }}"
-    state: "{{ item.state | default('present') }}"
-    install_options: "{{ item.install_options | default(omit) }}"
+    name: "{{ item }}"
+    state: present
   loop: "{{ homebrew_packages }}"
 
 - name: Install Homebrew casks.
   homebrew_cask:
-    name: "{{ item.name | default(item) }}"
+    name: "{{ item }}"
     state: present
-    install_options: "{{ item.install_options | default('appdir=/Applications') }}"
+    install_options: "appdir=/Applications"
     sudo_password: "{{ ansible_become_password | default(omit) }}"
   loop: "{{ homebrew_casks }}"
