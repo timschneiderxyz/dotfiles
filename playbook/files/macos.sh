@@ -6,26 +6,33 @@
 # |_| |_| |_|\__,_|\___|\___/|____/
 
 
-# ==============================================================================
-# General
-# ==============================================================================
-
 # Don’t create .DS_Store files on USB and network volumes.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
-
-# Hide Spotlight icon from the menubar.
-defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 
 # Expand save panel by default.
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 
 # ==============================================================================
+# Battery
+# ==============================================================================
+
+# Set "Prevent automatic sleeping on power adapter when the display is off" to "true".
+sudo pmset -c sleep 0
+
+# ==============================================================================
 # Appearance
 # ==============================================================================
 
-# Set 'Show scroll bars' to 'always'.
+# Set "Show scroll bars" to "always".
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+# ==============================================================================
+# Control Center
+# ==============================================================================
+
+# Set Spotlight to "Don't show in Menu Bar".
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 
 # ==============================================================================
 # Desktop & Dock
@@ -37,14 +44,14 @@ defaults write com.apple.dock tilesize -int 44
 # Make Dock icons of hidden applications translucent.
 defaults write com.apple.dock showhidden -bool true
 
-# Set 'Minimize windows using' to 'Scale effect'.
+# Set "Minimize windows using" to "Scale effect".
 defaults write com.apple.dock mineffect -string "scale"
 
-# Set 'Show suggested and recent apps in Dock' to false.
+# Set "Show suggested and recent apps in Dock" to "false".
 defaults write com.apple.dock recent-apps -array
 defaults write com.apple.dock show-recents -bool false
 
-# Set 'Click wallpaper to reveal desktop' to 'Only in Stage Manager'.
+# Set "Click wallpaper to reveal desktop" to "Only in Stage Manager".
 defaults write com.apple.WindowManager EnableStandardClickToShowDesktop -bool false
 
 # Hot Corners
@@ -57,22 +64,25 @@ defaults write com.apple.dock wvous-br-corner -int 0
 # Lock Screen
 # ==============================================================================
 
-# Set 'Start Screen Saver when inactive' to 'never'.
+# Set "Start Screen Saver when inactive" to "never".
 defaults -currentHost write com.apple.screensaver idleTime -int 0
 
-# Set 'Turn display off on battery when inactive' to 10 minutes.
+# Set "Turn display off on battery when inactive" to "For 10 minutes".
 sudo pmset -b displaysleep 10
 
-# Set 'Turn display off on power adapter when inactive' to 30 minutes.
+# Set "Turn display off on power adapter when inactive" to "For 30 minutes".
 sudo pmset -c displaysleep 30
 
 # ==============================================================================
-# Keyboard / Trackpad / Mouse
+# Keyboard
 # ==============================================================================
 
 # Set the key repeat rate and make it happen more quickly.
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
+
+# Set "Show Input menu in menu bar" to "false".
+defaults write com.apple.TextInputMenu visible -bool false
 
 # Disable all automatic correction and substitution features.
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
@@ -81,8 +91,11 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
-# Set trackpad and mouse speed.
-defaults write -g com.apple.trackpad.scaling -float 1
+# ==============================================================================
+# Mouse
+# ==============================================================================
+
+# Set "Pointer acceleration" to "false".
 defaults write -g com.apple.mouse.scaling -float -1
 
 # ==============================================================================
@@ -95,27 +108,44 @@ defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool false
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
-# Set 'New Finder windows show' to '$HOME'.
+# Set "New Finder windows show" to "$HOME".
 defaults write com.apple.finder NewWindowTarget -string "PfLo"
 defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
 
-# Set 'Show all file extensions' to true.
+# Set "Show all file extensions" to "true".
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Set 'Show warning before changing an extension' to false.
+# Set "Show warning before changing an extension" to "false".
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
-# Set 'Remove items from the Trash after 30 days' to true.
+# Set "Show warning before removing from iCloud Drive" to "false".
+defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
+
+# Set "Remove items from the Trash after 30 days" to "true".
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
 
-# Set 'Keep folders on top' for 'In windows when sorting by name' to true.
+# Set "Keep folders on top" for "In windows when sorting by name" to "true".
 defaults write com.apple.finder _FXSortFoldersFirst -bool true
 
-# Set 'When performing a search' to 'Search the Current Folder'.
+# Set "When performing a search" to "Search the Current Folder".
 defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
 
-# Use list view in all Finder windows by default.
-defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+# Set toolbar items.
+defaults write com.apple.finder "NSToolbar Configuration Browser" '{
+  "TB Display Mode" = 2;
+  "TB Item Identifiers" = (
+    "com.apple.finder.BACK",
+    "com.apple.finder.SWCH",
+    NSToolbarSpaceItem,
+    "com.apple.finder.ARNG",
+    "com.apple.finder.ACTN",
+    NSToolbarSpaceItem,
+    "com.apple.finder.SRCH"
+  );
+}'
+
+# No hover delay for the hidden icon in the toolbar.
+defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
 
 # Show pathbar.
 defaults write com.apple.finder ShowPathbar -bool true
@@ -123,8 +153,8 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Show statusbar.
 defaults write com.apple.finder ShowStatusBar -bool true
 
-# No hover delay for the hidden icon in the toolbar.
-defaults write NSGlobalDomain NSToolbarTitleViewRolloverDelay -float 0
+# Use list view in all Finder windows by default.
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 
 # Set the spring loading delay for folders.
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.2

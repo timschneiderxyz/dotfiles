@@ -21,38 +21,25 @@
 3. Install Ansible: `python3 -m pip install --user ansible`.
 4. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
 5. Clone or download this repository to your local `$HOME` directory.
-6. Change directory to `playbook` and run `ansible-playbook main.yaml`.
+6. Change directory to `playbook` and run `ansible-playbook main.yaml --ask-become-pass`.
 
-## Manual Steps
-
-### Apps
+## Apps
 
 - Install Apps from the App Store:
   - [Magnet](https://magnet.crowdcafe.com/)
   - Word
   - Excel
   - PowerPoint
-- Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
-- Log into all your Apps: OneDrive, Discord, etc.
-- Finder:
-  - Toolbar
-    - Back/Forward
-    - View
-    - Space
-    - Group
-    - Action
-    - Space
-    - Search
-  - Sidebar
-    - Home
-    - Projects
-    - Downloads
-    - Applications
-    - AirDrop
-    - iCloud Drive
-    - External Disks
-    - Cloud Storage
-    - Connected servers
+- Finder → Sidebar:
+  - Home
+  - Projects
+  - Downloads
+  - Applications
+  - AirDrop
+  - iCloud Drive
+  - External Disks
+  - Cloud Storage
+  - Connected servers
 - Safari:
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`
@@ -63,16 +50,18 @@
   - Advanced: Allow websites to check for Apply Pay and Apple Card → `false`
   - Advanced: Show features for web developers → `true`
 - Mail:
-  - General: Enable message follow up suggestions → `false`
+  - General: Follow Up Suggestions → `false`
   - General: When searching all mailboxes, include results from → `Trash, Junk`
   - Viewing: Show most recent message at the top → `true`
+- Arc:
+  - Adjust options for all profiles: Autofill and passwords, Privacy and security, Languages.
+  - Install extensions.
 
-### System
+## System Settings
 
-- Battery: Options → Prevent automatic sleeping on power adapter when the display is off → `true`
 - Notifications: Adjust options.
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
-- Privacy & Security: App Management → Add `kitty.app`
+- Privacy & Security: Adjust options.
 - Spotlight: Search results
   - Applications
   - Calculator
@@ -88,12 +77,20 @@
   - Spreadsheets
   - System Settings
 - Spotlight: Improve Search → `false`
-- Keyboard: Press fn key to → `Do Nothing`
+- Keyboard: Press Globe key to → `Do Nothing`
 - Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
 - Keyboard: Keyboard Shortcuts → Modifier Keys → Remap <kbd>Caps Lock</kbd> to <kbd>ESC</kbd>
-- Keyboard: Input Sources → Edit → Show Input menu in menu bar → `false`
-- Copy SSH keys and set permissions (`chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`).
+- Trackpad: Look up & data detectors → `off`
+- Mouse: Advanced → Pointer acceleration → `false`
 
-## Special Thanks
+## Other
 
-To [Jeff Geerling](https://github.com/geerlingguy) for his [Mac Dev Playbook](https://github.com/geerlingguy/mac-dev-playbook), [Ansible Collection Mac](https://github.com/geerlingguy/ansible-collection-mac) and generally for all his contributions to the open source community.
+- Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
+- Set default permissions for directories and files:
+  - `find Projects -type d -exec chmod 755 {} \;`
+  - `find Projects -type f -exec chmod 644 {} \;`
+- Copy SSH keys and set permissions: 
+  - `chmod 700 ~/.ssh`
+  - `chmod 600 ~/.ssh/*`
+- Log in to all your Apps.
+- Restart the Computer.

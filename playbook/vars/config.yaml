@@ -24,10 +24,9 @@ homebrew_packages:
   - fzf
   - eza
   - jq
+  - httpie
   - neovim
   - git
-  - httpie
-  - cloudflared
   - kubectl
   - postgresql
   - go
