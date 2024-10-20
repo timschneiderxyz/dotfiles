@@ -11,7 +11,7 @@
 # VS Code
 # ==============================================================================
 
-- name: Install VS Code extensions.
+- name: Install VS Code extensions
   command: /opt/homebrew/bin/code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
   register: vscode_extension
@@ -21,13 +21,13 @@
 # Rust
 # ==============================================================================
 
-- name: Check if Rustup is installed.
+- name: Check if Rustup is installed
   stat:
     path: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo/bin/rustup"
   register: rustup_binary
   check_mode: false
 
-- name: Fetch and run rustup install script.
+- name: Fetch and run rustup install script
   shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
   environment:
     RUSTUP_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup"
@@ -38,26 +38,26 @@
 # PNPM / NodeJS
 # ==============================================================================
 
-- name: Check if pnpm is installed.
+- name: Check if pnpm is installed
   stat:
     path: "{{ ansible_env.HOME }}/.local/bin/pnpm/pnpm"
   register: pnpm_binary
   check_mode: false
 
-- name: Fetch and run pnpm install script.
+- name: Fetch and run pnpm install script
   shell: curl -sSf https://get.pnpm.io/install.sh | sh -s
   environment:
     PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
     ZDOTDIR: "{{ ansible_env.HOME }}/.config/zsh"
   when: not pnpm_binary.stat.exists
 
-- name: Remove pnpm lines from ".zshrc".
+- name: Remove pnpm lines from ".zshrc"
   replace:
     regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
     path: "{{ ansible_env.HOME }}/.config/zsh/.zshrc"
   when: not pnpm_binary.stat.exists
 
-- name: Install NodeJS LTS.
+- name: Install NodeJS LTS
   shell: "pnpm env use --global lts"
   environment:
     PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"

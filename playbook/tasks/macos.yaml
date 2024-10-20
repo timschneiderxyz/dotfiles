@@ -6,11 +6,11 @@
 # |_| |_| |_|\__,_|\___|\___/|___/
 
 
-- name: Ensure the macOS script has the correct permissions.
+- name: Ensure the macOS script has the correct permissions
   file:
     path: "./files/macos.sh"
     state: touch
     mode: a+x
 
-- name: Run macOS script.
+- name: Run macOS script
   script: "./files/macos.sh"

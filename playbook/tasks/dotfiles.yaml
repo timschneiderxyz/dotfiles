@@ -6,7 +6,7 @@
 #  \__,_|\___/ \__|_| |_|_|\___||___/
 
 
-- name: Ensure that all required directories are in place.
+- name: Ensure that all required directories are in place
   file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
@@ -24,12 +24,12 @@
     - Library/Application Support/Code/User
     - Projects
 
-- name: Copy dotfiles to home directory.
+- name: Copy dotfiles to home directory
   copy:
     src: "{{ playbook_dir }}/../home/"
     dest: "{{ ansible_env.HOME }}"
 
-- name: Copy VS Code settings.
+- name: Copy VS Code settings
   copy:
     src: "{{ playbook_dir }}/../misc/vscode-settings.json"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"

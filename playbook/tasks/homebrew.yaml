@@ -6,23 +6,23 @@
 # |_| |_|\___/|_| |_| |_|\___|_.__/|_|  \___| \_/\_/
 
 
-- name: Check if Homebrew is installed.
+- name: Check if Homebrew is installed
   stat:
     path: /opt/homebrew/bin/brew
   register: brew_binary
   check_mode: false
 
-- name: Fetch and run Homebrew install script.
+- name: Fetch and run Homebrew install script
   shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not brew_binary.stat.exists
 
-- name: Install Homebrew packages.
+- name: Install Homebrew packages
   homebrew:
     name: "{{ item }}"
     state: present
   loop: "{{ homebrew_packages }}"
 
-- name: Install Homebrew casks.
+- name: Install Homebrew casks
   homebrew_cask:
     name: "{{ item }}"
     state: present
