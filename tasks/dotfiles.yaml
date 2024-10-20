@@ -26,10 +26,10 @@
 
 - name: Copy dotfiles to home directory
   copy:
-    src: "{{ playbook_dir }}/../home/"
+    src: "./files/home/"
     dest: "{{ ansible_env.HOME }}"
 
 - name: Copy VS Code settings
   copy:
-    src: "{{ playbook_dir }}/../misc/vscode-settings.json"
+    src: "./files/vscode-settings.json"
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"

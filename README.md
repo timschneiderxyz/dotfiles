@@ -20,8 +20,8 @@
 2. Install Xcode command line tools: `xcode-select --install`.
 3. Install Ansible: `python3 -m pip install --user ansible`.
 4. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
-5. Clone or download this repository to your local `$HOME` directory.
-6. Change directory to `playbook` and run `ansible-playbook main.yaml --ask-become-pass`.
+5. Clone or download this repository to your local drive.
+6. Run `ansible-playbook main.yaml --ask-become-pass` inside this directory.
 
 ## Apps
 
