@@ -27,7 +27,7 @@
   register: rustup_binary
   check_mode: false
 
-- name: Fetch and run rustup install script
+- name: Fetch and run Rustup install script
   shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
   environment:
     RUSTUP_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup"
