@@ -7,25 +7,25 @@
 
 
 - name: Check if Homebrew is installed
-  stat:
+  ansible.builtin.stat:
     path: /opt/homebrew/bin/brew
   register: brew_binary
   check_mode: false
 
 - name: Fetch and run Homebrew install script
-  shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ansible.builtin.shell: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   when: not brew_binary.stat.exists
 
 - name: Install Homebrew packages
-  homebrew:
+  community.general.homebrew:
     name: "{{ item }}"
     state: present
   loop: "{{ homebrew_packages }}"
 
 - name: Install Homebrew casks
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: "{{ item }}"
-    state: present
     install_options: "appdir=/Applications"
     sudo_password: "{{ ansible_become_password | default(omit) }}"
+    state: present
   loop: "{{ homebrew_casks }}"

@@ -7,10 +7,10 @@
 
 
 - name: Ensure that the macOS script can be executed
-  file:
+  ansible.builtin.file:
     path: "./files/macos.sh"
     state: touch
     mode: a+x
 
 - name: Run macOS script
-  script: "./files/macos.sh"
+  ansible.builtin.script: "./files/macos.sh"

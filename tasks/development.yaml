@@ -12,7 +12,7 @@
 # ==============================================================================
 
 - name: Install VS Code extensions
-  command: /opt/homebrew/bin/code --install-extension {{ item }}
+  ansible.builtin.command: /opt/homebrew/bin/code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
   register: vscode_extension
   changed_when: "'successfully installed' in vscode_extension.stdout"
@@ -22,13 +22,13 @@
 # ==============================================================================
 
 - name: Check if Rustup is installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo/bin/rustup"
   register: rustup_binary
   check_mode: false
 
 - name: Fetch and run Rustup install script
-  shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  ansible.builtin.shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
   environment:
     RUSTUP_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup"
     CARGO_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo"
@@ -39,26 +39,26 @@
 # ==============================================================================
 
 - name: Check if pnpm is installed
-  stat:
+  ansible.builtin.stat:
     path: "{{ ansible_env.HOME }}/.local/bin/pnpm/pnpm"
   register: pnpm_binary
   check_mode: false
 
 - name: Fetch and run pnpm install script
-  shell: curl -sSf https://get.pnpm.io/install.sh | sh -s
+  ansible.builtin.shell: curl -sSf https://get.pnpm.io/install.sh | sh -s
   environment:
     PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
     ZDOTDIR: "{{ ansible_env.HOME }}/.config/zsh"
   when: not pnpm_binary.stat.exists
 
 - name: Remove pnpm lines from ".zshrc"
-  replace:
+  ansible.builtin.replace:
     regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
     path: "{{ ansible_env.HOME }}/.config/zsh/.zshrc"
   when: not pnpm_binary.stat.exists
 
 - name: Install NodeJS LTS
-  shell: "pnpm env use --global lts"
+  ansible.builtin.shell: "pnpm env use --global lts"
   environment:
     PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
     PATH: "$PATH:{{ ansible_env.HOME }}/.local/bin/pnpm"
