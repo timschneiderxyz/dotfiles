@@ -12,21 +12,17 @@ configure_dotfiles: true
 configure_development: true
 configure_macos: true
 
-# ==============================================================================
-# Homebrew
-# ==============================================================================
-
 homebrew_packages:
-  - starship
+  - git
+  - neovim
   - tmux
+  - starship
   - coreutils
   - zoxide
   - fzf
   - eza
   - jq
   - httpie
-  - neovim
-  - git
   - kubectl
   - postgresql
   - go
@@ -34,9 +30,9 @@ homebrew_packages:
   - composer
 
 homebrew_casks:
-  - font-geist
-  - font-geist-mono
   - font-jetbrains-mono
+  - font-geist-mono
+  - font-geist
   - tailscale
   - onedrive
   - arc
@@ -47,12 +43,9 @@ homebrew_casks:
   - kitty
   - visual-studio-code
   - docker
+  - dotnet-sdk
   - affinity-photo
   - affinity-designer
-
-# ==============================================================================
-# Development
-# ==============================================================================
 
 vscode_extensions:
   - enkia.tokyo-night

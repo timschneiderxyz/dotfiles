@@ -8,17 +8,17 @@
 
 - hosts: localhost
   vars_files:
-    - "./vars/config.yaml"
+    - 'vars/config.yaml'
   tasks:
     - import_tasks: "./tasks/homebrew.yaml"
       when: configure_homebrew
-      tags: ["homebrew"]
+      tags: homebrew
     - import_tasks: "./tasks/dotfiles.yaml"
       when: configure_dotfiles
-      tags: ["dotfiles"]
+      tags: dotfiles
     - import_tasks: "./tasks/development.yaml"
       when: configure_development
-      tags: ["development"]
+      tags: development
     - import_tasks: "./tasks/macos.yaml"
       when: configure_macos
-      tags: ["macos"]
+      tags: macos

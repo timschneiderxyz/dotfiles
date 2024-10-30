@@ -9,8 +9,8 @@
 </p>
 
 <p align="center">
-  <a aria-label="MIT License" href="https://github.com/timschneiderxyz/dotfiles/blob/main/LICENSE">
-    <img src="https://img.shields.io/badge/license-mit-689d6a?style=for-the-badge&labelColor=000000" alt="MIT License">
+  <a aria-label="Apache 2.0 License" href="https://github.com/timschneiderxyz/dotfiles/blob/main/LICENSE">
+    <img src="https://img.shields.io/badge/license-apache 2.0-7aa2f7?style=for-the-badge&labelColor=1a1b26" alt="Apache 2.0 License">
   </a>
 </p>
 

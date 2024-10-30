@@ -6,7 +6,7 @@
 #  \__,_|\___/ \__|_| |_|_|\___||___/
 
 
-- name: Ensure required user directories are present
+- name: Ensure user directories exist
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
@@ -24,12 +24,12 @@
     - Library/Application Support/Code/User
     - Projects
 
-- name: Copy dotfiles to home directory
+- name: Copy dotfiles
   ansible.builtin.copy:
-    src: "./files/home/"
+    src: home/
     dest: "{{ ansible_env.HOME }}"
 
 - name: Copy VS Code settings
   ansible.builtin.copy:
-    src: "./files/vscode-settings.json"
+    src: vscode-settings.json
     dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
