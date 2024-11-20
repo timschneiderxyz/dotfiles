@@ -6,7 +6,7 @@
 #  \__,_|\___/ \__|_| |_|_|\___||___/
 
 
-- name: Ensure user directories exist
+- name: Ensure required user directories exist
   ansible.builtin.file:
     path: "{{ ansible_env.HOME }}/{{ item }}"
     state: directory
