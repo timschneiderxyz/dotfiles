@@ -51,13 +51,15 @@ homebrew_casks:
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
+  - github.copilot
+  - github.copilot-chat
   - ms-azuretools.vscode-docker
   - natizyskunk.sftp
   - jock.svg
+  - dotenv.dotenv-vscode
   - editorconfig.editorconfig
   - stylelint.vscode-stylelint
   - dbaeumer.vscode-eslint
-  - dotenv.dotenv-vscode
   - bmewburn.vscode-intelephense-client
   - yoavbls.pretty-ts-errors
   - bradlc.vscode-tailwindcss
