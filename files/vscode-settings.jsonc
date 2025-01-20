@@ -20,6 +20,7 @@
   "material-icon-theme.activeIconPack": "react",
   "editor.fontFamily": "JetBrains Mono",
   "editor.fontLigatures": true,
+  "editor.fontSize": 13,
   // Editor
   "workbench.layoutControl.enabled": false,
   "workbench.editor.openPositioning": "last",

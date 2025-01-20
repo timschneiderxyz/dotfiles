@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/timschneiderxyz/dotfiles/blob/main/playbook-mac.png" width="250" height="156" alt="Playbook Mac">
+  <img src="https://github.com/timschneiderxyz/dotfiles/blob/main/logo.png" width="250" height="156" alt="Ansible Playbook for macOS">
 </p>
 
 <h1 align="center">dotfiles</h1>
@@ -25,21 +25,8 @@
 
 ## Apps
 
-- Install Apps from the App Store:
-  - [Magnet](https://magnet.crowdcafe.com/)
-  - Word
-  - Excel
-  - PowerPoint
-- Finder → Sidebar:
-  - Home
-  - Projects
-  - Downloads
-  - Applications
-  - AirDrop
-  - iCloud Drive
-  - External Disks
-  - Cloud Storage
-  - Connected servers
+- Finder Sidebar: Home, Projects, Downloads, Applications, AirDrop, iCloud Drive, External Disks, Cloud Storage, Connected servers
+- Install Apps from the App Store: Word, Excel, PowerPoint
 - Safari:
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`
@@ -53,8 +40,8 @@
   - General: Follow Up Suggestions → `false`
   - General: When searching all mailboxes, include results from → `Trash, Junk`
   - Viewing: Show most recent message at the top → `true`
-- Arc:
-  - Adjust options for all profiles: Autofill and passwords, Privacy and security, Languages.
+- Chrome:
+  - Adjust settings for all profiles.
   - Install extensions.
 
 ## System Settings
@@ -62,23 +49,10 @@
 - Notifications: Adjust options.
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
 - Privacy & Security: Adjust options.
-- Spotlight: Search results
-  - Applications
-  - Calculator
-  - Contacts
-  - Documents
-  - Events & Reminders
-  - Folders
-  - Fonts
-  - Images
-  - Mail & Messages
-  - PDF Documents
-  - Presentations
-  - Spreadsheets
-  - System Settings
 - Spotlight: Improve Search → `false`
 - Keyboard: Press Globe key to → `Do Nothing`
-- Keyboard: Keyboard Shortcuts → Input Sources → Uncheck "Select the previous input source" (<kbd>Control</kbd> + <kbd>Space</kbd>)
+- Keyboard: Keyboard Shortcuts → Input Sources → Uncheck all shortcuts
+- Keyboard: Keyboard Shortcuts → Spotlight → Uncheck all shortcuts
 - Keyboard: Keyboard Shortcuts → Modifier Keys → Remap <kbd>Caps Lock</kbd> to <kbd>ESC</kbd>
 - Trackpad: Look up & data detectors → `off`
 - Mouse: Advanced → Pointer acceleration → `false`

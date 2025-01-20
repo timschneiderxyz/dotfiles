@@ -1,0 +1,40 @@
+#   ____ _               _   _
+#  / ___| |__   ___  ___| |_| |_ _   _
+# | |  _| '_ \ / _ \/ __| __| __| | | |
+# | |_| | | | | (_) \__ \ |_| |_| |_| |
+#  \____|_| |_|\___/|___/\__|\__|\__, |
+#                                |___/
+
+
+# General
+macos-titlebar-proxy-icon = hidden
+title = " "
+window-padding-balance = true
+window-padding-x = 2
+window-padding-y = 2
+
+# Font
+font-family = JetBrains Mono
+font-size = 14
+font-thicken = true
+adjust-underline-position = 2
+
+# Theme
+background = #24283b
+foreground = #c0caf5
+palette = 0=#414868
+palette = 8=#414868
+palette = 1=#f7768e
+palette = 9=#f7768e
+palette = 2=#73daca
+palette = 10=#73daca
+palette = 3=#ff9e64
+palette = 11=#ff9e64
+palette = 4=#7aa2f7
+palette = 12=#7aa2f7
+palette = 5=#bb9af7
+palette = 13=#bb9af7
+palette = 6=#2ac3de
+palette = 14=#2ac3de
+palette = 7=#c0caf5
+palette = 15=#c0caf5

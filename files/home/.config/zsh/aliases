@@ -6,36 +6,32 @@
 #  \__,_|_|_|\__,_|___/\___||___/
 
 
-# Navigation
+# Common
 alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  fd='find . -type d -name' \
-  ff='find . -type f -name' \
   ls="eza --icons=always --group-directories-first --all" \
-  ll="eza --icons=always --group-directories-first --all --long --header --group"
-lt() {eza --icons=always --group-directories-first --all --tree --level=$1}
-
-# Common
-alias \
+  ll="eza --icons=always --group-directories-first --all --long --header --group" \
+  ff="fzf --style=full --color=16 --preview 'bat --theme=base16 --color=always {}'" \
   mkd="mkdir -vp" \
   cp="cp -vi" \
   mv="mv -vi" \
   rm="grm -vI" \
+  cat="bat --theme=base16" \
   grep="grep --color=auto"
+lt() {eza --icons=always --group-directories-first --all --tree --level=$1}
 
 # Apps
 alias \
-  c="code" \
   nv="nvim" \
+  c="code" \
   g="git" \
-  m="make" \
   k="kubectl" \
   d="docker" \
   pn="pnpm"
 
-# Miscellaneous
+# Utilities
 alias \
   update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
   updatenode="curl -fsSL https://get.pnpm.io/install.sh | sh; sed -i '' '/# pnpm/,/# pnpm end/d' '$ZDOTDIR/.zshrc'; pnpm env use --global lts" \
