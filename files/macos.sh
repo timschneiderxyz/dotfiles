@@ -39,7 +39,7 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 # ==============================================================================
 
 # Set the icon size of Dock items.
-defaults write com.apple.dock tilesize -int 44
+defaults write com.apple.dock tilesize -int 42
 
 # Make Dock icons of hidden applications translucent.
 defaults write com.apple.dock showhidden -bool true
