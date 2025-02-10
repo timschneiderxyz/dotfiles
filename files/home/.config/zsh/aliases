@@ -18,14 +18,12 @@ alias \
   cp="cp -vi" \
   mv="mv -vi" \
   rm="grm -vI" \
-  cat="bat --theme=base16" \
-  grep="grep --color=auto"
+  cat="bat --theme=base16"
 lt() {eza --icons=always --group-directories-first --all --tree --level=$1}
 
 # Apps
 alias \
   nv="nvim" \
-  c="code" \
   g="git" \
   k="kubectl" \
   d="docker" \

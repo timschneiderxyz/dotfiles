@@ -51,9 +51,7 @@ vscode_extensions:
   - github.copilot
   - github.copilot-chat
   - ms-azuretools.vscode-docker
-  - natizyskunk.sftp
   - jock.svg
-  - dotenv.dotenv-vscode
   - editorconfig.editorconfig
   - stylelint.vscode-stylelint
   - dbaeumer.vscode-eslint
