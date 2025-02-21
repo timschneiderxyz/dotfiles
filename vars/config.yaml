@@ -16,6 +16,8 @@ homebrew_packages:
   - zoxide
   - fzf
   - eza
+  - fd
+  - ripgrep
   - bat
   - jq
   - nmap

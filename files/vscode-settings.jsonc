@@ -44,6 +44,9 @@
   },
   "files.trimFinalNewlines": true,
   // Languages
+  "css.format.spaceAroundSelectorSeparator": true,
+  "css.lint.duplicateProperties": "error",
+  "css.lint.unknownAtRules": "ignore",
   "scss.format.enable": false,
   "scss.validate": false,
   "stylelint.validate": [
@@ -51,5 +54,9 @@
   ],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "php.suggest.basic": false
+  "php.suggest.basic": false,
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.svg": "default"
+  }
 }

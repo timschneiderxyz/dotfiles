@@ -168,15 +168,12 @@ defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 chflags nohidden ~/Library
 
 # ==============================================================================
-# Apps
+# Screenshots
 # ==============================================================================
 
-# Screenshot: Set format and location.
+# Set format and location.
 defaults write com.apple.screencapture type -string "jpg"
 defaults write com.apple.screencapture location -string "$HOME/Downloads"
-
-# Terminal: Don’t mark lines.
-defaults write com.apple.Terminal AutoMarkPromptLines -bool false
 
 # ==============================================================================
 # Restart
