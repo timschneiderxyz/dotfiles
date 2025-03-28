@@ -36,12 +36,13 @@ homebrew_casks:
   - visual-studio-code
   - affinity-photo
   - affinity-designer
-  - spotify
-  - iina
   - raycast
+  - chatgpt
   - onedrive
   - tailscale
   - docker
+  - spotify
+  - iina
   - dotnet-sdk
   - font-jetbrains-mono
   - font-geist
@@ -55,9 +56,10 @@ vscode_extensions:
   - ms-azuretools.vscode-docker
   - jock.svg
   - editorconfig.editorconfig
-  - stylelint.vscode-stylelint
-  - dbaeumer.vscode-eslint
   - bmewburn.vscode-intelephense-client
-  - yoavbls.pretty-ts-errors
-  - bradlc.vscode-tailwindcss
   - astro-build.astro-vscode
+  - unifiedjs.vscode-mdx
+  - bradlc.vscode-tailwindcss
+  - dbaeumer.vscode-eslint
+  - stylelint.vscode-stylelint
+  - yoavbls.pretty-ts-errors

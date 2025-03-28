@@ -26,7 +26,7 @@
 ## Apps
 
 - Finder Sidebar: Home, Projects, Downloads, Applications, AirDrop, iCloud Drive, External Disks, Cloud Storage, Connected servers
-- Install Apps from the App Store: Word, Excel, PowerPoint
+- Install Apps from the App Store: Xcode, TestFlight, Word, Excel, PowerPoint
 - Safari:
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`

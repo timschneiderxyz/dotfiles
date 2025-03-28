@@ -18,24 +18,7 @@
   changed_when: "'successfully installed' in vscode_extension.stdout"
 
 # ==============================================================================
-# Rust
-# ==============================================================================
-
-- name: Check if Rustup is installed
-  ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo/bin/rustup"
-  register: rustup_binary
-  check_mode: false
-
-- name: Fetch and run Rustup install script
-  ansible.builtin.shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
-  environment:
-    RUSTUP_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup"
-    CARGO_HOME: "{{ ansible_env.HOME }}/.local/bin/rustup/cargo"
-  when: not rustup_binary.stat.exists
-
-# ==============================================================================
-# PNPM / NodeJS
+# PNPM / Node.js
 # ==============================================================================
 
 - name: Check if pnpm is installed
