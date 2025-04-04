@@ -21,15 +21,9 @@
     - .local/bin
     - .local/share
     - .local/state
-    - Library/Application Support/Code/User
     - Projects
 
 - name: Copy dotfiles
   ansible.builtin.copy:
     src: home/
     dest: "{{ ansible_env.HOME }}"
-
-- name: Copy VS Code settings
-  ansible.builtin.copy:
-    src: vscode-settings.jsonc
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"

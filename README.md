@@ -42,7 +42,7 @@
   - Viewing: Show most recent message at the top → `true`
 - Chrome:
   - Adjust settings for all profiles.
-  - Install extensions.
+  - Install extensions: Bitwarden, Linkding.
 
 ## System Settings
 

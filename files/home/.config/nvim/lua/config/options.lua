@@ -4,6 +4,7 @@ vim.opt.swapfile = false
 vim.opt.undofile = true
 vim.opt.undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undo"
 vim.opt.clipboard = "unnamedplus"
+vim.opt.showmode = false
 
 -- Leader Key
 vim.g.mapleader = " "

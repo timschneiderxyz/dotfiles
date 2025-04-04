@@ -11,6 +11,18 @@
 # VS Code
 # ==============================================================================
 
+- name: Ensure VS Code directory exist
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
+    state: directory
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_gid }}"
+
+- name: Copy VS Code settings
+  ansible.builtin.copy:
+    src: misc/vscode-settings.jsonc
+    dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+
 - name: Install VS Code extensions
   ansible.builtin.command: /opt/homebrew/bin/code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"

@@ -20,7 +20,7 @@ font-thicken = true
 adjust-underline-position = 2
 
 # Theme
-background = #24283b
+background = #1a1b26
 foreground = #c0caf5
 palette = 0=#414868
 palette = 8=#414868
