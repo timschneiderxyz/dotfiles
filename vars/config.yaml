@@ -53,7 +53,7 @@ vscode_extensions:
   - pkief.material-icon-theme
   - github.copilot
   - github.copilot-chat
-  - ms-azuretools.vscode-docker
+  - ms-azuretools.vscode-containers
   - jock.svg
   - editorconfig.editorconfig
   - bmewburn.vscode-intelephense-client
