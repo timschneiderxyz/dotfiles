@@ -32,6 +32,6 @@ alias \
 # Utilities
 alias \
   update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
-  updatenode="curl -fsSL https://get.pnpm.io/install.sh | sh; sed -i '' '/# pnpm/,/# pnpm end/d' '$ZDOTDIR/.zshrc'; pnpm env use --global lts" \
+  updatenode="pnpm self-update; pnpm env use --global lts" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}

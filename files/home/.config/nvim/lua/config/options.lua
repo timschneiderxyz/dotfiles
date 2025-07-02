@@ -1,34 +1,32 @@
--- General
-vim.opt.termguicolors = true
-vim.opt.swapfile = false
-vim.opt.undofile = true
-vim.opt.undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undo"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.showmode = false
+for key, value in pairs({
+  -- General
+  swapfile = false,
+  undofile = true,
+  undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undo",
+  clipboard = "unnamedplus",
+  termguicolors = true,
+  showmode = false,
 
--- Leader Key
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+  -- Editor
+  signcolumn = "yes",
+  colorcolumn = "80",
+  number = true,
+  relativenumber = true,
+  cursorline = true,
+  scrolloff = 8,
+  wrap = false,
 
--- Editor
-vim.opt.signcolumn = "yes"
-vim.opt.colorcolumn = "80"
-vim.opt.cursorline = true
-vim.opt.scrolloff = 8
-vim.opt.wrap = false
+  -- Indenting
+  expandtab = true,
+  tabstop = 2,
+  softtabstop = 2,
+  shiftwidth = 2,
+  smartindent = true,
+  breakindent = true,
 
--- Line Numbers
-vim.opt.number = true
-vim.opt.relativenumber = true
-
--- Indenting
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.smartindent = true
-vim.opt.breakindent = true
-
--- Searching
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+  -- Searching
+  ignorecase = true,
+  smartcase = true
+}) do
+  vim.opt[key] = value
+end
