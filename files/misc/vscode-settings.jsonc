@@ -35,10 +35,7 @@
   "editor.selectionHighlight": false,
   "editor.hover.delay": 500,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [
-    80
-  ],
-  // Formatting
+  "editor.rulers": [80],
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
@@ -50,12 +47,13 @@
   "css.lint.unknownAtRules": "ignore",
   "scss.format.enable": false,
   "scss.validate": false,
-  "stylelint.validate": [
-    "scss"
-  ],
+  "stylelint.validate": ["scss"],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "php.suggest.basic": false,
+  // Misc
+  "biome.requireConfiguration": true,
+  "biome.suggestInstallingGlobally": false,
   "workbench.editorAssociations": {
     "*.copilotmd": "vscode.markdown.preview.editor",
     "*.svg": "default"

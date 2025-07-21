@@ -10,6 +10,7 @@
 
 [alias]
   c = commit -m
+  ca = commit --amend --no-edit
   ac = !git add . && git commit -m
   aca = !git add . && git commit --amend --no-edit
   undo = reset --soft HEAD~1

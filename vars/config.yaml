@@ -62,4 +62,5 @@ vscode_extensions:
   - bradlc.vscode-tailwindcss
   - dbaeumer.vscode-eslint
   - stylelint.vscode-stylelint
+  - biomejs.biome
   - yoavbls.pretty-ts-errors
