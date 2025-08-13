@@ -11,15 +11,14 @@ alias \
   ..="cd .." \
   ...="cd ../.." \
   ....="cd ../../.." \
-  ls="eza --icons=always --group-directories-first --all" \
-  ll="eza --icons=always --group-directories-first --all --long --header --group" \
-  ff="fzf --style=full --color=16 --preview 'bat --theme=base16 --color=always {}'" \
+  ls="eza --icons=auto --group-directories-first --all --long --header --group" \
+  lt="eza --icons=auto --group-directories-first --all --long --header --group --git --tree --level=2" \
+  ff="fzf --preview 'bat --style=numbers --color=always {}'" \
+  cat="bat" \
   mkd="mkdir -vp" \
   cp="cp -vi" \
   mv="mv -vi" \
-  rm="grm -vI" \
-  cat="bat --theme=base16"
-lt() {eza --icons=always --group-directories-first --all --tree --level=$1}
+  rm="grm -vI"
 
 # Apps
 alias \
@@ -33,5 +32,6 @@ alias \
 alias \
   update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
   updatenode="pnpm self-update; pnpm env use --global lts" \
-  rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
+  rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" \
+  nf="nvim \$(fzf --preview 'bat --style=numbers --color=always {}')"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}

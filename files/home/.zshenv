@@ -8,6 +8,8 @@
 
 # Settings
 export EDITOR="nvim"
+export BAT_THEME="base16"
+export FZF_DEFAULT_OPTS='--style=full --color=16'
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
