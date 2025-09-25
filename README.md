@@ -25,7 +25,7 @@
 
 ## Apps
 
-- Finder Sidebar: Home, Projects, Downloads, Applications, AirDrop, iCloud Drive, External Disks, Cloud Storage, Connected servers
+- Finder Sidebar: Home, Projects, Downloads, Applications, iCloud Drive, Cloud Storage, External Disks, AirDrop, Connected servers, Network, Trash
 - Install Apps from the App Store: Xcode, TestFlight, Word, Excel, PowerPoint
 - Safari:
   - General: Homepage → `about:blank`
@@ -46,6 +46,8 @@
 
 ## System Settings
 
+- Menu Bar: Show menu bar background -> `true`
+- Menu Bar: Recent documents, applications, and servers -> `none`
 - Notifications: Adjust options.
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
 - Privacy & Security: Adjust options.

@@ -7,6 +7,7 @@
 
 [core]
   editor = nvim
+  ignorecase = false
 
 [alias]
   c = commit -m
@@ -24,5 +25,5 @@
   bd = branch -d
   bdr = push --delete
   f = fetch --prune
-  l = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)'
+  ls = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)'
   ll = log --oneline --graph --stat
