@@ -23,6 +23,7 @@ homebrew_packages:
   - exiftool
   - btop
   - nmap
+  - ansible
   - kubectl
   - postgresql
   - go

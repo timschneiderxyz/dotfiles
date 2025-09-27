@@ -1,4 +1,3 @@
-#!/bin/zsh
 #            _
 #    _______| |__   ___ _ ____   __
 #   |_  / __| '_ \ / _ \ '_ \ \ / /
@@ -9,7 +8,7 @@
 # Settings
 export EDITOR="nvim"
 export BAT_THEME="base16"
-export FZF_DEFAULT_OPTS='--style=full --color=16'
+export FZF_DEFAULT_OPTS="--style full --color 16"
 export SHELL_SESSIONS_DISABLE=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
@@ -30,6 +29,7 @@ export LESSHISTFILE="-"
 export AZURE_CONFIG_DIR="$XDG_CONFIG_HOME/azure"
 export PULUMI_HOME="$XDG_DATA_HOME/pulumi"
 export ANSIBLE_HOME="$XDG_DATA_HOME/ansible"
+export ANSIBLE_SSH_CONTROL_PATH_DIR="$XDG_CACHE_HOME/ansible/cp"
 export KUBECONFIG="$XDG_CONFIG_HOME/kube/config"
 export KUBECACHEDIR="$XDG_CACHE_HOME/kube"
 export PSQL_HISTORY="$XDG_CACHE_HOME/psql/history"
@@ -41,8 +41,3 @@ export PYTHON_HISTORY="$XDG_CACHE_HOME/python/history"
 export PNPM_HOME="$XDG_BIN_HOME/pnpm"
 export NODE_REPL_HISTORY="$XDG_CACHE_HOME/node/history"
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
-
-# Add to $PATH
-export PATH="$PATH:/opt/homebrew/bin"
-export PATH="$PATH:$(find ~/.local/bin -maxdepth 1 -type d | paste -sd ':' -)"
-export PATH="$PATH:$HOME/Library/Python/3.9/bin"

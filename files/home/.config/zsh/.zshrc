@@ -1,4 +1,3 @@
-#!/bin/zsh
 #            _
 #    _______| |__  _ __ ___
 #   |_  / __| '_ \| '__/ __|
@@ -44,8 +43,8 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # Initializations
-source <(starship init zsh)
-source <(zoxide init --cmd cd zsh)
+eval "$(starship init zsh)"
+eval "$(zoxide init --cmd cd zsh)"
 source <(fzf --zsh)
 
 # Keybindings

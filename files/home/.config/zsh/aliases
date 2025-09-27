@@ -1,4 +1,3 @@
-#!/bin/zsh
 #        _ _
 #   __ _| (_) __ _ ___  ___  ___
 #  / _` | | |/ _` / __|/ _ \/ __|
@@ -33,5 +32,5 @@ alias \
   update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
   updatenode="pnpm self-update; pnpm env use --global lts" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" \
-  nf="nvim \$(fzf --preview 'bat --style=numbers --color=always {}')"
+  nvo="nvim \$(fzf --preview 'bat --style=numbers --color=always {}')"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
