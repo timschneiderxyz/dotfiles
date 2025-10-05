@@ -36,11 +36,11 @@ style = 'purple'
 
 [git_state]
 format = '[\[$state( $progress_current/$progress_total)\]]($style) '
-style = '#f5c2e7'
+style = 'purple'
 
 [git_status]
 format = '[(*$untracked$modified$staged$renamed$deleted$conflicted )($ahead_behind$stashed )]($style)'
-style = '#f5c2e7'
+style = 'purple'
 untracked = '​'
 modified = '​'
 staged = '​'

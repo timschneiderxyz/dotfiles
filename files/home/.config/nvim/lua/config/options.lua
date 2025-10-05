@@ -11,7 +11,6 @@ for key, value in pairs({
   signcolumn = "yes",
   colorcolumn = "80",
   number = true,
-  relativenumber = true,
   cursorline = true,
   scrolloff = 8,
   wrap = false,
