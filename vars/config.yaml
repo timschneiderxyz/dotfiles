@@ -40,7 +40,6 @@ homebrew_casks:
   - affinity-designer
   - raycast
   - chatgpt
-  - onedrive
   - tailscale
   - docker
   - discord
