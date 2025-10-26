@@ -7,7 +7,27 @@
 
 [core]
   editor = nvim
+  preloadindex = true
   ignorecase = false
+
+[advice]
+  statusHints = false
+  pushNonFastForward = false
+
+[status]
+  short = true
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[push]
+  autoSetupRemote = true
+
+[pull]
+  rebase = true
+
+[rebase]
+  autoStash = true
 
 [alias]
   c = commit -m
@@ -16,7 +36,7 @@
   aca = !git add . && git commit --amend --no-edit
   undo = reset --soft HEAD~1
   ps = push
-  pl = pull --rebase
+  pl = pull
   rc = rebase --continue
   s = stash
   sp = stash pop
@@ -25,5 +45,8 @@
   bd = branch -d
   bdr = push --delete
   f = fetch --prune
-  ls = log --graph --pretty=format:'%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(blue)<%an>%C(reset)'
-  ll = log --oneline --graph --stat
+  ls = log --graph --all --pretty=format:'%C(magenta)%h %C(white)- %s%C(yellow)%d %C(green)(%cr) %C(blue)<%an>%n'
+  ll = log --graph --pretty=format:'%C(magenta)%h %C(white)- %s%C(yellow)%d %C(green)(%cr) %C(blue)<%an>%n' --stat
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
