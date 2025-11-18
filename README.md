@@ -46,8 +46,10 @@
 
 ## System Settings
 
-- Menu Bar: Show menu bar background -> `true`
-- Menu Bar: Recent documents, applications, and servers -> `none`
+- Appearance: Liquid Glass → `Tinted`
+- Menu Bar: Show menu bar background → `true`
+- Menu Bar: Recent documents, applications, and servers → `none`
+- Desktop & Dock: Widgets → iPhone Widgets → `false`
 - Notifications: Adjust options.
 - Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
 - Privacy & Security: Adjust options.

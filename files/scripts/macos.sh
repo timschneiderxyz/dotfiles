@@ -39,13 +39,16 @@ defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 # ==============================================================================
 
 # Set the icon size of Dock items.
-defaults write com.apple.dock tilesize -int 40
+defaults write com.apple.dock tilesize -int 34
 
 # Make Dock icons of hidden applications translucent.
 defaults write com.apple.dock showhidden -bool true
 
 # Set "Minimize windows using" to "Scale effect".
 defaults write com.apple.dock mineffect -string "scale"
+
+# Set "Automatically hide and show the Dock" to "true".
+# defaults write com.apple.dock autohide -bool true
 
 # Set "Show suggested and recent apps in Dock" to "false".
 defaults write com.apple.dock recent-apps -array
