@@ -12,29 +12,30 @@ title = " "
 window-padding-balance = true
 window-padding-x = 2
 window-padding-y = 0
+adjust-cell-height = 4
 
 # Font
-font-family = JetBrains Mono
-font-size = 14
+font-family = Monaspace Neon
+font-size = 13
 font-thicken = true
 adjust-underline-position = 2
 
 # Theme
-background = #1a1b26
-foreground = #c0caf5
-palette = 0=#414868
-palette = 8=#414868
-palette = 1=#f7768e
-palette = 9=#f7768e
-palette = 2=#73daca
-palette = 10=#73daca
-palette = 3=#ff9e64
-palette = 11=#ff9e64
-palette = 4=#7aa2f7
-palette = 12=#7aa2f7
-palette = 5=#bb9af7
-palette = 13=#bb9af7
-palette = 6=#2ac3de
-palette = 14=#2ac3de
-palette = 7=#c0caf5
-palette = 15=#c0caf5
+background = 1a1b26
+foreground = c0caf5
+palette = 0=414868
+palette = 8=414868
+palette = 1=f7768e
+palette = 9=f7768e
+palette = 2=73daca
+palette = 10=73daca
+palette = 3=ff9e64
+palette = 11=ff9e64
+palette = 4=7aa2f7
+palette = 12=7aa2f7
+palette = 5=bb9af7
+palette = 13=bb9af7
+palette = 6=2ac3de
+palette = 14=2ac3de
+palette = 7=c0caf5
+palette = 15=c0caf5

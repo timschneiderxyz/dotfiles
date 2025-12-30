@@ -13,21 +13,40 @@
 
 - name: Ensure VS Code directory exist
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/Library/Application Support/Code/User"
+    path: "{{ user_home }}/Library/Application Support/Code/User"
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_gid }}"
+    owner: "{{ user_id }}"
+    group: "{{ user_gid }}"
 
 - name: Copy VS Code settings
   ansible.builtin.copy:
     src: misc/vscode-settings.jsonc
-    dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/settings.json"
+    dest: "{{ user_home }}/Library/Application Support/Code/User/settings.json"
 
 - name: Install VS Code extensions
   ansible.builtin.command: /opt/homebrew/bin/code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
   register: vscode_extension
-  changed_when: "'successfully installed' in vscode_extension.stdout"
+  changed_when: false
+
+# ==============================================================================
+# Rust
+# ==============================================================================
+
+- name: Check if Rustup is installed
+  ansible.builtin.stat:
+    path: "{{ user_home }}/.local/share/cargo/bin/rustup"
+  register: rustup_binary
+  check_mode: false
+
+- name: Fetch and run Rustup install script
+  ansible.builtin.shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  environment:
+    RUSTUP_HOME: "{{ user_home }}/.local/share/rustup"
+    CARGO_HOME: "{{ user_home }}/.local/share/cargo"
+  args:
+    creates: "{{ user_home }}/.local/share/cargo/bin/rustup"
+  when: not rustup_binary.stat.exists
 
 # ==============================================================================
 # PNPM / Node.js
@@ -35,26 +54,36 @@
 
 - name: Check if pnpm is installed
   ansible.builtin.stat:
-    path: "{{ ansible_env.HOME }}/.local/bin/pnpm/pnpm"
+    path: "{{ user_home }}/.local/share/pnpm/pnpm"
   register: pnpm_binary
   check_mode: false
 
 - name: Fetch and run pnpm install script
-  ansible.builtin.shell: curl -sSf https://get.pnpm.io/install.sh | sh -s
+  ansible.builtin.shell: curl -fsSL https://get.pnpm.io/install.sh | sh -
   environment:
-    PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
-    ZDOTDIR: "{{ ansible_env.HOME }}/.config/zsh"
+    PNPM_HOME: "{{ user_home }}/.local/share/pnpm"
+    ZDOTDIR: "{{ user_home }}/.config/zsh"
+  args:
+    creates: "{{ user_home }}/.local/share/pnpm/pnpm"
   when: not pnpm_binary.stat.exists
 
 - name: Remove pnpm lines from ".zshrc"
   ansible.builtin.replace:
     regexp: "(# pnpm)((.|\n)*)(# pnpm end)"
-    path: "{{ ansible_env.HOME }}/.config/zsh/.zshrc"
+    path: "{{ user_home }}/.config/zsh/.zshrc"
   when: not pnpm_binary.stat.exists
 
-- name: Install NodeJS LTS
+- name: Check if Node.js is installed
+  ansible.builtin.stat:
+    path: "{{ user_home }}/.local/share/pnpm/node"
+  register: nodejs_binary
+  check_mode: false
+
+- name: Install Node.js LTS
   ansible.builtin.shell: "pnpm env use --global lts"
   environment:
-    PNPM_HOME: "{{ ansible_env.HOME }}/.local/bin/pnpm"
-    PATH: "$PATH:{{ ansible_env.HOME }}/.local/bin/pnpm"
-  when: not pnpm_binary.stat.exists
+    PATH: "/usr/bin:/bin:/usr/sbin:/sbin:{{ user_home }}/.local/share/pnpm"
+    PNPM_HOME: "{{ user_home }}/.local/share/pnpm"
+  args:
+    creates: "{{ user_home }}/.local/share/pnpm/node"
+  when: not nodejs_binary.stat.exists

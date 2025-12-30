@@ -9,3 +9,5 @@
 # Add to $PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 export PATH="$PATH:$(find $HOME/.local/bin -maxdepth 1 -type d | paste -sd ':' -)"
+export PATH="$PATH:$CARGO_HOME/bin"
+export PATH="$PATH:$PNPM_HOME"

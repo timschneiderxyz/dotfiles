@@ -8,10 +8,10 @@
 
 - name: Ensure required user directories exist
   ansible.builtin.file:
-    path: "{{ ansible_env.HOME }}/{{ item }}"
+    path: "{{ user_home }}/{{ item }}"
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_gid }}"
+    owner: "{{ user_id }}"
+    group: "{{ user_gid }}"
   loop:
     - .cache
     - .cache/zsh
@@ -26,4 +26,4 @@
 - name: Copy dotfiles
   ansible.builtin.copy:
     src: home/
-    dest: "{{ ansible_env.HOME }}"
+    dest: "{{ user_home }}"

@@ -20,9 +20,9 @@ homebrew_packages:
   - ripgrep
   - bat
   - jq
+  - nmap
   - exiftool
   - btop
-  - nmap
   - ansible
   - kubectl
   - postgresql
@@ -35,20 +35,17 @@ homebrew_casks:
   - obsidian
   - ghostty
   - visual-studio-code
-  - bruno
-  - affinity-photo
-  - affinity-designer
   - raycast
-  - chatgpt
   - tailscale
   - docker
+  - chatgpt
   - discord
   - spotify
   - iina
-  - dotnet-sdk
-  - font-jetbrains-mono
+  - affinity
+  - bambu-studio
   - font-geist
-  - font-geist-mono
+  - font-monaspace
 
 vscode_extensions:
   - enkia.tokyo-night
