@@ -15,8 +15,8 @@ window-padding-y = 0
 adjust-cell-height = 4
 
 # Font
-font-family = Monaspace Neon
-font-size = 13
+font-family = Monaspace Argon
+font-size = 14
 font-thicken = true
 adjust-underline-position = 2
 

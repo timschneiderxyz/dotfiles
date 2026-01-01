@@ -17,9 +17,9 @@
   "workbench.iconTheme": "material-icon-theme",
   "material-icon-theme.folders.theme": "classic",
   "material-icon-theme.activeIconPack": "react",
-  "editor.fontFamily": "Monaspace Neon, monospace",
-  "editor.fontLigatures": true,
-  "editor.fontSize": 13,
+  "editor.fontFamily": "'Monaspace Argon', monospace",
+  "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss07', 'ss08', 'ss09', 'liga'",
+  "editor.fontSize": 14,
   "workbench.tree.indent": 14,
   "workbench.tree.renderIndentGuides": "always",
   "breadcrumbs.enabled": false,
@@ -34,7 +34,9 @@
   "editor.selectionHighlight": false,
   "editor.hover.delay": 500,
   "editor.renderWhitespace": "boundary",
-  "editor.rulers": [80],
+  "editor.rulers": [
+    80
+  ],
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": "explicit"
@@ -46,7 +48,9 @@
   "css.lint.unknownAtRules": "ignore",
   "scss.format.enable": false,
   "scss.validate": false,
-  "stylelint.validate": ["scss"],
+  "stylelint.validate": [
+    "scss"
+  ],
   "javascript.updateImportsOnFileMove.enabled": "always",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "php.suggest.basic": false,
