@@ -23,6 +23,7 @@ homebrew_packages:
   - nmap
   - exiftool
   - btop
+  - just
   - ansible
   - kubectl
   - postgresql
@@ -50,16 +51,17 @@ homebrew_casks:
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
-  - github.copilot
   - github.copilot-chat
   - ms-azuretools.vscode-containers
-  - jock.svg
-  - editorconfig.editorconfig
+  - rust-lang.rust-analyzer
+  - golang.go
   - bmewburn.vscode-intelephense-client
   - astro-build.astro-vscode
   - unifiedjs.vscode-mdx
   - bradlc.vscode-tailwindcss
+  - editorconfig.editorconfig
+  - biomejs.biome
   - dbaeumer.vscode-eslint
   - stylelint.vscode-stylelint
-  - biomejs.biome
   - yoavbls.pretty-ts-errors
+  - jock.svg

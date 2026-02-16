@@ -8,9 +8,9 @@
 
 - name: Ensure that the macOS script can be executed
   ansible.builtin.file:
-    path: ./files/scripts/macos.sh
+    path: ./files/macos.sh
     state: file
     mode: a+x
 
 - name: Run macOS script
-  ansible.builtin.script: scripts/macos.sh
+  ansible.builtin.script: macos.sh

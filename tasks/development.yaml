@@ -20,7 +20,7 @@
 
 - name: Copy VS Code settings
   ansible.builtin.copy:
-    src: misc/vscode-settings.jsonc
+    src: vscode-settings.jsonc
     dest: "{{ user_home }}/Library/Application Support/Code/User/settings.json"
 
 - name: Install VS Code extensions

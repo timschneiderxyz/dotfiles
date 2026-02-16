@@ -49,6 +49,8 @@ defaults write com.apple.dock mineffect -string "scale"
 
 # Set "Automatically hide and show the Dock" to "true".
 # defaults write com.apple.dock autohide -bool true
+defaults write com.apple.dock autohide-delay -float 0
+defaults write com.apple.dock autohide-time-modifier -float 0.1
 
 # Set "Show suggested and recent apps in Dock" to "false".
 defaults write com.apple.dock recent-apps -array
