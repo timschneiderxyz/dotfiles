@@ -48,9 +48,9 @@ renamed = '​'
 deleted = '​'
 conflicted = '​'
 up_to_date = ''
-ahead = '⇡'
-behind = '⇣'
-diverged = '⇕'
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 stashed = '≡'
 
 [cmd_duration]

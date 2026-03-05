@@ -7,6 +7,7 @@
 
 
 # General
+macos-option-as-alt = true
 macos-titlebar-proxy-icon = hidden
 title = " "
 window-padding-balance = true
@@ -39,3 +40,7 @@ palette = 6=2ac3de
 palette = 14=2ac3de
 palette = 7=c0caf5
 palette = 15=c0caf5
+
+# Keybindings
+keybind = alt+left=unbind
+keybind = alt+right=unbind
