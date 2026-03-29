@@ -30,25 +30,6 @@
   changed_when: false
 
 # ==============================================================================
-# Rust
-# ==============================================================================
-
-- name: Check if Rustup is installed
-  ansible.builtin.stat:
-    path: "{{ user_home }}/.local/share/cargo/bin/rustup"
-  register: rustup_binary
-  check_mode: false
-
-- name: Fetch and run Rustup install script
-  ansible.builtin.shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
-  environment:
-    RUSTUP_HOME: "{{ user_home }}/.local/share/rustup"
-    CARGO_HOME: "{{ user_home }}/.local/share/cargo"
-  args:
-    creates: "{{ user_home }}/.local/share/cargo/bin/rustup"
-  when: not rustup_binary.stat.exists
-
-# ==============================================================================
 # PNPM / Node.js
 # ==============================================================================
 
@@ -87,3 +68,22 @@
   args:
     creates: "{{ user_home }}/.local/share/pnpm/node"
   when: not nodejs_binary.stat.exists
+
+# ==============================================================================
+# Rust
+# ==============================================================================
+
+- name: Check if Rustup is installed
+  ansible.builtin.stat:
+    path: "{{ user_home }}/.local/share/cargo/bin/rustup"
+  register: rustup_binary
+  check_mode: false
+
+- name: Fetch and run Rustup install script
+  ansible.builtin.shell: curl -fsSL https://sh.rustup.rs | sh -s -- -y --no-modify-path
+  environment:
+    RUSTUP_HOME: "{{ user_home }}/.local/share/rustup"
+    CARGO_HOME: "{{ user_home }}/.local/share/cargo"
+  args:
+    creates: "{{ user_home }}/.local/share/cargo/bin/rustup"
+  when: not rustup_binary.stat.exists

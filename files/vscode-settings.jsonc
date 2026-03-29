@@ -51,8 +51,7 @@
   "stylelint.validate": [
     "scss"
   ],
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.updateImportsOnFileMove.enabled": "always",
   "php.suggest.basic": false,
   // Extensions
   "biome.suggestInstallingGlobally": false,

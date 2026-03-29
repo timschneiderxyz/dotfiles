@@ -8,28 +8,28 @@
 
 
 homebrew_packages:
-  - git
-  - neovim
   - tmux
   - starship
+  - neovim
+  - git
   - coreutils
-  - zoxide
   - fzf
+  - zoxide
   - eza
   - fd
   - ripgrep
   - bat
   - jq
-  - nmap
-  - exiftool
   - btop
+  - nmap
   - just
   - ansible
-  - kubectl
   - postgresql
   - go
+  - python3
   - php
   - composer
+  - cocoapods
 
 homebrew_casks:
   - google-chrome
@@ -40,21 +40,26 @@ homebrew_casks:
   - tailscale
   - docker
   - chatgpt
+  - claude-code
+  - affinity
+  - bambu-studio
+  - flutter
   - discord
   - spotify
   - iina
-  - affinity
-  - bambu-studio
   - font-geist
   - font-monaspace
 
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
-  - github.copilot-chat
   - ms-azuretools.vscode-containers
+  - github.copilot-chat
+  - anthropic.claude-code
   - rust-lang.rust-analyzer
   - golang.go
+  - dart-code.dart-code
+  - dart-code.flutter
   - bmewburn.vscode-intelephense-client
   - astro-build.astro-vscode
   - unifiedjs.vscode-mdx
