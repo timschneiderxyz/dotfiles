@@ -39,14 +39,12 @@ homebrew_casks:
   - raycast
   - tailscale
   - docker
-  - chatgpt
-  - claude-code
   - affinity
   - bambu-studio
-  - flutter
   - discord
   - spotify
   - iina
+  - flutter
   - font-geist
   - font-monaspace
 

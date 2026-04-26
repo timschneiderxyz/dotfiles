@@ -27,7 +27,7 @@
 
 - Finder Sidebar: Home, Projects, Downloads, Applications, iCloud Drive, Cloud Storage, External Disks, AirDrop, Connected servers, Network, Trash
 - Install Apps from the App Store: Xcode, TestFlight, Word, Excel, PowerPoint
-- Safari:
+- **Safari:**
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`
   - AutoFill: `false`
@@ -36,39 +36,45 @@
   - Advanced: Show full website address → `true`
   - Advanced: Allow websites to check for Apply Pay and Apple Card → `false`
   - Advanced: Show features for web developers → `true`
-- Mail:
+- **Mail:**
   - General: Follow Up Suggestions → `false`
   - General: When searching all mailboxes, include results from → `Trash, Junk`
   - Viewing: Show most recent message at the top → `true`
-- Chrome:
-  - Adjust settings for all profiles.
-  - Install extensions: Bitwarden, Linkding.
+- **Chrome:**
+  - Adjust settings for all profiles
+  - Install extensions: Bitwarden, Linkding
 
 ## System Settings
 
-- Appearance: Liquid Glass → `Tinted`
-- Menu Bar: Show menu bar background → `true`
-- Menu Bar: Recent documents, applications, and servers → `none`
-- Desktop & Dock: Widgets → iPhone Widgets → `false`
-- Notifications: Adjust options.
-- Lock Screen: Require password after screen saver begins or display is turned off → `After 5 seconds`
-- Privacy & Security: Adjust options.
-- Spotlight: Improve Search → `false`
-- Keyboard: Press Globe key to → `Do Nothing`
-- Keyboard: Keyboard Shortcuts → Input Sources → Uncheck all shortcuts
-- Keyboard: Keyboard Shortcuts → Spotlight → Uncheck all shortcuts
-- Keyboard: Keyboard Shortcuts → Modifier Keys → Remap <kbd>Caps Lock</kbd> to <kbd>ESC</kbd>
-- Trackpad: Look up & data detectors → `off`
-- Mouse: Advanced → Pointer acceleration → `false`
+- **General:**
+  - Login Items & Extensions → Adjust options
+- **Appearance:**
+  - Liquid Glass → `Tinted`
+- **Menu Bar:**
+  - Show menu bar background → `true`
+  - Recent documents, applications, and servers → `none`
+- **Spotlight:**
+  - Show Related Content → `false`
+  - Improve Search → `false`
+- **Notifications:** Adjust options
+- **Lock Screen:**
+  - Require password after screen saver begins or display is turned off → `After 5 seconds`
+- **Privacy & Security:** Adjust options
+- **Keyboard:**
+  - Press Globe key to → `Do Nothing`
+  - Keyboard Shortcuts → Input Sources → Uncheck `Select the previous input source`
+  - Keyboard Shortcuts → Spotlight → Uncheck `Show Spotlight search`
+- **Trackpad:**
+  - Look up & data detectors → `off`
+- **Mouse:**
+  - Advanced → Pointer acceleration → `false`
 
 ## Other
 
 - Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
-- Set default permissions for directories and files:
-  - `find Projects -type d -exec chmod 755 {} \;`
-  - `find Projects -type f -exec chmod 644 {} \;`
 - Copy SSH keys and set permissions: 
   - `chmod 700 ~/.ssh`
   - `chmod 600 ~/.ssh/*`
-- Log in to all your Apps.
-- Restart the Computer.
+- Set permissions for directories and files:
+  - `find Projects -type d -exec chmod 755 {} \;`
+  - `find Projects -type f -exec chmod 644 {} \;`
