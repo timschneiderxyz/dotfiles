@@ -4,6 +4,7 @@
 -- | | | |  __/ (_) \ V /| | | | | | |
 -- |_| |_|\___|\___/ \_/ |_|_| |_| |_|
 
+
 require("config.options")
 require("config.keymap")
 require("config.lazy")

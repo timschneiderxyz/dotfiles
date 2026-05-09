@@ -20,7 +20,6 @@ homebrew_packages:
   - ripgrep
   - bat
   - jq
-  - btop
   - nmap
   - just
   - ansible
@@ -51,20 +50,18 @@ homebrew_casks:
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
-  - ms-azuretools.vscode-containers
   - github.copilot-chat
   - anthropic.claude-code
+  - ms-azuretools.vscode-containers
   - rust-lang.rust-analyzer
   - golang.go
   - dart-code.dart-code
   - dart-code.flutter
   - bmewburn.vscode-intelephense-client
   - astro-build.astro-vscode
-  - unifiedjs.vscode-mdx
   - bradlc.vscode-tailwindcss
   - editorconfig.editorconfig
   - biomejs.biome
-  - dbaeumer.vscode-eslint
   - stylelint.vscode-stylelint
   - yoavbls.pretty-ts-errors
   - jock.svg

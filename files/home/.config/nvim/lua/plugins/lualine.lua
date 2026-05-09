@@ -14,12 +14,12 @@ return {
         component_separators = { left = "|", right = "|" }
       },
       sections = {
-        lualine_a = {"mode"},
-        lualine_b = {"branch"},
-        lualine_c = {"filename"},
-        lualine_x = {"diagnostics", "encoding", "filetype"},
+        lualine_a = { "mode" },
+        lualine_b = { "branch" },
+        lualine_c = { "filename" },
+        lualine_x = { "diagnostics", "encoding", "filetype" },
         lualine_y = {},
-        lualine_z = {"location"}
+        lualine_z = { "location" }
       }
     }
   end

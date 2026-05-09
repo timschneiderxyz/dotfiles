@@ -23,6 +23,30 @@
 5. Clone or download this repository to your local drive.
 6. Run `ansible-playbook main.yaml --ask-become-pass` inside this directory.
 
+## System Settings
+
+- **General:**
+  - Login Items & Extensions → Adjust options
+- **Appearance:**
+  - Liquid Glass → `Tinted`
+- **Menu Bar:**
+  - Show menu bar background → `true`
+  - Recent documents, applications, and servers → `none`
+- **Spotlight:**
+  - Show Related Content → `false`
+  - Improve Search → `false`
+- **Notifications:** Adjust options
+- **Lock Screen:**
+  - Require password after screen saver begins or display is turned off → `After 5 seconds`
+- **Privacy & Security:** Adjust options
+- **Keyboard:**
+  - Press Globe key to → `Do Nothing`
+  - Keyboard Shortcuts → Input Sources → Uncheck `Select the previous input source`
+- **Trackpad:**
+  - Look up & data detectors → `off`
+- **Mouse:**
+  - Advanced → Pointer acceleration → `false`
+
 ## Apps
 
 - Finder Sidebar: Home, Projects, Downloads, Applications, iCloud Drive, Cloud Storage, External Disks, AirDrop, Connected servers, Network, Trash
@@ -43,31 +67,6 @@
 - **Chrome:**
   - Adjust settings for all profiles
   - Install extensions: Bitwarden, Linkding
-
-## System Settings
-
-- **General:**
-  - Login Items & Extensions → Adjust options
-- **Appearance:**
-  - Liquid Glass → `Tinted`
-- **Menu Bar:**
-  - Show menu bar background → `true`
-  - Recent documents, applications, and servers → `none`
-- **Spotlight:**
-  - Show Related Content → `false`
-  - Improve Search → `false`
-- **Notifications:** Adjust options
-- **Lock Screen:**
-  - Require password after screen saver begins or display is turned off → `After 5 seconds`
-- **Privacy & Security:** Adjust options
-- **Keyboard:**
-  - Press Globe key to → `Do Nothing`
-  - Keyboard Shortcuts → Input Sources → Uncheck `Select the previous input source`
-  - Keyboard Shortcuts → Spotlight → Uncheck `Show Spotlight search`
-- **Trackpad:**
-  - Look up & data detectors → `off`
-- **Mouse:**
-  - Advanced → Pointer acceleration → `false`
 
 ## Other
 
