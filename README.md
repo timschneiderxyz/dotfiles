@@ -35,6 +35,7 @@
 - **Spotlight:**
   - Show Related Content → `false`
   - Improve Search → `false`
+  - Results from Clipboard → `true` + `7 days`
 - **Notifications:** Adjust options
 - **Lock Screen:**
   - Require password after screen saver begins or display is turned off → `After 5 seconds`
@@ -71,6 +72,7 @@
 ## Other
 
 - Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
+- Change Hammerspoon config file location (`defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"`) and restart the app.
 - Copy SSH keys and set permissions: 
   - `chmod 700 ~/.ssh`
   - `chmod 600 ~/.ssh/*`

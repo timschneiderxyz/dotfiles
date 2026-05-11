@@ -31,11 +31,13 @@ homebrew_packages:
   - cocoapods
 
 homebrew_casks:
+  - karabiner-elements
+  - hammerspoon
+  - mos
   - google-chrome
   - obsidian
   - ghostty
   - visual-studio-code
-  - raycast
   - tailscale
   - docker
   - affinity

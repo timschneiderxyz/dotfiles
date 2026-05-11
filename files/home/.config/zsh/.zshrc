@@ -24,7 +24,7 @@ setopt hist_ignore_all_dups
 setopt hist_find_no_dups
 
 # Completion
-autoload -U compinit && compinit -d "${XDG_CACHE_HOME}/zsh/zcompdump"
+autoload -U compinit && compinit -u -d "${XDG_CACHE_HOME}/zsh/zcompdump"
 zstyle ':completion:*' cache-path "${XDG_CACHE_HOME}/zsh/zcompcache"
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' menu yes select
