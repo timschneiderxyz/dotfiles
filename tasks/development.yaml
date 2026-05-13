@@ -30,7 +30,7 @@
   changed_when: false
 
 # ==============================================================================
-# PNPM / Node.js
+# PNPM / Node.js / npm
 # ==============================================================================
 
 - name: Check if pnpm is installed
@@ -56,18 +56,31 @@
 
 - name: Check if Node.js is installed
   ansible.builtin.stat:
-    path: "{{ user_home }}/.local/share/pnpm/node"
+    path: "{{ user_home }}/.local/share/pnpm/bin/node"
   register: nodejs_binary
   check_mode: false
 
 - name: Install Node.js LTS
-  ansible.builtin.shell: "pnpm env use --global lts"
+  ansible.builtin.shell: "pnpm runtime set node lts -g"
   environment:
-    PATH: "/usr/bin:/bin:/usr/sbin:/sbin:{{ user_home }}/.local/share/pnpm"
+    PATH: "/usr/bin:/bin:/usr/sbin:/sbin:{{ user_home }}/.local/share/pnpm/bin"
     PNPM_HOME: "{{ user_home }}/.local/share/pnpm"
   args:
-    creates: "{{ user_home }}/.local/share/pnpm/node"
+    creates: "{{ user_home }}/.local/share/pnpm/bin/node"
   when: not nodejs_binary.stat.exists
+
+- name: Check if npm is installed
+  ansible.builtin.stat:
+    path: "{{ user_home }}/.local/share/pnpm/bin/npm"
+  register: npm_binary
+  check_mode: false
+
+- name: Install npm globally via pnpm
+  ansible.builtin.shell: "pnpm add -g npm"
+  environment:
+    PATH: "/usr/bin:/bin:/usr/sbin:/sbin:{{ user_home }}/.local/share/pnpm/bin"
+    PNPM_HOME: "{{ user_home }}/.local/share/pnpm"
+  when: not npm_binary.stat.exists
 
 # ==============================================================================
 # Rust

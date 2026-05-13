@@ -23,14 +23,13 @@ alias \
 alias \
   nv="nvim" \
   g="git" \
-  k="kubectl" \
   d="docker" \
   pn="pnpm"
 
 # Utilities
 alias \
   update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
-  updatenode="pnpm self-update; pnpm env use --global lts" \
+  updatenode="pnpm self-update; pnpm runtime set node lts -g; pnpm add -g npm" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete" \
   nvo="nvim \$(fzf --preview 'bat --style=numbers --color=always {}')" \
   tetris="autoload -U tetriscurses && tetriscurses"
