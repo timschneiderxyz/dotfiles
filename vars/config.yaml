@@ -28,7 +28,6 @@ homebrew_packages:
   - python3
   - php
   - composer
-  - cocoapods
 
 homebrew_casks:
   - karabiner-elements
