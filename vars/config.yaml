@@ -51,7 +51,6 @@ homebrew_casks:
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
-  - github.copilot-chat
   - anthropic.claude-code
   - ms-azuretools.vscode-containers
   - rust-lang.rust-analyzer

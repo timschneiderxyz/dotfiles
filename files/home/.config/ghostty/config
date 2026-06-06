@@ -7,7 +7,7 @@
 
 
 # General
-macos-option-as-alt = true
+macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
 title = " "
 window-padding-balance = true

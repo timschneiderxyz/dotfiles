@@ -9,7 +9,7 @@
   "workbench.startupEditor": "none",
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
-  "editor.accessibilitySupport": "off",
+  "chat.disableAIFeatures": true,
   "extensions.autoUpdate": false,
   "extensions.ignoreRecommendations": true,
   // Appearance
