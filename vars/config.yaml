@@ -53,6 +53,8 @@ vscode_extensions:
   - pkief.material-icon-theme
   - anthropic.claude-code
   - ms-azuretools.vscode-containers
+  - ms-vscode.cpptools
+  - platformio.platformio-ide
   - rust-lang.rust-analyzer
   - golang.go
   - dart-code.dart-code
