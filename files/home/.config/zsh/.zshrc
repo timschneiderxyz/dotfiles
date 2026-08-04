@@ -37,6 +37,8 @@ source "${XDG_CONFIG_HOME}/zsh/aliases"
 
 # Plugins
 [ ! -d "${ZINIT_BIN_DIR}" ] && mkdir -p "$(dirname ${ZINIT_BIN_DIR})" && git clone https://github.com/zdharma-continuum/zinit.git "${ZINIT_BIN_DIR}"
+typeset -A ZINIT
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME}/zsh/zcompdump"
 source "${ZINIT_BIN_DIR}/zinit.zsh"
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions

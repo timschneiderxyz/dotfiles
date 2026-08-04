@@ -2,7 +2,6 @@ for key, value in pairs({
   -- General
   swapfile = false,
   undofile = true,
-  undodir = os.getenv("XDG_CACHE_HOME") .. "/nvim/undo",
   clipboard = "unnamedplus",
   termguicolors = true,
   showmode = false,

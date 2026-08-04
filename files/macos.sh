@@ -6,6 +6,8 @@
 # |_| |_| |_|\__,_|\___|\___/|____/
 
 
+set -eu
+
 # Don’t create .DS_Store files on USB and network volumes.
 defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -18,11 +20,14 @@ defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
 # ==============================================================================
 
 # Set "Prevent automatic sleeping on power adapter when the display is off" to "true".
-sudo pmset -c sleep 0
+sudo pmset -c sleep 0 || print -u2 "WARN: 'pmset -c sleep' failed."
 
 # ==============================================================================
 # Appearance
 # ==============================================================================
+
+# Set "Liquid Glass" to "Tinted".
+defaults write NSGlobalDomain NSGlassDiffusionSetting -bool true
 
 # Set "Show scroll bars" to "always".
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -66,6 +71,13 @@ defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
 
 # ==============================================================================
+# Menu Bar
+# ==============================================================================
+
+# Set "Show menu bar background" to "true".
+defaults write NSGlobalDomain SLSMenuBarUseBlurredAppearance -bool true
+
+# ==============================================================================
 # Lock Screen
 # ==============================================================================
 
@@ -73,10 +85,10 @@ defaults write com.apple.dock wvous-br-corner -int 0
 defaults -currentHost write com.apple.screensaver idleTime -int 0
 
 # Set "Turn display off on battery when inactive" to "For 10 minutes".
-sudo pmset -b displaysleep 10
+sudo pmset -b displaysleep 10 || print -u2 "WARN: 'pmset -b displaysleep' failed."
 
 # Set "Turn display off on power adapter when inactive" to "For 30 minutes".
-sudo pmset -c displaysleep 30
+sudo pmset -c displaysleep 30 || print -u2 "WARN: 'pmset -c displaysleep' failed."
 
 # ==============================================================================
 # Keyboard
@@ -85,6 +97,9 @@ sudo pmset -c displaysleep 30
 # Set the key repeat rate and make it happen more quickly.
 defaults write NSGlobalDomain KeyRepeat -int 2
 defaults write NSGlobalDomain InitialKeyRepeat -int 25
+
+# Set "Press Globe key to" to "Do Nothing".
+defaults write com.apple.HIToolbox AppleFnUsageType -int 0
 
 # Set "Show Input menu in menu bar" to "false".
 defaults write com.apple.TextInputMenu visible -bool false
@@ -97,11 +112,19 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
 # ==============================================================================
+# Trackpad
+# ==============================================================================
+
+# Set "Look up & data detectors" to "off".
+defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 0
+defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadThreeFingerTapGesture -int 0
+
+# ==============================================================================
 # Mouse
 # ==============================================================================
 
 # Set "Pointer acceleration" to "false".
-defaults write -g com.apple.mouse.scaling -float -1
+defaults write NSGlobalDomain com.apple.mouse.linear -bool true
 
 # ==============================================================================
 # Finder
@@ -165,9 +188,12 @@ defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 
 # Enable snap-to-grid for icons on the Desktop and in Finder.
-/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
+/usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist \
+  || print -u2 "WARN: Set 'arrangeBy' for 'DesktopViewSettings' failed."
+/usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist \
+  || print -u2 "WARN: Set 'arrangeBy' for 'FK_StandardViewSettings' failed."
+/usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist \
+  || print -u2 "WARN: Set 'arrangeBy' for 'StandardViewSettings' failed."
 
 # Show the ~/Library folder.
 chflags nohidden ~/Library
@@ -181,9 +207,16 @@ defaults write com.apple.screencapture type -string "jpg"
 defaults write com.apple.screencapture location -string "$HOME/Downloads"
 
 # ==============================================================================
+# Apps
+# ==============================================================================
+
+# Hammerspoon - Set the location of the configuration file.
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+
+# ==============================================================================
 # Restart
 # ==============================================================================
 
 for app in "SystemUIServer" "Dock" "Finder"; do
-  killall "${app}" > /dev/null 2>&1
+  killall "${app}" > /dev/null 2>&1 || true
 done

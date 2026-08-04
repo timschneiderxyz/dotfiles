@@ -27,7 +27,7 @@
   ansible.builtin.command: /opt/homebrew/bin/code --install-extension {{ item }}
   loop: "{{ vscode_extensions }}"
   register: vscode_extension
-  changed_when: false
+  changed_when: "'already installed' not in vscode_extension.stdout"
 
 # ==============================================================================
 # PNPM / Node.js / npm
@@ -35,7 +35,7 @@
 
 - name: Check if pnpm is installed
   ansible.builtin.stat:
-    path: "{{ user_home }}/.local/share/pnpm/pnpm"
+    path: "{{ user_home }}/.local/share/pnpm/bin/pnpm"
   register: pnpm_binary
   check_mode: false
 
@@ -45,7 +45,7 @@
     PNPM_HOME: "{{ user_home }}/.local/share/pnpm"
     ZDOTDIR: "{{ user_home }}/.config/zsh"
   args:
-    creates: "{{ user_home }}/.local/share/pnpm/pnpm"
+    creates: "{{ user_home }}/.local/share/pnpm/bin/pnpm"
   when: not pnpm_binary.stat.exists
 
 - name: Remove pnpm lines from ".zshrc"

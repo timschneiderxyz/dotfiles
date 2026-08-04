@@ -27,10 +27,7 @@
 
 - **General:**
   - Login Items & Extensions → Adjust options
-- **Appearance:**
-  - Liquid Glass → `Tinted`
 - **Menu Bar:**
-  - Show menu bar background → `true`
   - Recent documents, applications, and servers → `none`
 - **Spotlight:**
   - Show Related Content → `false`
@@ -41,12 +38,7 @@
   - Require password after screen saver begins or display is turned off → `After 5 seconds`
 - **Privacy & Security:** Adjust options
 - **Keyboard:**
-  - Press Globe key to → `Do Nothing`
   - Keyboard Shortcuts → Input Sources → Uncheck `Select the previous input source`
-- **Trackpad:**
-  - Look up & data detectors → `off`
-- **Mouse:**
-  - Advanced → Pointer acceleration → `false`
 
 ## Apps
 
@@ -72,7 +64,6 @@
 ## Other
 
 - Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
-- Change Hammerspoon config file location (`defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"`) and restart the app.
 - Copy SSH keys and set permissions: 
   - `chmod 700 ~/.ssh`
   - `chmod 600 ~/.ssh/*`
