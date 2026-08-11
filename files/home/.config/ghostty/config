@@ -9,16 +9,23 @@
 # General
 macos-option-as-alt = left
 macos-titlebar-proxy-icon = hidden
+shell-integration-features = no-cursor,ssh-env
+
+# Window
 title = " "
 window-padding-balance = true
 window-padding-x = 2
 window-padding-y = 0
-adjust-cell-height = 4
+
+# Cursor
+cursor-style = block
+cursor-style-blink = false
 
 # Font
 font-family = Monaspace Argon
 font-size = 14
 font-thicken = true
+adjust-cell-height = 4
 adjust-underline-position = 2
 
 # Theme

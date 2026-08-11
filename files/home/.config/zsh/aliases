@@ -28,7 +28,7 @@ alias \
 
 # Utilities
 alias \
-  update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all" \
+  update="brew update; brew upgrade; brew autoremove; brew cleanup; zinit update --all; zinit cclear" \
   updatenode="pnpm self-update; pnpm runtime set node lts -g; pnpm add -g npm" \
   rmdsstore="find . -type f -name '*.DS_Store' -ls -delete"
 sshkg() {ssh-keygen -t ed25519 -C $1 -f ~/.ssh/$2}
