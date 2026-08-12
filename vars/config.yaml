@@ -38,8 +38,9 @@ homebrew_casks:
   - obsidian
   - ghostty
   - visual-studio-code
-  - tailscale
-  - docker
+  - claude-code
+  - tailscale-app
+  - docker-desktop
   - affinity
   - bambu-studio
   - discord
