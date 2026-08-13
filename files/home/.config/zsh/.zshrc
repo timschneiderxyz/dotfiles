@@ -52,3 +52,4 @@ source <(fzf --zsh)
 # Keybindings
 bindkey "^[[A" history-search-backward
 bindkey "^[[B" history-search-forward
+bindkey -s "^s" "tmux-sessionizer\n"
