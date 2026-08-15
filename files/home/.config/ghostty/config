@@ -7,15 +7,16 @@
 
 
 # General
+macos-titlebar-style = hidden
 macos-option-as-alt = left
-macos-titlebar-proxy-icon = hidden
+confirm-close-surface = false
 shell-integration-features = no-cursor,ssh-env
 
 # Window
-title = " "
+resize-overlay = never
 window-padding-balance = true
-window-padding-x = 2
-window-padding-y = 0
+window-padding-x = 12
+window-padding-y = 12
 
 # Cursor
 cursor-style = block
@@ -23,29 +24,32 @@ cursor-style-blink = false
 
 # Font
 font-family = Monaspace Argon
-font-size = 14
+font-size = 13
 font-thicken = true
 adjust-cell-height = 4
 adjust-underline-position = 2
 
 # Theme
 background = 1a1b26
-foreground = c0caf5
-palette = 0=414868
-palette = 8=414868
+foreground = a9b1d6
+cursor-color = c0caf5
+selection-background = 414868
+selection-foreground = c0caf5
+palette = 0=1a1b26
 palette = 1=f7768e
-palette = 9=f7768e
-palette = 2=73daca
-palette = 10=73daca
+palette = 2=9ece6a
 palette = 3=ff9e64
-palette = 11=ff9e64
 palette = 4=7aa2f7
-palette = 12=7aa2f7
 palette = 5=bb9af7
-palette = 13=bb9af7
 palette = 6=2ac3de
-palette = 14=2ac3de
-palette = 7=c0caf5
+palette = 7=a9b1d6
+palette = 8=565f89
+palette = 9=f991a5
+palette = 10=b9f27c
+palette = 11=e0af68
+palette = 12=7dcfff
+palette = 13=c9aef9
+palette = 14=55cfe5
 palette = 15=c0caf5
 
 # Keybindings

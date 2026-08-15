@@ -19,7 +19,7 @@
   "material-icon-theme.activeIconPack": "react",
   "editor.fontFamily": "'Monaspace Argon', monospace",
   "editor.fontLigatures": "'calt', 'ss01', 'ss02', 'ss03', 'ss04', 'ss07', 'ss08', 'ss09', 'liga'",
-  "editor.fontSize": 14,
+  "editor.fontSize": 13,
   "workbench.tree.indent": 14,
   "workbench.tree.renderIndentGuides": "always",
   "breadcrumbs.enabled": false,

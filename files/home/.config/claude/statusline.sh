@@ -15,6 +15,7 @@ BRANCH_GLYPH=$''
 parsed=$(jq -r '
   (.workspace.current_dir // .cwd // "."),
   (.model.display_name // ""),
+  (.effort.level // ""),
   (.context_window.context_window_size // 0),
   (.context_window.used_percentage // "")
 ')
@@ -22,6 +23,7 @@ parsed=$(jq -r '
 {
   IFS= read -r cwd
   IFS= read -r model
+  IFS= read -r effort
   IFS= read -r ctx_size
   IFS= read -r used
 } <<< "$parsed"
@@ -46,6 +48,9 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     git_part="${SEP}${PURPLE}${BRANCH_GLYPH} ${branch}${dirty}${RESET}"
   fi
 fi
+
+effort_part=""
+[ -n "$effort" ] && effort_part=" ${CYAN}${effort}${RESET}"
 
 ctx_part=""
 if [ -n "$used" ]; then
@@ -85,5 +90,5 @@ if [ -n "$used" ]; then
   ctx_part="${SEP}${bar} ${pct_color}${pct}%${RESET}${size_label}"
 fi
 
-# Path · Branch · Model · Bar Percentage Size
-printf "%s" "${BLUE}${dir}${RESET}${git_part}${SEP}${CYAN}${model}${RESET}${ctx_part}"
+# Path · Branch · Model Effort · Bar Percentage Size
+printf "%s" "${BLUE}${dir}${RESET}${git_part}${SEP}${CYAN}${model}${RESET}${effort_part}${ctx_part}"

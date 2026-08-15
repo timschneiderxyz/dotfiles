@@ -3,6 +3,7 @@
 ## Tooling
 
 - Prefer `fd` over `find`
+- Prefer `ripgrep` pver `grep`
 - `jq` is installed
 
 ## Git

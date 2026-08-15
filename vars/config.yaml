@@ -53,7 +53,6 @@ homebrew_casks:
 vscode_extensions:
   - enkia.tokyo-night
   - pkief.material-icon-theme
-  - anthropic.claude-code
   - ms-azuretools.vscode-containers
   - ms-vscode.cpptools
   - platformio.platformio-ide
