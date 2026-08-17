@@ -22,16 +22,6 @@ fi
 
 if ! tmux has-session -t="$selected_name" 2>/dev/null; then
   tmux new-session -ds "$selected_name" -c "$selected"
-
-  if [[ -f "$selected/.tmux-sessionizer" ]]; then
-    zsh "$selected/.tmux-sessionizer" "$selected_name" "$selected"
-  else
-    tmux rename-window -t "$selected_name:1" main
-    tmux split-window -v -l 25% -t "$selected_name:1" -c "$selected"
-    tmux select-pane -t "$selected_name:1.1"
-    tmux new-window -t "$selected_name:2" -c "$selected"
-    tmux select-window -t "$selected_name:1"
-  fi
 fi
 
 if [[ -z $TMUX ]]; then

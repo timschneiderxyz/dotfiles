@@ -19,7 +19,6 @@ for key, value in pairs({
   tabstop = 2,
   softtabstop = 2,
   shiftwidth = 2,
-  smartindent = true,
   breakindent = true,
 
   -- Searching
