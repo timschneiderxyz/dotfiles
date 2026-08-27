@@ -1,31 +1,38 @@
 #!/bin/zsh
 
+# Target from the argument or picker of running sessions and projects.
 if [[ $# -eq 1 ]]; then
-  selected=$1
+  target=$1
 else
   [[ -n $TMUX ]] && current_session=$(tmux display-message -p '#S')
-  selected=$({
+  target=$({
     tmux list-sessions -F "[SESSION] #{session_name}" 2>/dev/null |
       rg -vFx "[SESSION] $current_session"
     fd --base-directory "$HOME/Projects" --exact-depth 2 --type d --format '{}' .
   } | fzf)
-  [[ -n $selected && $selected != "[SESSION] "* ]] && selected="$HOME/Projects/$selected"
+  [[ -n $target && $target != "[SESSION] "* ]] && target="$HOME/Projects/$target"
 fi
 
-[[ -z $selected ]] && exit 0
+# Nothing picked.
+[[ -z $target ]] && exit 0
 
-if [[ $selected == "[SESSION] "* ]]; then
-  selected_name=${selected#"[SESSION] "}
+# Derive the session name.
+if [[ $target == "[SESSION] "* ]]; then
+  session_name=${target#"[SESSION] "}
+elif [[ $target == "$HOME/Projects/"* ]]; then
+  session_name=$(echo "${target#"$HOME/Projects/"}" | tr . _)
 else
-  selected_name=$(basename "$selected" | tr . _)
+  session_name=$(basename "$target" | tr . _)
 fi
 
-if ! tmux has-session -t="$selected_name" 2>/dev/null; then
-  tmux new-session -ds "$selected_name" -c "$selected"
+# Create the session if it doesn't exist yet.
+if ! tmux has-session -t="$session_name" 2>/dev/null; then
+  tmux new-session -ds "$session_name" -c "$target"
 fi
 
+# Attach from outside tmux, switch from inside.
 if [[ -z $TMUX ]]; then
-  tmux attach-session -t "$selected_name"
+  tmux attach-session -t "$session_name"
 else
-  tmux switch-client -t "$selected_name"
+  tmux switch-client -t "$session_name"
 fi

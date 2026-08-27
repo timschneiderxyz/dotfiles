@@ -10,7 +10,7 @@
   "workbench.settings.editor": "json",
   "workbench.settings.useSplitJSON": true,
   "chat.disableAIFeatures": true,
-  "extensions.autoUpdate": false,
+  "extensions.autoUpdate": "off",
   "extensions.ignoreRecommendations": true,
   // Appearance
   "workbench.colorTheme": "Tokyo Night",

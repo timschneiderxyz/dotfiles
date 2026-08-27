@@ -71,13 +71,6 @@ defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
 
 # ==============================================================================
-# Menu Bar
-# ==============================================================================
-
-# Set "Show menu bar background" to "true".
-defaults write NSGlobalDomain SLSMenuBarUseBlurredAppearance -bool true
-
-# ==============================================================================
 # Lock Screen
 # ==============================================================================
 

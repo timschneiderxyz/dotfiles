@@ -42,9 +42,7 @@ if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
 
   if [ -n "$branch" ]; then
     dirty=""
-    if ! git diff --quiet 2>/dev/null || ! git diff --cached --quiet 2>/dev/null; then
-      dirty="*"
-    fi
+    [ -n "$(git status --porcelain 2>/dev/null)" ] && dirty="*"
     git_part="${SEP}${PURPLE}${BRANCH_GLYPH} ${branch}${dirty}${RESET}"
   fi
 fi
