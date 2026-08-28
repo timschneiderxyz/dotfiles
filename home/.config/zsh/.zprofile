@@ -7,7 +7,13 @@
 
 
 # Add to $PATH
+typeset -U path
 eval "$(/opt/homebrew/bin/brew shellenv)"
-export PATH="$PATH:$(find $HOME/.local/bin -maxdepth 1 -type d | paste -sd ':' -)"
-export PATH="$PATH:$PNPM_HOME/bin"
-export PATH="$PATH:$CARGO_HOME/bin"
+path+=(
+  $PNPM_HOME/bin
+  $CARGO_HOME/bin
+  $GOPATH/bin
+  $HOME/.local/bin
+  $HOME/.local/bin/*(N/)
+)
+eval "$(mise activate zsh --shims)"

@@ -1,0 +1,18 @@
+[settings]
+dotfiles.root = "home"
+
+[dotfiles]
+"~/.zshenv" = { mode = "copy" }
+"~/.config/starship.toml" = { mode = "copy" }
+"~/.config/claude" = { mode = "copy" }
+"~/.config/ghostty" = { mode = "copy" }
+"~/.config/git" = { mode = "copy" }
+"~/.config/hammerspoon" = { mode = "copy" }
+"~/.config/karabiner" = { mode = "copy" }
+"~/.config/mise" = { mode = "copy" }
+"~/.config/nvim" = { mode = "copy" }
+"~/.config/tmux" = { mode = "copy" }
+"~/.config/zsh" = { mode = "copy" }
+"~/.local/bin" = { mode = "copy" }
+"~/.ssh/config" = { mode = "copy" }
+"~/Library/Application Support/Code/User/settings.json" = { source = "home/vscode-settings.jsonc", mode = "copy" }

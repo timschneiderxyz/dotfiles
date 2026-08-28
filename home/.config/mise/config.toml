@@ -1,0 +1,11 @@
+[settings]
+idiomatic_version_file_enable_tools = ["node", "python"]
+go.set_gobin = false
+
+[tools]
+node = "lts"
+pnpm = "latest"
+rust = "latest"
+go = "latest"
+python = "latest"
+uv = "latest"

@@ -45,6 +45,7 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 
 # Initializations
+eval "$(mise activate zsh)"
 eval "$(starship init zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 source <(fzf --zsh)

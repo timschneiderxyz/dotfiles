@@ -1,11 +1,7 @@
-<p align="center">
-  <img src="https://github.com/timschneiderxyz/dotfiles/blob/main/logo.png" width="250" height="156" alt="Ansible Playbook for macOS">
-</p>
-
 <h1 align="center">dotfiles</h1>
 
 <p align="center">
-  My dotfiles & configs as well as the setup of macOS via Ansible.
+  My dotfiles & configs as well as the setup of macOS.
 </p>
 
 <p align="center">
@@ -18,10 +14,8 @@
 
 1. Complete the initial Mac setup (Sign in to iCloud and the App Store).
 2. Install Xcode command line tools: `xcode-select --install`.
-3. Install Ansible: `python3 -m pip install --user ansible`.
-4. Add Ansible to your `$PATH`: `export PATH="$PATH:$HOME/Library/Python/3.9/bin"`
-5. Clone or download this repository to your local drive.
-6. Run `ansible-playbook main.yaml --ask-become-pass` inside this directory.
+3. Clone this repository: `git clone https://github.com/timschneiderxyz/dotfiles.git ~/Projects/personal/dotfiles`.
+4. Run `~/Projects/personal/dotfiles/bootstrap.sh`.
 
 ## System Settings
 
@@ -42,8 +36,9 @@
 
 ## Apps
 
-- Finder Sidebar: Home, Projects, Downloads, Applications, iCloud Drive, Cloud Storage, External Disks, AirDrop, Connected servers, Network, Trash
 - Install Apps from the App Store: Xcode, TestFlight, Word, Excel, PowerPoint
+- Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
+- Finder Sidebar: Home, Projects, Downloads, Applications, iCloud Drive, Cloud Storage, External Disks, AirDrop, Connected servers, Network, Trash
 - **Safari:**
   - General: Homepage → `about:blank`
   - General: Open "safe" files after downloading → `false`
@@ -61,12 +56,7 @@
   - Adjust settings for all profiles
   - Install extensions: Obsidian Web Clipper, Linkding, Bitwarden
 
-## Other
+## SSH
 
-- Remove all Apps from the Dock (`defaults write com.apple.dock persistent-apps -array && killall Dock`) and add yours.
-- Copy SSH keys and set permissions: 
-  - `chmod 700 ~/.ssh`
-  - `chmod 600 ~/.ssh/*`
-- Set permissions for directories and files:
-  - `find Projects -type d -exec chmod 755 {} \;`
-  - `find Projects -type f -exec chmod 644 {} \;`
+- Copy SSH keys and set permissions: `chmod 700 ~/.ssh` and `chmod 600 ~/.ssh/*`
+- Switch dotfiles repository from HTTPS to SSH: `git remote set-url origin git@github.com:timschneiderxyz/dotfiles.git`
