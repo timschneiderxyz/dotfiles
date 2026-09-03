@@ -3,7 +3,7 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    explorer = {},
+    dashboard = {},
     picker = {
       sources = {
         explorer = {
@@ -21,15 +21,22 @@ return {
         }
       }
     },
+    explorer = {},
+    notifier = {},
+    input = {},
+    scroll = {},
     indent = {
       animate = {
         enabled = false
       }
     },
-    scroll = {},
+    scope = {},
+    words = {},
     image = {
       enabled = false
-    }
+    },
+    bigfile = {},
+    quickfile = {}
   },
   keys = {
     {

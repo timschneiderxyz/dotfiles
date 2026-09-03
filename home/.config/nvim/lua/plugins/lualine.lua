@@ -5,6 +5,7 @@ return {
     options = {
       theme = "auto",
       icons_enabled = true,
+      globalstatus = true,
       section_separators = { left = "", right = "" },
       component_separators = { left = "|", right = "|" }
     },
@@ -13,7 +14,7 @@ return {
       lualine_b = { "branch" },
       lualine_c = { "filename" },
       lualine_x = { "diagnostics", "encoding", "filetype" },
-      lualine_y = {},
+      lualine_y = { "progress" },
       lualine_z = { "location" }
     }
   }

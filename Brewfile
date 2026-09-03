@@ -23,7 +23,6 @@ brew "just"
 brew "postgresql"
 brew "php"
 brew "composer"
-brew "tree-sitter-cli"
 
 cask "karabiner-elements"
 cask "hammerspoon"
