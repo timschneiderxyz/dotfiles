@@ -26,18 +26,11 @@ sudo pmset -c sleep 0 || print -u2 "WARN: 'pmset -c sleep' failed."
 # Appearance
 # ==============================================================================
 
-# Set "Liquid Glass" to "Tinted".
-defaults write NSGlobalDomain NSGlassDiffusionSetting -bool true
+# Set "Liquid Glass" tint amount (0.0 = clear, 1.0 = tinted).
+defaults write NSGlobalDomain NSGlassTintAmount -float 0.5
 
 # Set "Show scroll bars" to "always".
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
-
-# ==============================================================================
-# Control Center
-# ==============================================================================
-
-# Set Spotlight to "Don't show in Menu Bar".
-defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 
 # ==============================================================================
 # Desktop & Dock
@@ -69,6 +62,13 @@ defaults write com.apple.dock wvous-tl-corner -int 0
 defaults write com.apple.dock wvous-tr-corner -int 0
 defaults write com.apple.dock wvous-bl-corner -int 0
 defaults write com.apple.dock wvous-br-corner -int 0
+
+# ==============================================================================
+# Spotlight
+# ==============================================================================
+
+# Set Spotlight to "Don't show in Menu Bar".
+defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
 
 # ==============================================================================
 # Lock Screen
@@ -210,6 +210,4 @@ defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/i
 # Restart
 # ==============================================================================
 
-for app in "SystemUIServer" "Dock" "Finder"; do
-  killall "${app}" > /dev/null 2>&1 || true
-done
+killall SystemUIServer Dock Finder 2>/dev/null || true
