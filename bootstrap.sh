@@ -15,28 +15,17 @@ repo="${0:A:h}"
 sudo -v
 while true; do sudo -n true; sleep 60; kill -0 $$ 2>/dev/null || exit; done &
 
-# 2. macOS
+# 2. macOS - Set defaults.
 zsh "$repo/macos.sh"
 
-# 3. Directories
-mkdir -p \
-  ~/.local/bin \
-  ~/.local/share \
-  ~/.local/state \
-  ~/.cache/zsh \
-  ~/.cache/psql \
-  ~/.cache/node \
-  ~/Projects
-
-# 4. Homebrew
+# 3. Homebrew - Install formulae and casks.
 [ -x /opt/homebrew/bin/brew ] || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --file="$repo/Brewfile"
 
-# 5. mise
+# 4. mise - Directories, dotfiles and tools.
 [ -x "$HOME/.local/bin/mise" ] || curl -fsSL https://mise.run | sh
 export PATH="$HOME/.local/bin:$PATH"
 cd "$repo"
 mise trust
-mise bootstrap dotfiles apply
-mise install
+mise bootstrap

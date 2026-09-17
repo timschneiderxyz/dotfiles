@@ -1,6 +1,15 @@
 [settings]
 dotfiles.root = "home"
 
+[bootstrap.directories]
+"~/.local/bin" = {}
+"~/.local/share" = {}
+"~/.local/state" = {}
+"~/.cache/zsh" = {}
+"~/.cache/psql" = {}
+"~/.cache/node" = {}
+"~/Projects" = {}
+
 [dotfiles]
 "~/.zshenv" = { mode = "copy" }
 "~/.config/starship.toml" = { mode = "copy" }
