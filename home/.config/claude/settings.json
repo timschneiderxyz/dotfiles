@@ -1,0 +1,31 @@
+{
+  "model": "opus",
+  "effortLevel": "xhigh",
+  "tui": "fullscreen",
+  "statusLine": {
+    "type": "command",
+    "command": "zsh ~/.config/claude/statusline.sh"
+  },
+  "remoteControlAtStartup": true,
+  "autoCompactEnabled": false,
+  "skipDangerousModePermissionPrompt": true,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "attribution": {
+    "commit": "",
+    "pr": "",
+    "sessionUrl": false
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-plugins-official": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-plugins-official"
+      }
+    }
+  }
+}
