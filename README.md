@@ -26,7 +26,6 @@
 - **Spotlight:**
   - Show Related Content → `false`
   - Improve Search → `false`
-  - Results from Clipboard → `true` + `7 days`
 - **Notifications:** Adjust options
 - **Lock Screen:**
   - Require password after screen saver begins or display is turned off → `After 5 seconds`

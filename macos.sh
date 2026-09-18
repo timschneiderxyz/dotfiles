@@ -8,8 +8,7 @@
 
 set -eu
 
-# Don’t create .DS_Store files on USB and network volumes.
-defaults write com.apple.desktopservices DSDontWriteUSBStores -bool true
+# Don’t create .DS_Store files on network volumes.
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
 # Expand save panel by default.
@@ -69,6 +68,10 @@ defaults write com.apple.dock wvous-br-corner -int 0
 
 # Set Spotlight to "Don't show in Menu Bar".
 defaults -currentHost write com.apple.Spotlight MenuItemHidden -bool true
+
+# Set "Results from Clipboard" to "true" with a 7 day history.
+defaults write com.apple.Spotlight PasteboardHistoryEnabled -bool true
+defaults write com.apple.Spotlight PasteboardHistoryTimeout -int 604800
 
 # ==============================================================================
 # Lock Screen
@@ -130,8 +133,7 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool false
 defaults write com.apple.finder ShowMountedServersOnDesktop -bool false
 
 # Set "New Finder windows show" to "$HOME".
-defaults write com.apple.finder NewWindowTarget -string "PfLo"
-defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/"
+defaults write com.apple.finder NewWindowTarget -string "PfHm"
 
 # Set "Show all file extensions" to "true".
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -140,7 +142,7 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Set "Show warning before removing from iCloud Drive" to "false".
-defaults write com.apple.finder FXEnableRemoveFromICloudDriveWarning -bool false
+defaults write com.apple.bird "com.apple.clouddocs.unshared.moveOut.suppress" -bool true
 
 # Set "Remove items from the Trash after 30 days" to "true".
 defaults write com.apple.finder FXRemoveOldTrashItems -bool true
@@ -197,7 +199,8 @@ chflags nohidden ~/Library
 
 # Set format and location.
 defaults write com.apple.screencapture type -string "jpg"
-defaults write com.apple.screencapture location -string "$HOME/Downloads"
+defaults write com.apple.screencapture location-screenshot -string "~/Downloads"
+defaults write com.apple.screencapture location-screenrecording -string "~/Downloads"
 
 # ==============================================================================
 # Apps
