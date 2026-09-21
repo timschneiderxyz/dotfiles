@@ -4,6 +4,7 @@ go.set_gobin = false
 
 [tools]
 node = "lts"
+npm = "latest"
 pnpm = "latest"
 rust = "latest"
 go = "latest"

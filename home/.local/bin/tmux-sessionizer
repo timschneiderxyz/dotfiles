@@ -5,11 +5,18 @@ if [[ $# -eq 1 ]]; then
   target=$1
 else
   [[ -n $TMUX ]] && current_session=$(tmux display-message -p '#S')
-  target=$({
-    tmux list-sessions -F "[SESSION] #{session_name}" 2>/dev/null |
-      rg -vFx "[SESSION] $current_session"
-    fd --base-directory "$HOME/Projects" --exact-depth 2 --type d --format '{}' .
-  } | fzf)
+  sessions=(${(f)"$(tmux list-sessions -F '#{session_name}' 2>/dev/null)"})
+  sessions=(${sessions:#"$current_session"})
+  projects=(${(f)"$(fd --base-directory "$HOME/Projects" --exact-depth 2 --type d --format '{}' .)"})
+  projects=(${projects:|sessions})
+
+  target=$(
+    session_list=${(F)${sessions/#/"[SESSION] "}} \
+    project_list=${(F)projects} \
+    fzf --no-sort \
+      --bind 'start,change:reload(printf %s "$session_list" | fzf --filter={q}; printf %s "$project_list" | fzf --filter={q} || true)' \
+      </dev/null
+  )
   [[ -n $target && $target != "[SESSION] "* ]] && target="$HOME/Projects/$target"
 fi
 
