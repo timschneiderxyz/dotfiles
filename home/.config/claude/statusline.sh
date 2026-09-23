@@ -1,5 +1,6 @@
 #!/bin/zsh
 
+# Style
 ESC=$'\033'
 RESET="${ESC}[0m"
 RED="${ESC}[31m"
@@ -12,49 +13,55 @@ GRAY="${ESC}[90m"
 SEP=" ${GRAY}·${RESET} "
 BRANCH_GLYPH=$''
 
+# Input
 parsed=$(jq -r '
   (.workspace.current_dir // .cwd // "."),
   (.model.display_name // ""),
   (.effort.level // ""),
   (.context_window.context_window_size // 0),
-  (.context_window.used_percentage // "")
-')
-
+  (.context_window.used_percentage // ""),
+  (.rate_limits.five_hour.used_percentage // ""),
+  (.rate_limits.seven_day.used_percentage // "")
+' 2>/dev/null)
 {
   IFS= read -r cwd
   IFS= read -r model
   IFS= read -r effort
   IFS= read -r ctx_size
   IFS= read -r used
+  IFS= read -r five_hour
+  IFS= read -r seven_day
 } <<< "$parsed"
 
-dir="${cwd/#$HOME/~}"
-
+# Git
 git() { command git --no-optional-locks -C "$cwd" "$@"; }
-
 git_part=""
-if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+root=""
+if [ "$(git rev-parse --is-inside-work-tree 2>/dev/null)" = true ]; then
   root=$(git rev-parse --show-toplevel 2>/dev/null)
-  [ -n "$root" ] && dir="${root##*/}${cwd#$root}"
 
   branch=$(git branch --show-current 2>/dev/null)
   [ -z "$branch" ] && branch=$(git rev-parse --short HEAD 2>/dev/null)
 
-  if [ -n "$branch" ]; then
-    dirty=""
-    [ -n "$(git status --porcelain 2>/dev/null)" ] && dirty="*"
-    git_part="${SEP}${PURPLE}${BRANCH_GLYPH} ${branch}${dirty}${RESET}"
-  fi
+  dirty=""
+  [ -n "$(git status --porcelain 2>/dev/null)" ] && dirty="*"
+  git_part="${SEP}${PURPLE}${BRANCH_GLYPH} ${branch}${dirty}${RESET}"
 fi
 
-effort_part=""
-[ -n "$effort" ] && effort_part=" ${CYAN}${effort}${RESET}"
+# Directory
+dir="${cwd/#$HOME/~}"
+[ -n "$root" ] && dir="${root##*/}${cwd#$root}"
+dir_part="${BLUE}${dir}${RESET}"
 
+# Model
+model_part="${SEP}${CYAN}${model}"
+[ -n "$effort" ] && model_part+=" ${effort}"
+model_part+="${RESET}"
+
+# Context
 ctx_part=""
 if [ -n "$used" ]; then
   pct=${used%.*}
-  (( pct < 0 )) && pct=0
-  (( pct > 100 )) && pct=100
 
   filled=$(( pct / 10 ))
 
@@ -85,8 +92,29 @@ if [ -n "$used" ]; then
     size_label=" ${GRAY}$(( ctx_size / 1000 ))k${RESET}"
   fi
 
-  ctx_part="${SEP}${bar} ${pct_color}${pct}%${RESET}${size_label}"
+  ctx_part=" ${bar} ${pct_color}${pct}%${RESET}${size_label}"
 fi
 
-# Path · Branch · Model Effort · Bar Percentage Size
-printf "%s" "${BLUE}${dir}${RESET}${git_part}${SEP}${CYAN}${model}${RESET}${effort_part}${ctx_part}"
+# Rate Limits
+limits_part=""
+for label raw in S "$five_hour" W "$seven_day"; do
+  [ -z "$raw" ] && continue
+
+  lpct=${raw%.*}
+
+  if (( lpct >= 90 )); then limit_color=$RED
+  elif (( lpct >= 70 )); then limit_color=$YELLOW
+  else limit_color=$GREEN
+  fi
+
+  limits_part+=" ${GRAY}${label}${RESET} ${limit_color}${lpct}%${RESET}"
+done
+[ -n "$limits_part" ] && limits_part="${SEP}${limits_part# }"
+
+# Account
+account_part=""
+account=$(jq -r '.oauthAccount.emailAddress // empty' "${CLAUDE_CONFIG_DIR:-$HOME}/.claude.json" 2>/dev/null)
+[ -n "$account" ] && account_part="${SEP}${GRAY}${account}${RESET}"
+
+# Directory · Branch · Model Effort Context · Rate Limits · Account
+printf "%s" "${dir_part}${git_part}${model_part}${ctx_part}${limits_part}${account_part}"

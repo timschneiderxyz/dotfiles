@@ -6,13 +6,13 @@
 #                                |___/
 
 
-# General
-macos-titlebar-style = hidden
-macos-option-as-alt = left
-confirm-close-surface = false
+# Shell
 shell-integration-features = no-cursor,ssh-env
 
 # Window
+confirm-close-surface = false
+macos-titlebar-proxy-icon = hidden
+title = " "
 resize-overlay = never
 window-padding-balance = true
 window-padding-x = 12
@@ -53,5 +53,6 @@ palette = 14=55cfe5
 palette = 15=c0caf5
 
 # Keybindings
+macos-option-as-alt = left
 keybind = alt+left=unbind
 keybind = alt+right=unbind
