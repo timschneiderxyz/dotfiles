@@ -3,7 +3,7 @@ idiomatic_version_file_enable_tools = ["node", "python"]
 go.set_gobin = false
 
 [tools]
-node = "lts"
+node = "latest"
 npm = "latest"
 pnpm = "latest"
 rust = "latest"

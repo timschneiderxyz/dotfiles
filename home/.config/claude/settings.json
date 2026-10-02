@@ -1,6 +1,10 @@
 {
   "model": "opus",
-  "effortLevel": "xhigh",
+  "modelSettings": {
+    "claude-opus-5-5": {
+      "effortLevel": "high"
+    }
+  },
   "tui": "fullscreen",
   "statusLine": {
     "type": "command",
