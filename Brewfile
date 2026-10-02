@@ -40,6 +40,7 @@ cask "discord"
 cask "spotify"
 cask "iina"
 cask "flutter"
+cask "android-cli"
 cask "font-geist"
 cask "font-monaspace"
 
