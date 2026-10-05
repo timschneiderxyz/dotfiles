@@ -3,12 +3,14 @@ local mashKey = { "ctrl", "alt" }
 -- Maximize focused window.
 hs.hotkey.bind(mashKey, "return", function()
   local win = hs.window.focusedWindow()
+  if not win then return end
   win:setFrame(win:screen():frame())
 end)
 
 -- Resize focused window.
 local function setFrame(ratioX, ratioW)
   local win = hs.window.focusedWindow()
+  if not win then return end
   local screen = win:screen():frame()
   win:setFrame({
     x = screen.x + screen.w * ratioX,
@@ -29,3 +31,15 @@ hs.hotkey.bind(mashKey, "t", function() setFrame(1 / 3, 2 / 3) end)
 hs.hotkey.bind(mashKey, "d", function() setFrame(0, 1 / 3) end)
 hs.hotkey.bind(mashKey, "f", function() setFrame(1 / 3, 1 / 3) end)
 hs.hotkey.bind(mashKey, "g", function() setFrame(2 / 3, 1 / 3) end)
+
+-- Move focused window to the adjacent screen.
+hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "left", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end
+  win:moveOneScreenWest()
+end)
+hs.hotkey.bind({ "ctrl", "alt", "cmd" }, "right", function()
+  local win = hs.window.focusedWindow()
+  if not win then return end
+  win:moveOneScreenEast()
+end)

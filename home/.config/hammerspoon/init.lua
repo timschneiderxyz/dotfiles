@@ -6,6 +6,17 @@
 --                                               |_|
 
 
+-- Enable the hs command line tool.
+require("hs.ipc")
+
+-- Reload when a config file changes.
+configWatcher = hs.pathwatcher.new(hs.configdir, function(paths)
+  for _, path in ipairs(paths) do
+    if path:sub(-4) == ".lua" then return hs.reload() end
+  end
+end):start()
+
+-- Load modules.
 require("windows")
 require("mouse")
 require("apps")

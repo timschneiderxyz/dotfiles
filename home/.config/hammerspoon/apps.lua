@@ -1,18 +1,15 @@
 local hyperKey = { "cmd", "ctrl", "alt", "shift" }
 
--- Reload hammerspoon configuration.
-hs.hotkey.bind(hyperKey, "h", hs.reload)
-
 -- Cycle through windows of the current application.
 hs.hotkey.bind(hyperKey, "c", function()
   local win = hs.window.focusedWindow()
   if not win then return end
   local wins = hs.fnutils.filter(win:application():allWindows(), function(w)
-    return not w:isMinimized()
+    return w:isStandard() and not w:isMinimized()
   end)
   if #wins < 2 then return end
   table.sort(wins, function(a, b) return a:id() < b:id() end)
-  local idx = hs.fnutils.indexOf(wins, win)
+  local idx = hs.fnutils.indexOf(wins, win) or 0
   wins[(idx % #wins) + 1]:focus()
 end)
 
