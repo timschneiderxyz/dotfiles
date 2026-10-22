@@ -46,11 +46,6 @@
   "css.format.spaceAroundSelectorSeparator": true,
   "css.lint.duplicateProperties": "error",
   "css.lint.unknownAtRules": "ignore",
-  "scss.format.enable": false,
-  "scss.validate": false,
-  "stylelint.validate": [
-    "scss"
-  ],
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "php.suggest.basic": false,
   // Extensions
