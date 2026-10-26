@@ -38,10 +38,8 @@
   ps = push
   pl = pull
   rc = rebase --continue
-  s = stash
-  sp = stash pop
-  co = checkout
-  cob = checkout -b
+  sw = switch
+  swc = switch -c
   bd = branch -d
   bdr = push --delete
   f = fetch --prune
